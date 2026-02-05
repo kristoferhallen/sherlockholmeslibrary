@@ -1,0 +1,72 @@
+{{- with site.Params.homeInfoParams }}
+<article class="home-info">
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+
+    {{/* Calculate statistics */}}
+    {{- $posts := where site.RegularPages "Type" "posts" }}
+    {{- $totalBooks := len $posts }}
+
+    {{- $grades := slice }}
+    {{- $authors := slice }}
+    {{- range $posts }}
+        {{- if .Params.grade }}
+            {{- $grades = $grades | append .Params.grade }}
+        {{- end }}
+        {{- if .Params.author }}
+            {{- $authors = $authors | append .Params.author }}
+        {{- end }}
+    {{- end }}
+
+    {{- $avgGrade := 0.0 }}
+    {{- if gt (len $grades) 0 }}
+        {{- $sum := 0.0 }}
+        {{- range $grades }}
+            {{- $sum = add $sum . }}
+        {{- end }}
+        {{- $avgGrade = div $sum (len $grades) }}
+    {{- end }}
+
+    {{- $uniqueAuthors := uniq $authors }}
+    {{- $seriesCount := len (site.Taxonomies.series) }}
+
+    <div class="library-stats">
+        <div class="stat">
+            <span class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </span>
+            <span class="stat-number">{{ $totalBooks }}</span>
+            <span class="stat-label">Books Reviewed</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </span>
+            <span class="stat-number">{{ len $uniqueAuthors }}</span>
+            <span class="stat-label">Authors</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <span class="stat-number">{{ $seriesCount }}</span>
+            <span class="stat-label">Series</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <span class="stat-number">{{ printf "%.1f" $avgGrade }}</span>
+            <span class="stat-label">Avg Rating</span>
+        </div>
+    </div>
+
+    <footer class="entry-footer">
+        {{- partial "social_icons.html" site.Params.homeInfoParams.socialIcons -}}
+    </footer>
+</article>
+{{- end }}

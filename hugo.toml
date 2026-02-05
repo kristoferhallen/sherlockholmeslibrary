@@ -1,0 +1,73 @@
+baseURL = "https://kristoferhallen.com/"
+languageCode = "en-us"
+title = "Kristofer's Sherlock Holmes library"
+theme = "PaperMod"
+
+[params]
+  description = "Sherlock Holmes book reviews"
+  author = "Kristofer"
+  # customCSS = ["css/extended_custom.css"]
+
+  [params.homeInfoParams]
+    Title = "Welcome to Kristofer's Sherlock Holmes Library"
+    Content = "A collection of reviews of Sherlock Holmes pastiches, novels, and stories featuring the world's greatest detective."
+
+  [params.label]
+    icon = "/sherlocksiluett.jpg"
+    iconHeight = 45
+
+  
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+  series = "series"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "All Books"
+  url = "/books/"
+  weight = 2
+
+[[menu.main]]
+  name = "Series"
+  url = "/series/"
+  weight = 3
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 4
+
+[[menu.main]]
+  name = "Top Rated"
+  url = "/top-books/"
+  weight = 5
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 6
+
+[[menu.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 7
+
+[imaging]
+  # Image processing quality
+  quality = 85
+  
+  # Anchor for cropping (smart, center, topleft, etc)
+  anchor = "smart"
+  
+  # Default background color for transparency
+  bgColor = "#ffffff"
+  
+  # JPEG and WebP quality
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true

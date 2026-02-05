@@ -1,0 +1,33 @@
+{{- with .cxt }}
+{{- if (and .Params.cover.image (not $.isHidden)) }}
+
+  {{- $cover := (.Resources.ByType "image").GetMatch (printf "*%s*" .Params.cover.image) }}
+  {{- if not $cover }}
+    {{- $cover = (resources.ByType "image").GetMatch (printf "*%s*" .Params.cover.image) }}
+  {{- end }}
+
+  {{- if $cover }}
+    {{- if $.IsSingle }}
+      {{/* Single post page - larger cover, handled by single.html sidebar */}}
+      <figure class="entry-cover">
+        {{- $thumb := $cover.Resize "250x" }}
+        <img loading="eager"
+          src="{{ $thumb.RelPermalink }}"
+          width="{{ $thumb.Width }}"
+          height="{{ $thumb.Height }}"
+          alt="{{ .Params.cover.alt | default .Title | plainify }}">
+      </figure>
+    {{- else }}
+      {{/* List / front page - 100px thumbnail */}}
+      <figure class="entry-cover">
+        {{- $thumb := $cover.Resize "100x" }}
+        <img loading="lazy"
+          src="{{ $thumb.RelPermalink }}"
+          width="{{ $thumb.Width }}"
+          height="{{ $thumb.Height }}"
+          alt="{{ .Params.cover.alt | default .Title | plainify }}">
+      </figure>
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- end }}

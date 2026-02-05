@@ -1,0 +1,647 @@
+/* ==========================================================================
+   Book Review Specific Styles
+   ========================================================================== */
+
+/* Book metadata in post header */
+.book-author {
+  font-style: italic;
+  color: var(--secondary);
+}
+
+.book-series a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.book-series a:hover {
+  text-decoration: underline;
+}
+
+.book-grade {
+  color: var(--secondary);
+}
+
+.book-grade strong {
+  color: var(--primary);
+  font-size: 1.1em;
+}
+
+/* Post content wrapper with sidebar */
+.post-content-wrapper {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .post-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover-sidebar {
+    max-width: 100px;
+    margin: 0 auto 2rem;
+  }
+}
+
+/* Book cover sidebar */
+.book-cover-sidebar {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+.book-cover-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.book-details-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.book-details-box p {
+  margin: 0.5rem 0;
+}
+
+.book-details-box strong {
+  color: var(--primary);
+}
+
+/* Tags in sidebar */
+.book-details-box .post-tags {
+  margin-top: 1rem;
+}
+
+.tags-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags-list li {
+  display: inline-block;
+}
+
+.tags-list li a {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--tertiary);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: var(--content);
+  border: 1px solid var(--border);
+}
+
+.tags-list li a:hover {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* Tags section below post content */
+.post-tags-section {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.post-tags-section strong {
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.post-tags-section .tags-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tags-section .tags-list li {
+  display: inline-block;
+}
+
+.post-tags-section .tags-list li a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--tertiary);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--content);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.post-tags-section .tags-list li a:hover {
+  background: var(--primary);
+  color: var(--theme);
+  transform: translateY(-2px);
+}
+
+/* Review footer */
+.review-date {
+  color: var(--secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Book Grid Layouts (for list pages)
+   ========================================================================== */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.book-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--entry);
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.book-card .book-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.book-card .book-details {
+  padding: 1rem;
+}
+
+.book-card .book-details h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.book-card .book-details h3 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.book-card .book-details h3 a:hover {
+  color: var(--primary);
+}
+
+.book-card .book-author {
+  color: var(--secondary);
+  font-style: italic;
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.book-card .book-series {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.book-card .book-grade {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.grade-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.grade-max {
+  color: var(--secondary);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Author Pages
+   ========================================================================== */
+
+.author-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.author-section:last-child {
+  border-bottom: none;
+}
+
+.author-section h2 .count {
+  color: var(--secondary);
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.author-stats {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+  border-left: 4px solid var(--primary);
+}
+
+.author-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.book-card-small {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-small {
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.book-cover-small img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.book-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.book-info h3 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.book-info h3 a:hover {
+  color: var(--primary);
+}
+
+.book-info .grade {
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.book-info .year {
+  color: var(--secondary);
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+/* ==========================================================================
+   Series Pages
+   ========================================================================== */
+
+.series-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+}
+
+.series-section h2 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.series-section h2 a:hover {
+  color: var(--primary);
+}
+
+.series-author {
+  color: var(--secondary);
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.series-count {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.series-stats {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+  border-left: 4px solid var(--primary);
+}
+
+.series-books-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.series-book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.series-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.series-book h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.series-book h3 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.series-book h3 a:hover {
+  color: var(--primary);
+}
+
+.book-number {
+  background: var(--primary);
+  color: var(--theme);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.publication-year {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.grade-display {
+  text-align: center;
+  min-width: 60px;
+}
+
+.grade-display .grade {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  display: block;
+}
+
+/* ==========================================================================
+   Top Books Page
+   ========================================================================== */
+
+.grade-tier {
+  margin-bottom: 3rem;
+}
+
+.grade-tier h2 {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.top-books-list {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+.book-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-entry h3 {
+  margin: 0 0 0.25rem 0;
+}
+
+.book-entry h3 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.book-entry h3 a:hover {
+  color: var(--primary);
+}
+
+.author-name {
+  color: var(--secondary);
+  font-style: italic;
+  margin: 0.25rem 0;
+}
+
+.book-entry .series {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.grade-badge {
+  text-align: center;
+  min-width: 80px;
+}
+
+.grade-badge .grade-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  display: block;
+}
+
+.grade-badge .grade-label {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   Front page / list page covers
+   ========================================================================== */
+
+/* First entry (hero post) */
+.first-entry {
+  display: grid !important;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0 var(--gap);
+  align-items: start;
+  min-height: unset !important;
+  margin: var(--gap) 0 !important;
+}
+
+.first-entry .entry-cover {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100px;
+  margin-bottom: 0;
+}
+
+.first-entry .entry-cover img {
+  width: 100px;
+  height: auto;
+}
+
+.first-entry .entry-header {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.first-entry .entry-header h1 {
+  font-size: 24px !important;
+  line-height: 1.3;
+}
+
+.first-entry .entry-content {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 14px !important;
+  -webkit-line-clamp: 2;
+}
+
+.first-entry .entry-footer {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Regular post entries */
+.post-entry {
+  display: grid !important;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0 var(--gap);
+  align-items: start;
+}
+
+.post-entry .entry-cover {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100px;
+  margin-bottom: 0;
+}
+
+.post-entry .entry-cover img {
+  width: 100px;
+  height: auto;
+}
+
+.post-entry .entry-header {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.post-entry .entry-content {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.post-entry .entry-footer {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Single post page cover */
+.post-content-wrapper .book-cover-sidebar img {
+  max-width: 100px;
+  width: 100px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .first-entry,
+  .post-entry {
+    grid-template-columns: 1fr !important;
+  }
+
+  .first-entry .entry-cover,
+  .post-entry .entry-cover {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .first-entry .entry-header,
+  .post-entry .entry-header {
+    grid-row: 2;
+  }
+
+  .first-entry .entry-content,
+  .post-entry .entry-content {
+    grid-row: 3;
+  }
+
+  .first-entry .entry-footer,
+  .post-entry .entry-footer {
+    grid-row: 4;
+  }
+
+  .first-entry .entry-cover img,
+  .post-entry .entry-cover img {
+    width: 100%;
+  }
+}

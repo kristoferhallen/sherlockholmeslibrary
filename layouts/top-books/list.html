@@ -1,0 +1,53 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Content }}
+  <div class="post-description">
+    {{ .Content }}
+  </div>
+  {{- end }}
+</header>
+
+{{- $posts := where site.RegularPages "Type" "posts" }}
+{{- $sortedPosts := sort $posts ".Params.grade" "desc" }}
+
+<div class="top-books-list">
+  {{- range $index, $post := $sortedPosts }}
+  {{- if $post.Params.grade }}
+  <div class="book-card-small">
+    <span class="rank">#{{ add $index 1 }}</span>
+
+    {{- $image := $post.Resources.GetMatch "cover.*" }}
+    {{- if $image }}
+    <div class="book-cover-small">
+      {{- $thumb := $image.Resize "80x" }}
+      <a href="{{ $post.Permalink }}">
+        <img
+          src="{{ $thumb.RelPermalink }}"
+          alt="Cover of {{ $post.Params.book_title | default $post.Title }}"
+          loading="lazy"
+        />
+      </a>
+    </div>
+    {{- end }}
+
+    <div class="book-info">
+      <h3><a href="{{ $post.Permalink }}">{{ $post.Params.book_title | default $post.Title }}</a></h3>
+      <div class="book-author">{{ $post.Params.author }}</div>
+
+      {{- if $post.Params.grade }}
+      <div>
+        <span class="grade">{{ $post.Params.grade }}/10</span>
+        {{- with $post.Params.publication_year }}
+        <span class="year">({{ . }})</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+  {{- end }}
+</div>
+
+{{- end }}{{/* end main */}}

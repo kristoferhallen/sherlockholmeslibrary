@@ -1,0 +1,31 @@
+{{/* 
+  Usage: {{ partial "book-cover.html" (dict "context" . "size" "medium") }}
+  Sizes: thumbnail (200x300), medium (400x600), large (600x900)
+*/}}
+
+{{ $image := .context.Resources.GetMatch (.context.Params.thumbnail | default "cover.*") }}
+
+{{ if $image }}
+  {{ $size := .size | default "medium" }}
+  
+  {{ $thumb := $image }}
+  
+  {{ if eq $size "thumbnail" }}
+    {{ $thumb = $image.Fill "200x300 smart" }}
+  {{ else if eq $size "medium" }}
+    {{ $thumb = $image.Fill "400x600 smart" }}
+  {{ else if eq $size "large" }}
+    {{ $thumb = $image.Fill "600x900 smart" }}
+  {{ end }}
+  
+  <img 
+    src="{{ $thumb.RelPermalink }}" 
+    alt="Cover of {{ .context.Params.book_title | default .context.Title }}"
+    loading="lazy"
+    width="{{ $thumb.Width }}"
+    height="{{ $thumb.Height }}"
+  />
+{{ else }}
+  <!-- Debug: No image found -->
+  <div style="background: #eee; padding: 20px;">No cover image found</div>
+{{ end }}

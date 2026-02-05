@@ -1,0 +1,91 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Content }}
+  <div class="post-description">
+    {{ .Content }}
+  </div>
+  {{- end }}
+</header>
+
+{{- $postsByAuthor := (where site.RegularPages "Type" "posts").GroupByParam "author_last" }}
+
+{{- range $postsByAuthor }}
+  {{- $authorPosts := .Pages }}
+  {{- $author := (index $authorPosts 0).Params.author }}
+  {{- $totalBooks := len $authorPosts }}
+
+  {{- $grades := slice }}
+  {{- range $authorPosts }}
+    {{- if .Params.grade }}
+      {{- $grades = $grades | append .Params.grade }}
+    {{- end }}
+  {{- end }}
+
+  {{- $avgGrade := 0.0 }}
+  {{- if gt (len $grades) 0 }}
+    {{- $sum := 0.0 }}
+    {{- range $grades }}
+      {{- $sum = add $sum . }}
+    {{- end }}
+    {{- $avgGrade = div $sum (len $grades) }}
+  {{- end }}
+
+  <section class="author-section">
+    <h2>
+      {{ $author }}
+      <span class="count">({{ $totalBooks }} {{ if eq $totalBooks 1 }}book{{ else }}books{{ end }})</span>
+    </h2>
+
+    {{- if gt (len $grades) 0 }}
+    <div class="author-stats">
+      Average Grade: <strong>{{ printf "%.1f" $avgGrade }}/10</strong>
+    </div>
+    {{- end }}
+
+    <div class="author-books-grid">
+      {{- range $authorPosts }}
+      <div class="book-card-small">
+        {{- $image := .Resources.GetMatch "cover.*" }}
+        {{- if $image }}
+        <div class="book-cover-small">
+          {{- $thumb := $image.Resize "80x" }}
+          <a href="{{ .Permalink }}">
+            <img
+              src="{{ $thumb.RelPermalink }}"
+              alt="Cover of {{ .Params.book_title | default .Title }}"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        {{- end }}
+
+        <div class="book-info">
+          <h3><a href="{{ .Permalink }}">{{ .Params.book_title | default .Title }}</a></h3>
+
+          {{- if .Params.grade }}
+          <div>
+            <span class="grade">{{ .Params.grade }}/10</span>
+            {{- with .Params.publication_year }}
+            <span class="year">({{ . }})</span>
+            {{- end }}
+          </div>
+          {{- end }}
+
+          {{- with .Params.series }}
+          <div class="book-series">
+            Series: <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+            {{- with $.Params.series_order }}
+            #{{ . }}
+            {{- end }}
+          </div>
+          {{- end }}
+        </div>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+{{- end }}
+
+{{- end }}{{/* end main */}}

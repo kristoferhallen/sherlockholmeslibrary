@@ -1,0 +1,99 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">
+      {{ .Params.book_title | default .Title }}
+    </h1>
+    
+    <div class="post-meta">
+      {{ with .Params.author }}
+        <span class="book-author">by {{ . }}</span>
+      {{ end }}
+      
+      {{ with .Params.series }}
+        <span class="book-series">
+          | <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          {{ with $.Params.series_order }}
+            #{{ . }}
+          {{ end }}
+        </span>
+      {{ end }}
+      
+      {{ if .Params.grade }}
+        <span class="book-grade">
+          | Grade: <strong>{{ .Params.grade }}/10</strong>
+        </span>
+      {{ end }}
+    </div>
+  </header>
+
+  {{- if .Params.grade }}
+  <aside class="toc-container">
+  {{- end }}
+
+  <div class="post-content-wrapper">
+    {{- $image := .Resources.GetMatch "cover.*" }}
+    {{- if $image }}
+    <aside class="book-cover-sidebar">
+      {{- $mediumCover := $image.Resize "100x" }}
+
+      <img
+        src="{{ $mediumCover.RelPermalink }}"
+        alt="Cover of {{ .Params.book_title | default .Title }}"
+        loading="lazy"
+        width="{{ $mediumCover.Width }}"
+        height="{{ $mediumCover.Height }}"
+        class="book-cover-image"
+      />
+    </aside>
+    {{- end }}
+    
+    <div class="post-content">
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+    </div>
+  </div>
+
+  {{ if or .Params.tags .Params.series }}
+  <div class="post-tags-section">
+    {{- with .Params.series }}
+    <div class="series-link">
+      <strong>Series:</strong>
+      <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+      {{- with $.Params.series_order }} (#{{ . }}){{- end }}
+    </div>
+    {{- end }}
+    {{- with .Params.tags }}
+    <div class="tags-link">
+      <strong>Tags:</strong>
+      <ul class="tags-list">
+        {{ range . }}
+          <li><a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+  {{ end }}
+
+  <footer class="post-footer">
+    <div class="post-info">
+      {{- if .Date }}
+      <p class="review-date">Reviewed on {{ .Date.Format "January 2, 2006" }}</p>
+      {{- end }}
+    </div>
+
+    {{- if (.Param "ShowPostNavLinks") }}
+    {{- partial "post_nav_links.html" . }}
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+  {{- partial "comments.html" . }}
+  {{- end }}
+</article>
+
+{{- end }}{{/* end main */}}
