@@ -21,7 +21,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: |
+          hugo --minify
+          mv public/404.html public/404.shtml
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
