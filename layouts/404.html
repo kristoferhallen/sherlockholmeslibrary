@@ -1,0 +1,62 @@
+{{ define "main" }}
+<style>
+  .error-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .error-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+  }
+  .error-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+  .error-code {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    letter-spacing: 0.3em;
+  }
+  .error-quote {
+    font-style: italic;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+  .error-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid currentColor;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .error-link:hover {
+    opacity: 0.7;
+  }
+</style>
+
+<article class="error-container">
+  <img src="/404-sherlock.png" alt="Sherlock Holmes searching for clues" class="error-image">
+
+  <p class="error-title">The Case of the Missing Page</p>
+
+  <p class="error-code">404</p>
+
+  <p class="error-quote">
+    "I have investigated the matter and concluded that this page does not exist.
+    Even I cannot find what was never there."
+  </p>
+
+  <a href="/" class="error-link">Return to 221B Baker Street (Start page)</a>
+</article>
+{{ end }}
