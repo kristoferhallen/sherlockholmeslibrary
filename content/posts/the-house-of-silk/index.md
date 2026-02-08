@@ -11,6 +11,7 @@ tags:
 title: The House of Silk
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 Anthony Horowitz's "The House of Silk" was commissioned and endorsed by Conan Doyle Estate, Ltd. Set in the familiar gaslit streets of Victorian London, the story finds Holmes and Watson drawn into a web of conspiracy that reaches from the criminal underworld to the highest echelons of society. What begins as a seemingly straightforward case involving an art dealer's fears about an American gang into something far more sinister. 

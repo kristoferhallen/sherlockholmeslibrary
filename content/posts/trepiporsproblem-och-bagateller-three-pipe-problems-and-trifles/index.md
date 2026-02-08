@@ -13,6 +13,7 @@ tags:
 title: Trepiporsproblem och bagateller (Three-pipe problems and trifles)
 cover:
   image: cover.png
+  relative: true
 ---
 This is a book about some scientific details of the world of Sherlock Holmes written by a theoretical physicist. You won't find any classical cases here but you will get detailed reasoning about things like tattoos and Chinese coins (The read-headed League). What kid of square, pierced Chinese coin is he referring to? Is Sherlock´s calculation of the train speed in Silver Blaze reasonable? And the do the calculations of parsley sinking in butter (The adventure of the six Napoleons) match a physicists calculations? 
 

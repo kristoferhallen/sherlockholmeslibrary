@@ -12,6 +12,7 @@ tags:
 title: Garment of Shadows
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 Garment of Shadows follows Mary Russell, who awakens with amnesia, bloodstained hands, and no memory of her identity or how she got there. She starts the search for who she is and meanwhile her husband Sherlock Holmes searches frantically for her. 

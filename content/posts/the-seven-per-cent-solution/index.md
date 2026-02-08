@@ -12,6 +12,7 @@ tags:
 title: The Seven-Per-Cent Solution
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 The seven percent solution is one of the most famous pastiches, and it's an essential read for any fan of the iconic detective. 

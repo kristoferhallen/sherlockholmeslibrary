@@ -10,6 +10,7 @@ tags:
 title: En skandal i Stockholm (A scandal in Stockholm)
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 

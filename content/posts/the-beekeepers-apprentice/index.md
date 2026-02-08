@@ -11,6 +11,7 @@ tags:
 title: The Beekeepers apprentice
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 

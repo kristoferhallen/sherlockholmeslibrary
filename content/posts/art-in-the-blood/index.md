@@ -11,6 +11,7 @@ tags:
 title: Art in the blood
 cover:
   image: cover.jpg
+  relative: true
 ---
 Holmes is in a really bad shape, again using cocaine to handle the boredom caused by a lack of interesting cases to work on. But a missing statue and a beautiful french singer worried about her child pulls him out of the addiction. Sherlock and Watson race between Paris, London and the English countryside to save a child, find a statue and after a while also to stop a murderer. This is a book I found hard to put down, it's great! There are the classic Holmes deductions, Mycroft Holmes pulling threads in the background, action (Holmes as usual making sure Watson brings his trusty service revolver), Holmes putting himself in mortal danger and rivalry between detectives. 
 

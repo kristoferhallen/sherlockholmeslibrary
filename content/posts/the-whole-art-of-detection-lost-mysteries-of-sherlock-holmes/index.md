@@ -10,6 +10,7 @@ tags:
 title: The whole art of detection. Lost mysteries of Sherlock Holmes
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 Great traditional pastiches, if you are a Sherlockian read this book if you haven't already. Includes stories from all parts of Sherlocks career, including his early days before he met Watson. 

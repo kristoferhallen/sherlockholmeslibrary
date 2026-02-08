@@ -14,5 +14,6 @@ tags:
 title: Sherlock Holmes and Dorian Gray
 cover:
   image: cover.jpg
+  relative: true
 ---
 Mycroft sends Sherlock and Watson to investigate a circus. One of the strange circus performers is murdered and Sherlock's enquires leads to a man with a mysterious background and a portrait in a secret room, Dorian Gray. Is Gray an enemy or an ally? Who are the circus performers, are they even human? A great story with many of the elements from original novels but add a Dorian Gray with an extraordinary strength and agility and adversaries that are more monsters than men. 

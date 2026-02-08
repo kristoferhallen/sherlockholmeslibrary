@@ -11,6 +11,7 @@ tags:
 title: Sherlock Holmes The Spirit Box
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 During the First World War, Sherlock Holmes and Dr. Watson come out of retirement to assist Mycroft in solving a series of unexplained deaths. As usual, Mycroft may not have disclosed everything he knows, leaving Sherlock to determine who can be trusted in a world at war. Central to the mystery is the enigmatic Spirit Box. Clues lead them to a man whose photographs are rumored to capture men’s souls. Intriguing, but not my top pick.

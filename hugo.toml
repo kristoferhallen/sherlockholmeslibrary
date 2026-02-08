@@ -4,7 +4,9 @@ title = "Kristofer's Sherlock Holmes library"
 theme = "PaperMod"
 
 [params]
+  env = "production"
   description = "Sherlock Holmes book reviews"
+  images = ["/sherlocksiluett.jpg"]
   author = "Kristofer"
   # customCSS = ["css/extended_custom.css"]
 

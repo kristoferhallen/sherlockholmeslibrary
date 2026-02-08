@@ -9,6 +9,7 @@ tags:
 title: The Execution of Sherlock Holmes
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 A collection of five Sherlock Holmes stories, bringing back the characters to life, many references to the original cases. The one about the Execution of Sherlock holmes introducing a new theme, Sherlock has been captured by old enemies and need to find a way to escape to avoid being executed. 

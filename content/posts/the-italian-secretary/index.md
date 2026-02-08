@@ -9,6 +9,7 @@ tags:
 title: The Italian Secretary
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 

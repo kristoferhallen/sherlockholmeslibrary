@@ -9,6 +9,7 @@ tags:
 title: The final solution
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 The second world war is ongoing, Sherlock is old and lives in a cottage on the English countryside, taking care of his bees. A mute jewish boy and his parrot who has escaped from Germany crosses his path. the parrot talks, sometimes long number series and this draws attention. Could it be secret codes important for the Germans? A murder connected to the boy and his parrot gets Sherlock back into the action, although a bit slower and with less physical activity. 

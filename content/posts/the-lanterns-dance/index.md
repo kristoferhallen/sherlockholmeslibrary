@@ -13,6 +13,7 @@ tags:
 title: The Lanterns Dance
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 The Game is the eighteenth book in the Mary Russell [series](https://en.wikipedia.org/wiki/Mary_Russell_(character)) ([reviews](https://sherlock.kristoferhallen.com/tags/mary-russel/)) about Mary Russel and Sherlock Holmes. 

@@ -11,6 +11,7 @@ tags:
 title: Dr. Jekyll and Mr. Holmes
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 

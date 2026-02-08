@@ -13,6 +13,7 @@ tags:
 title: The murder of Mary Russel
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 

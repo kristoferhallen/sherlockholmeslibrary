@@ -9,6 +9,7 @@ tags:
 title: The further memoirs of Sherlock Holmes
 cover:
   image: cover.jpg
+  relative: true
 ---
 
 If you want more Sherlock Holmes stories in the style of Conan Doyle you get seven well written stories with good mysteries. 
