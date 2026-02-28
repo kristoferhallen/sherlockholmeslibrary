@@ -742,6 +742,228 @@
 }
 
 /* ==========================================================================
+   Nav Dropdown
+   ========================================================================== */
+
+/* Allow dropdown to overflow the nav scroll container */
+#menu {
+  overflow: visible;
+}
+
+.menu-dropdown {
+  position: relative;
+}
+
+.menu-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  color: var(--content);
+  padding: 0;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  opacity: 0.84;
+}
+
+.menu-dropdown-toggle:hover {
+  opacity: 1;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.menu-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+#menu .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 140px;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  z-index: 100;
+}
+
+#menu .menu-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+#menu .dropdown-menu li a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--content);
+  white-space: nowrap;
+  opacity: 0.84;
+}
+
+#menu .dropdown-menu li a:hover {
+  opacity: 1;
+  background: var(--tertiary);
+}
+
+#menu .dropdown-menu li a .active {
+  font-weight: 600;
+}
+
+/* Mobile: show dropdown items inline in hamburger scroll */
+@media (max-width: 768px) {
+  #menu .dropdown-menu {
+    display: none;
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid var(--border);
+    border-radius: 0;
+    margin-left: 8px;
+    padding: 0;
+    background: none;
+  }
+
+  #menu .menu-dropdown.open .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Sherlock Meets Page
+   ========================================================================== */
+
+.meets-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .meets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.meets-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--entry);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.meets-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.meets-portrait {
+  width: 208px;
+  height: 208px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.meets-portrait-img {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.meets-portrait-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--code-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--secondary);
+}
+
+.meets-info {
+  width: 100%;
+}
+
+.meets-info h2 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+}
+
+.meets-info h2 a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.meets-info h2 a:hover {
+  color: var(--primary);
+}
+
+.meets-description {
+  color: var(--secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.meets-books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.meets-books-label {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.meets-book-link {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--content);
+  font-size: 0.85rem;
+}
+
+.meets-book-link:hover {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 

@@ -3,7 +3,7 @@ author: George Mann
 author_last: Mann
 book_title: Encounters of Sherlock Holmes
 date: 2026-02-28
-grade: 9
+grade: 9.0
 tags:
 - Space
 - Martians

@@ -30,34 +30,48 @@ theme = "PaperMod"
   weight = 1
 
 [[menu.main]]
+  name = "Books"
+  url = "#"
+  weight = 2
+
+[[menu.main]]
   name = "All Books"
   url = "/books/"
-  weight = 2
+  parent = "Books"
+  weight = 1
 
 [[menu.main]]
   name = "Series"
   url = "/series/"
-  weight = 3
+  parent = "Books"
+  weight = 2
 
 [[menu.main]]
   name = "Tags"
   url = "/tags/"
-  weight = 4
+  parent = "Books"
+  weight = 3
 
 [[menu.main]]
   name = "Top Rated"
   url = "/top-books/"
-  weight = 5
+  parent = "Books"
+  weight = 4
+
+[[menu.main]]
+  name = "Sherlock Meets"
+  url = "/sherlock-meets/"
+  weight = 3
 
 [[menu.main]]
   name = "About"
   url = "/about/"
-  weight = 6
+  weight = 4
 
 [[menu.main]]
   name = "RSS"
   url = "/index.xml"
-  weight = 7
+  weight = 5
 
 [imaging]
   # Image processing quality

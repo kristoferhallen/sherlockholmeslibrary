@@ -1,4 +1,30 @@
-<link rel="stylesheet" href="{{ "/css/extended_custom.css" | relURL }}">
+<link rel="stylesheet" href="{{ "/css/extended_custom.css" | relURL }}?v=3">
 
 <script data-goatcounter="https://sherlockkristoferhallen.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.menu-dropdown-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var li = btn.closest('.menu-dropdown');
+      var isOpen = li.classList.contains('open');
+      document.querySelectorAll('.menu-dropdown.open').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.menu-dropdown-toggle').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        li.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.menu-dropdown.open').forEach(function (el) {
+      el.classList.remove('open');
+      el.querySelector('.menu-dropdown-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>

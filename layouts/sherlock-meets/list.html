@@ -1,0 +1,49 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Content }}
+  <div class="post-description">
+    {{ .Content }}
+  </div>
+  {{- end }}
+</header>
+
+<div class="meets-grid">
+  {{- range site.Data.sherlockmeets }}
+  <div class="meets-card">
+
+    <div class="meets-portrait">
+      {{- if .image }}
+      <div class="meets-portrait-img" style="background-image: url('/images/sherlock-meets/{{ .image }}')" role="img" aria-label="{{ .name }}"></div>
+      {{- else }}
+      <div class="meets-portrait-placeholder">?</div>
+      {{- end }}
+    </div>
+
+    <div class="meets-info">
+      <h2>
+        {{- if .wikipedia }}
+        <a href="{{ .wikipedia }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{- else }}
+        {{ .name }}
+        {{- end }}
+      </h2>
+
+      <p class="meets-description">{{ .description }}</p>
+
+      {{- if .books }}
+      <div class="meets-books">
+        <span class="meets-books-label">Appears in:</span>
+        {{- range .books }}
+        <a href="{{ .url }}" class="meets-book-link">{{ .title }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+
+  </div>
+  {{- end }}
+</div>
+
+{{- end }}{{/* end main */}}

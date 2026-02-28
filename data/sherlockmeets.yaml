@@ -1,0 +1,60 @@
+- name: "H.G. Wells"
+  description: "Science fiction pioneer and author of The War of the Worlds and The Time Machine. Sherlock Holmes meets Wells and his wife, journalist and author Rebecca West, in a story that blends detective fiction with early 20th century literary society."
+  image: "hg-wells.png"
+  books:
+    - title: "Encounters of Sherlock Holmes"
+      url: "/posts/encountersofsherlockholmes/"
+  wikipedia: "https://en.wikipedia.org/wiki/H._G._Wells"
+
+- name: "Ture Sventon"
+  description: "Swedish detective in Åke Holmberg's youth books."
+  image: "turesventon.png"
+  books:
+    - title: "Den löse skägghandlaren"
+      url: "/posts/den-löse-skägghandlaren-the-loose-beard-trader/"
+  wikipedia: "https://en.wikipedia.org/wiki/Tam_Sventon"
+
+- name: "Dr Jekyll and Mr Hyde"
+  description: "Dr Henry Jekyll, along with his alter ego Mr Edward Hyde, is the central character of Robert Louis Stevenson's 1886 novella The Strange Case of Dr Jekyll and Mr Hyde. "
+  image: "drjekyll.png"
+  books:
+    - title: "Dr. Jekyll and Mr. Holmes"
+      url: "/posts/dr-jekyll-and-mr-holmes/"
+    - title: "Encounters of Sherlock Holmes"
+      url: "/posts/encountersofsherlockholmes/"
+  wikipedia: "https://en.wikipedia.org/wiki/Dr_Jekyll_and_Mr_Hyde_(character)"
+
+- name: "Sigmund Freud"
+  description: "The Austrian neurologist and founder of psychoanalysis. Watson brings a cocaine-addicted Holmes to Vienna to seek treatment from Freud, and the two brilliant minds quickly form an unlikely bond — especially when a new case draws them both in."
+  image: "sigmundfreud.png"
+  books:
+    - title: "The Seven-Per-Cent Solution"
+      url: "/posts/the-seven-per-cent-solution/"
+  wikipedia: "https://en.wikipedia.org/wiki/Sigmund_Freud"
+
+- name: "Jack the Ripper"
+  description: "The unidentified serial killer who terrorised the Whitechapel district of London in 1888. When women start dying in the streets of Victorian London, Holmes takes on his most elusive quarry — a killer who leaves no trail the police can follow."
+  image: "jacktheripper.png"
+  books:
+    - title: "Dust and Shadow"
+      url: "/posts/dust-and-shadow/"
+  wikipedia: "https://en.wikipedia.org/wiki/Jack_the_Ripper"
+
+- name: "Count Dracula"
+  description: "The Transylvanian vampire nobleman created by Bram Stoker. In this story Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead."
+  image: "dracula.png"
+  books:
+    - title: "Sherlock Holmes and Count Dracula"
+      url: "/posts/sherlock-holmes-and-count-dracula/"
+  wikipedia: "https://en.wikipedia.org/wiki/Count_Dracula"
+
+- name: "Cthulhu"
+  description: "The cosmic entity created by H.P. Lovecraft, lying dormant beneath the Pacific Ocean in the sunken city of R'lyeh. When Cthulhu's influence spreads across London, Holmes must apply cold Victorian reason to horrors that defy all rational explanation."
+  image: "chtulhu.png"
+  books:
+    - title: "Shadows over Baker street"
+      url: "/posts/shadows-over-baker-street/"
+    - title: "Sherlock Holmes vs Cthulhu. The adventure of the deadly dimensions"
+      url: "/posts/sherlock-holmes-vs-cthulhu-the-adventure-of-the-deadly-dimensions/"
+  wikipedia: "https://en.wikipedia.org/wiki/Cthulhu"
+
