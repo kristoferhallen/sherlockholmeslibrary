@@ -7,7 +7,7 @@ grade: 8.0
 series: Mary Russell
 series_order: 18
 tags:
-- Mary Russel
+- Mary Russell
 - India
 - Vernet
 title: The Lanterns Dance

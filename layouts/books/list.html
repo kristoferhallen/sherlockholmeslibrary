@@ -73,10 +73,11 @@
           </div>
           {{- end }}
 
+          {{- $page := . }}
           {{- with .Params.series }}
           <div class="book-series">
             Series: <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-            {{- with $.Params.series_order }}
+            {{- with $page.Params.series_order }}
             #{{ . }}
             {{- end }}
           </div>

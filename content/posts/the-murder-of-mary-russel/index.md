@@ -7,7 +7,7 @@ grade: 8.0
 series: Mary Russell
 series_order: 14
 tags:
-- Mary Russel
+- Mary Russell
 - Mycroft
 - Wiggins
 title: The murder of Mary Russel
