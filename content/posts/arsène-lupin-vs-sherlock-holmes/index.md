@@ -10,6 +10,7 @@ tags:
 - sherlockholmesmeets
 - France
 title: Arsène Lupin v/s Sherlock Holmes
+description: "Review of Maurice Leblanc's classic crossover where Arsène Lupin faces Sherlock Holmes — a duel of two brilliant minds neither is allowed to win easily. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

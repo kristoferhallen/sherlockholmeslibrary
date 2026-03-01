@@ -8,6 +8,7 @@ tags:
 - Ireland
 - Tussaud
 title: The stone of destiny
+description: "Review of The Stone of Destiny by Richard T Ryan — Holmes and Watson travel to Ireland to recover the stolen Coronation Stone before a royal crowning ceremony. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

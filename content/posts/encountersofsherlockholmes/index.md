@@ -15,6 +15,7 @@ tags:
 - sherlockholmesmeets
 - steampunk
 title: Encounters of Sherlock Holmes
+description: "Review of Encounters of Sherlock Holmes edited by George Mann — a crossover anthology where Holmes meets H.G. Wells, Frankenstein's monster, Martians and AJ Raffles. Rated 9/10."
 cover:
   image: cover.jpg
   relative: true

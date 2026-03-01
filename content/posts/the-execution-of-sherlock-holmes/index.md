@@ -7,6 +7,7 @@ grade: 8.0
 tags:
 - traditionalpastiche
 title: The Execution of Sherlock Holmes
+description: "Review of The Execution of Sherlock Holmes by Donald Thomas — five traditional pastiche stories, including Holmes captured by old enemies and facing execution. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

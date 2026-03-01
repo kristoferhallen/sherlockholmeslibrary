@@ -10,6 +10,7 @@ tags:
 - Mary Russel
 - Morocco
 title: Garment of Shadows
+description: "Review of Garment of Shadows by Laurie R King — Mary Russell wakes with amnesia in Morocco while Sherlock searches desperately for her. Mary Russell series book 12. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

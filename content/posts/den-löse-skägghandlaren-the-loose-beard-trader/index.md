@@ -9,6 +9,7 @@ tags:
 - sherlockholmesmeets
 - Sweden
 title: Den löse skägghandlaren (The loose beard trader)
+description: "Review of Lars Jannedal's pastiche where Sherlock Holmes meets Swedish detective Ture Sventon in Stockholm, arriving by flying carpet. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

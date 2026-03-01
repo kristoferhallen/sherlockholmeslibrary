@@ -9,6 +9,7 @@ series_order: 1
 tags:
 - Mary Russel
 title: The Beekeepers apprentice
+description: "Review of The Beekeeper's Apprentice by Laurie R King — a 15-year-old Mary Russell meets the retired Holmes and becomes his apprentice detective. Mary Russell series book 1. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

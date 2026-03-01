@@ -7,6 +7,7 @@ grade: 10.0
 tags:
 - Lego
 title: Lego Sherlock Holmes book nook
+description: "Review of the Lego Sherlock Holmes Book Nook (set 10351) — a beautiful 221B Baker Street bookshelf display with five minifigures including Holmes, Watson and Moriarty. Rated 10/10."
 cover:
   image: cover.jpg
   relative: true

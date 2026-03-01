@@ -11,6 +11,7 @@ tags:
 - Houdini
 - sherlockholmesmeets
 title: Sherlock Holmes. The Thinking engine
+description: "Review of Sherlock Holmes: The Thinking Engine by James Lovegrove — Holmes's deductive skills are challenged by an Oxford professor's computational device that claims to surpass him. Rated 10/10."
 cover:
   image: cover.jpg
   relative: true

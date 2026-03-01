@@ -9,6 +9,7 @@ tags:
 - beekeeping
 - oldholmes
 title: A slight trick of the mind
+description: "Review of Mitch Cullin's Sherlock Holmes pastiche about an aging Holmes in retirement — more psychological drama about memory and loss than mystery. Rated 4/10."
 cover:
   image: cover.jpg
   relative: true

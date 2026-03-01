@@ -8,6 +8,7 @@ tags:
 - graphic novel
 - Comic
 title: Inside The Mind of Sherlock Holmes
+description: "Review of Inside the Mind of Sherlock Holmes — a stunning graphic novel that visualises Holmes's deductive thinking, following a literal red thread across the pages. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

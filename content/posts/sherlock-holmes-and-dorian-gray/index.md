@@ -12,6 +12,7 @@ tags:
 - sherlockholmesmeets
 - Lestrade
 title: Sherlock Holmes and Dorian Gray
+description: "Review of Sherlock Holmes and Dorian Gray by Christian Klaver — Holmes investigates a circus murder and encounters the mysterious immortal Dorian Gray. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

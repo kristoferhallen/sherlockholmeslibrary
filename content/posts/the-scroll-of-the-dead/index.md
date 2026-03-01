@@ -7,6 +7,7 @@ grade: 6.0
 tags:
 - Egypt
 title: The scroll of the dead
+description: "Review of The Scroll of the Dead by David Stuart Davies — Holmes and Watson hunt an Egyptian papyrus said to hold the ancient secret of immortality. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

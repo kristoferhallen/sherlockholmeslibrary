@@ -7,6 +7,7 @@ grade: 8.0
 tags:
 - Moriarty
 title: Moriarty
+description: "Review of Anthony Horowitz's Moriarty — after the Reichenbach Falls, Inspector Jones and a Pinkerton agent hunt a new criminal mastermind rising in London. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

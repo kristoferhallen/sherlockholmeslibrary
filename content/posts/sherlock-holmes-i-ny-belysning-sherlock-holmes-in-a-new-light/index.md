@@ -8,6 +8,7 @@ tags:
 - Sture Stig
 - Sweden
 title: Sherlock Holmes i ny belysning (Sherlock Holmes in a New Light)
+description: "Review of Sherlock Holmes i ny belysning by Sture Stig — a Swedish pastiche revealing the real, more fallible Sherlock Holmes behind Watson's polished accounts. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

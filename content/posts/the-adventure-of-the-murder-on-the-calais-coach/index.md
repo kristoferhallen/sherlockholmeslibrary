@@ -10,6 +10,7 @@ tags:
 - sherlockholmesmeets
 - oldsherlock
 title: The Adventure of the Murder on the Calais Coach
+description: "Review of The Adventure of the Murder on the Calais Coach — a retired Holmes re-examines Hercule Poirot's verdict on the Murder on the Orient Express. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

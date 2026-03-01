@@ -10,6 +10,7 @@ tags:
 - Mary Russel
 - India
 title: The Game
+description: "Review of The Game by Laurie R King — Russell and Holmes travel to colonial India to find Mycroft's missing agent, the boy Kim from Kipling's novel. Mary Russell series book 7. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

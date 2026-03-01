@@ -8,6 +8,7 @@ tags:
 - traditionalpastiche
 - labyrinth
 title: 'Sherlock Holmes: The Labyrinth of Death'
+description: "Review of Sherlock Holmes: The Labyrinth of Death by James Lovegrove — Holmes tracks a missing woman who has joined a sect obsessed with Ancient Greek myths. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

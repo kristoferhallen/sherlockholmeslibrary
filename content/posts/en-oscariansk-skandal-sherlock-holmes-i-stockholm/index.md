@@ -8,6 +8,7 @@ tags:
 - Sweden
 - the King of Scandinavia
 title: En Oscariansk skandal, Sherlock Holmes i Stockholm
+description: "Review of Sven Sörmark's Swedish pastiche where Sherlock Holmes visits Stockholm to prevent a royal scandal involving the King of Scandinavia. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

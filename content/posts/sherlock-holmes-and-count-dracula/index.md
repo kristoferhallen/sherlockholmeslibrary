@@ -12,6 +12,7 @@ tags:
 - Dracula
 - vampire
 title: Sherlock Holmes and Count Dracula
+description: "Review of Sherlock Holmes and Count Dracula by Christian Klaver — Holmes and Watson form an alliance with vampires to battle a far greater threat in Victorian London. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

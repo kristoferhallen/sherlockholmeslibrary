@@ -9,6 +9,7 @@ tags:
 - Moriarty
 - Lestrade
 title: The House of Silk
+description: "Review of The House of Silk by Anthony Horowitz — the Conan Doyle Estate's authorized Holmes novel, a dark Victorian conspiracy stretching from the criminal underworld to society's heights. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

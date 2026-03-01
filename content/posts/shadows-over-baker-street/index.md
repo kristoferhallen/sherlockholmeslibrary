@@ -9,6 +9,7 @@ tags:
 - horror
 - cthulhu
 title: Shadows over Baker street
+description: "Review of Shadows over Baker Street — a Lovecraftian Holmes anthology where Holmes faces monsters beyond logic, including Neil Gaiman's celebrated A Study in Emerald. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

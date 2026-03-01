@@ -10,6 +10,7 @@ tags:
 - sherlockholmesmeets
 - Lestrade
 title: Dust and Shadow
+description: "Review of Lyndsay Faye's Dust and Shadow — Sherlock Holmes hunts Jack the Ripper through Victorian London, with Mycroft and Lestrade along for the chase. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

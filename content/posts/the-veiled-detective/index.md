@@ -8,6 +8,7 @@ tags:
 - Moriarty
 - Mycroft
 title: The Veiled Detective
+description: "Review of The Veiled Detective by David Stuart Davies — the familiar Holmes and Watson origin story with a dark twist: Moriarty is watching and manipulating from the very start. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

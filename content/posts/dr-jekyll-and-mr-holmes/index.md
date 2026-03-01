@@ -9,6 +9,7 @@ tags:
 - Dr Jekyll
 - Hyde
 title: Dr. Jekyll and Mr. Holmes
+description: "Review of Loren D. Estleman's Dr. Jekyll and Mr. Holmes — the untold story of Sherlock Holmes investigating the strange connection between Jekyll and the murderous Hyde. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

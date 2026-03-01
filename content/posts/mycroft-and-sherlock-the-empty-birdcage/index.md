@@ -7,6 +7,7 @@ grade: 4.0
 tags:
 - Mycroft
 title: Mycroft and Sherlock The empty birdcage
+description: "Review of Kareem Abdul-Jabbar's Mycroft and Sherlock: The Empty Birdcage — Mycroft and a young student Sherlock investigate a serial killer and a kidnapping before Watson. Rated 4/10."
 cover:
   image: cover.jpg
   relative: true

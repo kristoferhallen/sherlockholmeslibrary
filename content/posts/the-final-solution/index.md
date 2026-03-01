@@ -7,6 +7,7 @@ grade: 8.0
 tags:
 - oldholmes
 title: The final solution
+description: "Review of The Final Solution by Michael Chabon — an elderly retired Holmes investigates a WWII murder connected to a mute boy and his number-reciting parrot. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

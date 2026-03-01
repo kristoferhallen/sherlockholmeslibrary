@@ -11,6 +11,7 @@ tags:
 - India
 - Vernet
 title: The Lanterns Dance
+description: "Review of The Lantern's Dance by Laurie R King — Russell and Holmes travel to France when Sherlock's son mysteriously disappears. Mary Russell series book 18. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

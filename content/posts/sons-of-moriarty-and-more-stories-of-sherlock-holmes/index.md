@@ -10,6 +10,7 @@ tags:
 - Schlock Homes
 - sci-fi
 title: Sons of Moriarty and more stories of Sherlock Holmes
+description: "Review of Sons of Moriarty by Loren D. Estleman — a varied Holmes anthology mixing Adrian Conan Doyle pastiches, a Schlock Homes parody, and a sci-fi story. Rated 10/10."
 cover:
   image: cover.jpg
   relative: true

@@ -11,6 +11,7 @@ tags:
 - horror
 - lovecraft
 title: Sherlock Holmes vs Cthulhu. The adventure of the deadly dimensions
+description: "Review of Sherlock Holmes vs Cthulhu by Lois H Gresh — Holmes investigates London murders that drag him into a Lovecraftian nightmare beyond rational explanation. Rated 4/10."
 cover:
   image: cover.jpg
   relative: true

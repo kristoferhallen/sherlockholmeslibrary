@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sherlock.kristoferhallen.com/sitemap.xml

@@ -10,6 +10,7 @@ tags:
 - France
 - Comic
 title: Arsène Lupin contre Sherlock Holmes - 1re partie
+description: "Review of a French comics pastiche where Sherlock Holmes meets Arsène Lupin, told from the gentleman thief's perspective. Part one of two. Rated 2/10."
 cover:
   image: cover.jpg
   relative: true

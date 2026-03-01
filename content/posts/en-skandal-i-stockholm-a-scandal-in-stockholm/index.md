@@ -8,6 +8,7 @@ tags:
 - Sweden
 - the King of Scandinavia
 title: En skandal i Stockholm (A scandal in Stockholm)
+description: "Review of A Scandal in Stockholm by Sven Sörmark — Sherlock Holmes helps the King of Sweden avoid a royal scandal, filling in a gap hinted at in A Scandal in Bohemia. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

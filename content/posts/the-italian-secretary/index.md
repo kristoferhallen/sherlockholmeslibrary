@@ -7,6 +7,7 @@ grade: 8.0
 tags:
 - traditionalpastiche
 title: The Italian Secretary
+description: "Review of The Italian Secretary by Caleb Carr — Holmes and Watson investigate murders in a Scottish royal castle haunted by the ghost of Mary Queen of Scots' secretary. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

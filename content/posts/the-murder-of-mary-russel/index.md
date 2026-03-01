@@ -11,6 +11,7 @@ tags:
 - Mycroft
 - Wiggins
 title: The murder of Mary Russel
+description: "Review of The Murder of Mary Russell by Laurie R King — Holmes returns home to find blood and no Mary, and sets out to discover if his wife is dead or alive. Book 14. Rated 8/10."
 cover:
   image: cover.jpg
   relative: true

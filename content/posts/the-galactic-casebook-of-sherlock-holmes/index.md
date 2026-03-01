@@ -10,6 +10,7 @@ tags:
 - The Red-Headed League
 - Sci-fi
 title: The galactic casebook of Sherlock Holmes
+description: "Review of The Galactic Casebook of Sherlock Holmes by Kristopher James Pipes — classic Holmes stories reimagined in space aboard Starship UK. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

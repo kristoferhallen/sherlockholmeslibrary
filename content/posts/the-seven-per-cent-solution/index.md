@@ -10,6 +10,7 @@ tags:
 - Moriarty
 - sherlockholmesmeets
 title: The Seven-Per-Cent Solution
+description: "Review of The Seven-Per-Cent Solution by Nicholas Meyer — Watson convinces a drug-addicted Holmes to seek treatment from Sigmund Freud in Vienna, where a new case unfolds. Rated 10/10."
 cover:
   image: cover.jpg
   relative: true
