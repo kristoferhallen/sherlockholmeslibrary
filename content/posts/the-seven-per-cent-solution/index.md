@@ -4,6 +4,8 @@ author_last: Meyer
 book_title: The Seven-Per-Cent Solution
 date: 2024-12-15
 grade: 10.0
+series: Nicholas Meyer Holmes novels
+series_order: 1
 tags:
 - drug addiction
 - Freud
