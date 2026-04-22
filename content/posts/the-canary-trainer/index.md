@@ -8,6 +8,7 @@ tags:
 - Paris
 - music
 - sherlockholmesmeets
+- Irene Adler
 title: The Canary Trainer
 description: "Review of The Canary Trainer by Nicholas Meyer — Sherlock Holmes goes undercover as a violinist at the Paris Opera House during the Great Hiatus, where he encounters the legendary Phantom."
 series: Nicholas Meyer Holmes novels
