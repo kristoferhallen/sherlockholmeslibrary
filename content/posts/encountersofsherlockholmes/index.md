@@ -11,7 +11,7 @@ tags:
 - Aj raffles 
 - Dr Jekyll
 - Newbury Hobbes 
-- Frankensteins monster
+- Frankenstein
 - sherlockholmesmeets
 - steampunk
 title: Encounters of Sherlock Holmes
