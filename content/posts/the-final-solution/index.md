@@ -5,7 +5,7 @@ book_title: The final solution
 date: 2025-03-29
 grade: 8.0
 tags:
-- oldholmes
+- oldsherlock
 title: The final solution
 description: "Review of The Final Solution by Michael Chabon — an elderly retired Holmes investigates a WWII murder connected to a mute boy and his number-reciting parrot. Rated 8/10."
 cover:

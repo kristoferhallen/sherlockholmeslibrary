@@ -7,7 +7,7 @@ grade: 4.0
 tags:
 - Japan
 - beekeeping
-- oldholmes
+- oldsherlock
 title: A slight trick of the mind
 description: "Review of Mitch Cullin's Sherlock Holmes pastiche about an aging Holmes in retirement — more psychological drama about memory and loss than mystery. Rated 4/10."
 cover:
