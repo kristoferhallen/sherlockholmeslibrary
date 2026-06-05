@@ -1,0 +1,13 @@
+Options -Indexes
+
+# Old singular /post/<slug> → plural /posts/<slug>
+RedirectMatch 301 ^/post/(.*)$ /posts/$1
+
+# Image rename: old .jpeg extension → canonical .jpg
+Redirect 301 /sherlocksiluett.jpeg /sherlocksiluett.jpg
+
+# Redirect WordPress probes to home (avoids 404 noise)
+RedirectMatch 301 ^/wp-(includes|content|admin)/.*$ /
+
+# Redirect Joomla probes to home
+RedirectMatch 301 ^/media/system/.*$ /

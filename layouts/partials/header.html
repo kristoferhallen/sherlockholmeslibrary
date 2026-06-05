@@ -22,8 +22,16 @@
                     <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
                         height="{{- site.Params.label.iconHeight | default "30" -}}">
                 {{- else }}
-                <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}">
+                {{- $iconURL := site.Params.label.icon | absURL -}}
+                {{- $iconAvif := replaceRE `\.(jpe?g|png)$` ".avif" $iconURL -}}
+                {{- $iconWebp := replaceRE `\.(jpe?g|png)$` ".webp" $iconURL -}}
+                {{- $iconH := site.Params.label.iconHeight | default 30 -}}
+                <picture>
+                  <source srcset="{{ $iconAvif }}" type="image/avif">
+                  <source srcset="{{ $iconWebp }}" type="image/webp">
+                  <img src="{{ $iconURL }}" alt="" aria-label="logo"
+                    height="{{ $iconH }}" width="{{ $iconH }}" loading="eager" decoding="async">
+                </picture>
                 {{- end -}}
                 {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
                     {{ site.Params.label.iconSVG | safeHTML }}

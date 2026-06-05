@@ -1,3 +1,49 @@
+# Well-behaved crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Feedly
+Allow: /
+
+# AI training / discovery bots — allowed (visibility in AI answers is a brand asset)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# SEO scrapers — no traffic value, block them
+User-agent: DotBot
+Disallow: /
+
+User-agent: panscient.com
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Default for everyone else
 User-agent: *
 Allow: /
 
