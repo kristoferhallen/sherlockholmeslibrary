@@ -2,6 +2,9 @@
 public/
 resources/_gen/
 
+# Design mockups (local reference only)
+design-mockups/
+
 # Hugo lock file
 .hugo_build.lock
 

@@ -3,88 +3,84 @@
 <article class="post-single">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
-    <h1 class="post-title entry-hint-parent">
-      {{ .Params.book_title | default .Title }}
-    </h1>
-    
-    <div class="post-meta">
-      {{ with .Params.author }}
-        <span class="book-author">by {{ . }}</span>
-      {{ end }}
-      
-      {{ with .Params.series }}
-        <span class="book-series">
-          | <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-          {{ with $.Params.series_order }}
-            #{{ . }}
-          {{ end }}
-        </span>
-      {{ end }}
-      
-      {{ if .Params.grade }}
-        <span class="book-grade">
-          | Grade: <strong>{{ .Params.grade }}/10</strong>
-        </span>
-      {{ end }}
-    </div>
   </header>
 
-  {{- if .Params.grade }}
-  <aside class="toc-container">
-  {{- end }}
-
-  <div class="post-content-wrapper">
+  <div class="post-hero">
     {{- $image := .Resources.GetMatch "cover.*" }}
     {{- if $image }}
-    <aside class="book-cover-sidebar">
-      {{- $mediumCover := $image.Resize "100x" }}
-
+    <div class="post-hero-cover">
+      {{- $img := $image.Resize "200x" }}
       <img
-        src="{{ $mediumCover.RelPermalink }}"
-        alt="Cover of {{ .Params.book_title | default .Title }}"
+        src="{{ $img.RelPermalink }}"
+        alt="Cover of {{ .Params.book_title | default .Title | plainify }}"
         loading="lazy"
-        width="{{ $mediumCover.Width }}"
-        height="{{ $mediumCover.Height }}"
+        width="{{ $img.Width }}"
+        height="{{ $img.Height }}"
         class="book-cover-image"
       />
-    </aside>
+    </div>
     {{- end }}
-    
-    <div class="post-content">
-      {{- if not (.Param "disableAnchoredHeadings") }}
-      {{- partial "anchored_headings.html" .Content -}}
-      {{- else }}{{ .Content }}{{ end }}
+
+    <div class="post-hero-info">
+      <h1 class="post-title">{{ .Params.book_title | default .Title }}</h1>
+
+      <div class="post-book-meta">
+        {{- with .Params.author }}
+        <span class="book-author">by {{ . }}</span>
+        {{- end }}
+        {{- with .Params.series }}
+        <span class="book-series-meta">
+          <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          {{- with $.Params.series_order }} · #{{ . }}{{- end }}
+        </span>
+        {{- end }}
+        {{- with .Params.publication_year }}
+        <span class="book-year">{{ . }}</span>
+        {{- end }}
+      </div>
+
+      {{- if .Params.grade }}
+      {{- $gradeClass := "grade-mid" }}
+      {{- if ge .Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
+      {{- else if ge .Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
+      {{- else if ge .Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
+      {{- else }}{{- $gradeClass = "grade-low" }}
+      {{- end }}
+      <div class="post-grade-wrap">
+        <div class="post-grade-circle {{ $gradeClass }}">
+          <span class="post-grade-num">{{ .Params.grade }}</span>
+          <span class="post-grade-denom">/10</span>
+        </div>
+      </div>
+      {{- end }}
+
+      {{- with .Params.tags }}
+      <div class="post-tags-inline">
+        {{- range . }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag-chip">{{ . }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+
+      {{- if .Date }}
+      <p class="review-date">Reviewed {{ .Date.Format "January 2, 2006" }}</p>
+      {{- end }}
     </div>
   </div>
 
-  {{ if or .Params.tags .Params.series }}
-  <div class="post-tags-section">
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+
+  <footer class="post-footer">
     {{- with .Params.series }}
-    <div class="series-link">
-      <strong>Series:</strong>
-      <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+    <div class="post-series-footer">
+      Series: <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
       {{- with $.Params.series_order }} (#{{ . }}){{- end }}
     </div>
     {{- end }}
-    {{- with .Params.tags }}
-    <div class="tags-link">
-      <strong>Tags:</strong>
-      <ul class="tags-list">
-        {{ range . }}
-          <li><a href="{{ "/tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-    {{- end }}
-  </div>
-  {{ end }}
-
-  <footer class="post-footer">
-    <div class="post-info">
-      {{- if .Date }}
-      <p class="review-date">Reviewed on {{ .Date.Format "January 2, 2006" }}</p>
-      {{- end }}
-    </div>
 
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}

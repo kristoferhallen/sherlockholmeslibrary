@@ -55,47 +55,67 @@
 {{- range $index, $page := $paginator.Pages }}
 
 {{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
+{{- if $term }}
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
+{{- $gradeClass := "grade-mid" }}
+{{- if $page.Params.grade }}
+  {{- if ge $page.Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
+  {{- else if ge $page.Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
+  {{- else if ge $page.Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
+  {{- else }}{{- $gradeClass = "grade-low" }}
+  {{- end }}
+{{- end }}
+
 <article class="{{ $class }}">
-  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-      {{- .Title }}
-      {{- if .Draft }}
+  {{- $cover := $page.Resources.GetMatch "cover.*" }}
+  {{- if $cover }}
+  <div class="entry-cover-wrap">
+    {{- $img := $cover.Resize "220x" }}
+    <img src="{{ $img.RelPermalink }}"
+         alt="Cover of {{ $page.Params.book_title | default $page.Title | plainify }}"
+         loading="lazy"
+         width="{{ $img.Width }}"
+         height="{{ $img.Height }}">
+    {{- if $page.Params.grade }}
+    <div class="grade-medallion {{ $gradeClass }}">
+      <span class="gn">{{ $page.Params.grade | int }}</span>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="entry-info">
+    <h2 class="entry-title entry-hint-parent">
+      {{- $page.Title }}
+      {{- if $page.Draft }}
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+          <path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
         </svg>
       </span>
       {{- end }}
     </h2>
-    {{- with .Params.author }}
+    {{- with $page.Params.author }}
     <div class="entry-author">by {{ . }}</div>
     {{- end }}
-    {{- with .Params.grade }}
-    <div class="entry-grade">Grade: {{ . }}/10</div>
+    {{- with $page.Params.series }}
+    <div class="entry-series">{{ . }}{{- with $page.Params.series_order }} · #{{ . }}{{- end }}</div>
     {{- end }}
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    {{- if (ne ($page.Param "hideSummary") true) }}
+    <div class="entry-excerpt">
+      <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}…{{ end }}</p>
+    </div>
+    {{- end }}
+    {{- with $page.Params.tags }}
+    <div class="entry-tags">
+      {{- range . }}
+      <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag-chip">{{ . }}</a>
+      {{- end }}
+    </div>
+    {{- end }}
   </div>
-  {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  <a class="entry-link" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
 </article>
 {{- end }}
 

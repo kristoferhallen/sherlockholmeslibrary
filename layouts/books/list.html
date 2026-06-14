@@ -3,9 +3,7 @@
 <header class="page-header">
   <h1>{{ .Title }}</h1>
   {{- if .Content }}
-  <div class="post-description">
-    {{ .Content }}
-  </div>
+  <div class="post-description">{{ .Content }}</div>
   {{- end }}
 </header>
 
@@ -22,67 +20,65 @@
       {{- $grades = $grades | append .Params.grade }}
     {{- end }}
   {{- end }}
-
   {{- $avgGrade := 0.0 }}
   {{- if gt (len $grades) 0 }}
     {{- $sum := 0.0 }}
-    {{- range $grades }}
-      {{- $sum = add $sum . }}
-    {{- end }}
+    {{- range $grades }}{{- $sum = add $sum . }}{{- end }}
     {{- $avgGrade = div $sum (len $grades) }}
   {{- end }}
 
   <section class="author-section">
-    <h2>
+    <h2 class="author-heading">
       {{ $author }}
       <span class="count">({{ $totalBooks }} {{ if eq $totalBooks 1 }}book{{ else }}books{{ end }})</span>
+      {{- if gt (len $grades) 0 }}
+      <span class="author-avg">avg {{ printf "%.1f" $avgGrade }}</span>
+      {{- end }}
     </h2>
-
-    {{- if gt (len $grades) 0 }}
-    <div class="author-stats">
-      Average Grade: <strong>{{ printf "%.1f" $avgGrade }}/10</strong>
-    </div>
-    {{- end }}
 
     <div class="author-books-grid">
       {{- range $authorPosts }}
-      <div class="book-card-small">
+
+      {{- $gradeClass := "grade-mid" }}
+      {{- if .Params.grade }}
+        {{- if ge .Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
+        {{- else if ge .Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
+        {{- else if ge .Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
+        {{- else }}{{- $gradeClass = "grade-low" }}
+        {{- end }}
+      {{- end }}
+
+      <div class="book-card-small" style="position:relative;">
         {{- $image := .Resources.GetMatch "cover.*" }}
         {{- if $image }}
         <div class="book-cover-small">
-          {{- $thumb := $image.Resize "80x" }}
-          <a href="{{ .Permalink }}">
-            <img
-              src="{{ $thumb.RelPermalink }}"
-              alt="Cover of {{ .Params.book_title | default .Title }}"
-              loading="lazy"
-            />
-          </a>
+          {{- $thumb := $image.Resize "100x" }}
+          <img
+            src="{{ $thumb.RelPermalink }}"
+            alt="Cover of {{ .Params.book_title | default .Title | plainify }}"
+            loading="lazy"
+          />
+          {{- if .Params.grade }}
+          <div class="grade-medallion {{ $gradeClass }} grade-small">
+            <span class="gn">{{ .Params.grade | int }}</span>
+          </div>
+          {{- end }}
         </div>
         {{- end }}
 
         <div class="book-info">
           <h3><a href="{{ .Permalink }}">{{ .Params.book_title | default .Title }}</a></h3>
-
-          {{- if .Params.grade }}
-          <div>
-            <span class="grade">{{ .Params.grade }}/10</span>
-            {{- with .Params.publication_year }}
-            <span class="year">({{ . }})</span>
-            {{- end }}
-          </div>
-          {{- end }}
-
-          {{- $page := . }}
           {{- with .Params.series }}
           <div class="book-series">
-            Series: <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-            {{- with $page.Params.series_order }}
-            #{{ . }}
-            {{- end }}
+            <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+            {{- with $.Params.series_order }} #{{ . }}{{- end }}
           </div>
           {{- end }}
+          {{- with .Params.publication_year }}
+          <div class="book-year year">{{ . }}</div>
+          {{- end }}
         </div>
+        <a class="entry-link" href="{{ .Permalink }}" aria-label="Read review of {{ .Title | plainify }}"></a>
       </div>
       {{- end }}
     </div>

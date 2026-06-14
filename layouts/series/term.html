@@ -4,47 +4,69 @@
   {{- partial "breadcrumbs.html" . }}
   <h1>{{ .Title }}</h1>
   {{- if .Description }}
-  <div class="post-description">
-    {{ .Description | markdownify }}
-  </div>
+  <div class="post-description">{{ .Description | markdownify }}</div>
   {{- end }}
 </header>
 
 {{- if .Content }}
-<div class="post-content">
-  {{ .Content }}
-</div>
+<div class="post-content">{{ .Content }}</div>
 {{- end }}
 
-{{- $pages := .Pages }}
-{{- $sortedPages := sort $pages ".Params.series_order" }}
+{{- $pages := sort .Pages ".Params.series_order" }}
 
-<div class="series-books-list">
-  {{- range $sortedPages }}
-  <article class="post-entry tag-entry">
-    {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-    <header class="entry-header">
-      <h2 class="entry-hint-parent">
-        {{- with .Params.series_order }}
-        <span class="series-order">#{{ . }}</span>
-        {{- end }}
-        {{- .Title }}
-      </h2>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+<div class="series-term-list">
+{{- range $pages }}
+
+  {{- $gradeClass := "grade-mid" }}
+  {{- if .Params.grade }}
+    {{- if ge .Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
+    {{- else if ge .Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
+    {{- else if ge .Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
+    {{- else }}{{- $gradeClass = "grade-low" }}
+    {{- end }}
+  {{- end }}
+
+  <article class="post-entry" style="position:relative;">
+    {{- $cover := .Resources.GetMatch "cover.*" }}
+    {{- if $cover }}
+    <div class="entry-cover-wrap">
+      {{- $img := $cover.Resize "220x" }}
+      <img src="{{ $img.RelPermalink }}"
+           alt="Cover of {{ .Params.book_title | default .Title | plainify }}"
+           loading="lazy"
+           width="{{ $img.Width }}"
+           height="{{ $img.Height }}">
+      {{- if .Params.grade }}
+      <div class="grade-medallion {{ $gradeClass }}">
+        <span class="gn">{{ .Params.grade | int }}</span>
+      </div>
+      {{- end }}
     </div>
     {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
-    </footer>
-    {{- end }}
+    <div class="entry-info">
+      <h2 class="entry-title entry-hint-parent">
+        {{- with .Params.series_order }}<span class="series-num">#{{ . }}</span> {{- end }}
+        {{- .Title }}
+      </h2>
+      {{- with .Params.author }}
+      <div class="entry-author">by {{ . }}</div>
+      {{- end }}
+      {{- if (ne (.Param "hideSummary") true) }}
+      <div class="entry-excerpt">
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}…{{ end }}</p>
+      </div>
+      {{- end }}
+      {{- with .Params.tags }}
+      <div class="entry-tags">
+        {{- range . }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag-chip">{{ . }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
   </article>
-  {{- end }}
+{{- end }}
 </div>
 
 {{- end }}{{- /* end main */ -}}

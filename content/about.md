@@ -11,4 +11,4 @@ This site is a collection of reviews of Sherlock Holmes pastiches, novels, and s
 
 I'm Kristofer Hallén, a member of the Swedish Sherlock Holmes club [The Baskerville Hall Club of Sweden](https://www.thebaskervillehallclub.com/)
 
-I am a software developer at Ericsson. This is my Sherlock Holmes blog. More about software and me [here](https://kristoferhallen.com).
+I am a Strategic Product Manager at Ericsson. This is my Sherlock Holmes blog. More about software and me [here](https://kristoferhallen.com).

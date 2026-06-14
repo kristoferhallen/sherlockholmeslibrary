@@ -3,51 +3,56 @@
 <header class="page-header">
   <h1>{{ .Title }}</h1>
   {{- if .Content }}
-  <div class="post-description">
-    {{ .Content }}
-  </div>
+  <div class="post-description">{{ .Content }}</div>
   {{- end }}
 </header>
 
 {{- $posts := where site.RegularPages "Type" "posts" }}
 {{- $sortedPosts := sort $posts ".Params.grade" "desc" }}
 
-<div class="top-books-list">
-  {{- range $index, $post := $sortedPosts }}
-  {{- if $post.Params.grade }}
-  <div class="book-card-small">
-    <span class="rank">#{{ add $index 1 }}</span>
+<ol class="top-books-ranked">
+  {{- $rank := 0 }}
+  {{- range $sortedPosts }}
+  {{- if .Params.grade }}
+  {{- $rank = add $rank 1 }}
 
-    {{- $image := $post.Resources.GetMatch "cover.*" }}
+  {{- $gradeClass := "grade-mid" }}
+  {{- if ge .Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
+  {{- else if ge .Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
+  {{- else if ge .Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
+  {{- else }}{{- $gradeClass = "grade-low" }}
+  {{- end }}
+
+  <li class="ranked-entry">
+    <span class="rank-num">#{{ $rank }}</span>
+    {{- $image := .Resources.GetMatch "cover.*" }}
     {{- if $image }}
-    <div class="book-cover-small">
-      {{- $thumb := $image.Resize "80x" }}
-      <a href="{{ $post.Permalink }}">
-        <img
-          src="{{ $thumb.RelPermalink }}"
-          alt="Cover of {{ $post.Params.book_title | default $post.Title }}"
-          loading="lazy"
-        />
-      </a>
+    <div class="ranked-cover">
+      {{- $thumb := $image.Resize "100x" }}
+      <img src="{{ $thumb.RelPermalink }}"
+           alt="Cover of {{ .Params.book_title | default .Title | plainify }}"
+           loading="lazy" />
     </div>
     {{- end }}
-
-    <div class="book-info">
-      <h3><a href="{{ $post.Permalink }}">{{ $post.Params.book_title | default $post.Title }}</a></h3>
-      <div class="book-author">{{ $post.Params.author }}</div>
-
-      {{- if $post.Params.grade }}
-      <div>
-        <span class="grade">{{ $post.Params.grade }}/10</span>
-        {{- with $post.Params.publication_year }}
-        <span class="year">({{ . }})</span>
-        {{- end }}
+    <div class="ranked-info">
+      <h3><a href="{{ .Permalink }}">{{ .Params.book_title | default .Title }}</a></h3>
+      <div class="ranked-author">{{ .Params.author }}</div>
+      {{- with .Params.series }}
+      <div class="ranked-series">
+        <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{- with $.Params.series_order }} #{{ . }}{{- end }}
       </div>
       {{- end }}
     </div>
-  </div>
+    <div class="ranked-grade-wrap">
+      <div class="grade-medallion {{ $gradeClass }}">
+        <span class="gn">{{ .Params.grade | int }}</span>
+      </div>
+    </div>
+    <a class="entry-link" href="{{ .Permalink }}" aria-label="Read review of {{ .Title | plainify }}"></a>
+  </li>
   {{- end }}
   {{- end }}
-</div>
+</ol>
 
 {{- end }}{{/* end main */}}

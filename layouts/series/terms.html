@@ -1,0 +1,80 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+
+<div class="series-index-list">
+{{- range .Pages }}
+  {{- $termPage := . }}
+  {{- $books := sort .Pages ".Params.series_order" }}
+  {{- $count := len $books }}
+  {{- $firstBook := index $books 0 }}
+
+  {{- $grades := slice }}
+  {{- range $books }}
+    {{- if .Params.grade }}
+      {{- $grades = $grades | append .Params.grade }}
+    {{- end }}
+  {{- end }}
+  {{- $avgGrade := 0.0 }}
+  {{- if gt (len $grades) 0 }}
+    {{- $sum := 0.0 }}
+    {{- range $grades }}{{- $sum = add $sum . }}{{- end }}
+    {{- $avgGrade = div $sum (len $grades) }}
+  {{- end }}
+
+  {{- $gradeClass := "grade-mid" }}
+  {{- if gt $avgGrade 0.0 }}
+    {{- if ge $avgGrade 9.0 }}{{- $gradeClass = "grade-top" }}
+    {{- else if ge $avgGrade 7.0 }}{{- $gradeClass = "grade-high" }}
+    {{- else if ge $avgGrade 5.0 }}{{- $gradeClass = "grade-mid" }}
+    {{- else }}{{- $gradeClass = "grade-low" }}
+    {{- end }}
+  {{- end }}
+
+  {{- $author := "" }}
+  {{- range $books }}
+    {{- if and .Params.author (not $author) }}{{- $author = .Params.author }}{{- end }}
+  {{- end }}
+
+  {{- $seriesData := index site.Data.series_descriptions $termPage.Title }}
+
+  <a class="series-row" href="{{ $termPage.Permalink }}">
+    {{- if $firstBook }}
+    {{- $cover := $firstBook.Resources.GetMatch "cover.*" }}
+    {{- if $cover }}
+    <div class="series-row-cover">
+      {{- $img := $cover.Resize "160x" }}
+      <img src="{{ $img.RelPermalink }}"
+           alt="Cover of {{ $firstBook.Title | plainify }}"
+           loading="lazy"
+           width="{{ $img.Width }}"
+           height="{{ $img.Height }}">
+      {{- if gt $avgGrade 0.0 }}
+      <div class="series-card-grade-badge {{ $gradeClass }}">
+        <span class="gn">{{ printf "%.1f" $avgGrade }}</span>
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- end }}
+    <div class="series-row-info">
+      <h2 class="series-card-title">{{ $termPage.Title }}</h2>
+      {{- if $author }}
+      <div class="series-card-author">by {{ $author }}</div>
+      {{- end }}
+      {{- with $seriesData }}{{- with .description }}
+      <p class="series-card-desc">{{ . }}</p>
+      {{- end }}{{- end }}
+      <div class="series-card-count">{{ $count }} {{ if eq $count 1 }}book reviewed{{ else }}books reviewed{{ end }}</div>
+    </div>
+  </a>
+{{- end }}
+</div>
+
+{{- end }}
