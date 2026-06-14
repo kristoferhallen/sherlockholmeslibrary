@@ -58,3 +58,72 @@
       url: "/posts/sherlock-holmes-vs-cthulhu-the-adventure-of-the-deadly-dimensions/"
   wikipedia: "https://en.wikipedia.org/wiki/Cthulhu"
 
+- name: "Arsène Lupin"
+  description: "Maurice Leblanc's gentleman thief and master of disguise, created in 1905 as France's answer to Sherlock Holmes — and his most entertaining rival. Lupin consistently outmanoeuvres the great detective, which is presumably why Leblanc was forced to rename Holmes 'Herlock Sholmes' in later stories to avoid legal trouble."
+  books:
+    - title: "Arsène Lupin v/s Sherlock Holmes"
+      url: "/posts/arsène-lupin-vs-sherlock-holmes/"
+    - title: "Arsène Lupin contre Sherlock Holmes - 1re partie"
+      url: "/posts/arsène-lupin-contre-sherlock-holmes-1re-partie/"
+  wikipedia: "https://en.wikipedia.org/wiki/Ars%C3%A8ne_Lupin"
+
+- name: "Dorian Gray"
+  description: "Oscar Wilde's eternally youthful protagonist from The Picture of Dorian Gray (1890), whose portrait ages and degrades in his place while he remains untouched by time or conscience. A man who has traded his soul for beauty — and spent a very long time wondering if it was worth it."
+  books:
+    - title: "Sherlock Holmes and Dorian Gray"
+      url: "/posts/sherlock-holmes-and-dorian-gray/"
+  wikipedia: "https://en.wikipedia.org/wiki/Dorian_Gray"
+
+- name: "Dr. Moreau"
+  description: "H.G. Wells's brilliant and monstrous vivisectionist from The Island of Doctor Moreau (1896), who transforms animals into humanoid creatures through surgery. In the Athena Club series it is his daughter who carries the family obsession forward — the apple falling rather close to the tree."
+  books:
+    - title: "Sherlock Holmes and Dorian Gray"
+      url: "/posts/sherlock-holmes-and-dorian-gray/"
+    - title: "The Strange Case of the Alchemist's Daughter"
+      url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+  wikipedia: "https://en.wikipedia.org/wiki/Doctor_Moreau"
+
+- name: "Rappaccini's Daughter"
+  description: "Beatrice Rappaccini, from Nathaniel Hawthorne's 1844 short story, was raised in her father's poisonous garden until her very touch became lethal. In the Athena Club series a descendant carries this toxic inheritance into the Victorian age — still dangerous, still rather put out about it."
+  books:
+    - title: "The Strange Case of the Alchemist's Daughter"
+      url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+  wikipedia: "https://en.wikipedia.org/wiki/Rappaccini%27s_Daughter"
+
+- name: "Frankenstein's Monster"
+  description: "Mary Shelley's nameless creation from Frankenstein; or, The Modern Prometheus (1818) — assembled from corpses, brought to life by electricity, and abandoned by his creator. In the Athena Club series, the monster's line continues through a daughter, grappling with the same questions of belonging and what it means to be made rather than born."
+  books:
+    - title: "Encounters of Sherlock Holmes"
+      url: "/posts/encountersofsherlockholmes/"
+    - title: "The Strange Case of the Alchemist's Daughter"
+      url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+  wikipedia: "https://en.wikipedia.org/wiki/Frankenstein%27s_monster"
+
+- name: "Professor Van Helsing"
+  description: "Professor Abraham Van Helsing, the Dutch physician and polymath from Bram Stoker's Dracula (1897). Expert in obscure folklore, occult medicine, and the very specific problem of vampires. The man who first identified Count Dracula for what he was — and lived to write it up at considerable length."
+  books:
+    - title: "The Strange Case of the Alchemist's Daughter"
+      url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+  wikipedia: "https://en.wikipedia.org/wiki/Professor_Van_Helsing"
+
+- name: "Hercule Poirot"
+  description: "Agatha Christie's meticulous Belgian detective, renowned for his 'little grey cells' and his intolerance for disorder of any kind — including, presumably, the disorder of sharing a fictional universe with a rival genius. In this crossover the two great detectives meet over a case with a distinctly Orient Express flavour."
+  books:
+    - title: "The Adventure of the Murder on the Calais Coach"
+      url: "/posts/the-adventure-of-the-murder-on-the-calais-coach/"
+  wikipedia: "https://en.wikipedia.org/wiki/Hercule_Poirot"
+
+- name: "Harry Houdini"
+  description: "The Hungarian-American escape artist, illusionist, and stunt performer (1874–1926) — one of the most famous men in the world in his time. Known for escaping from handcuffs, straightjackets, and locked milk cans submerged in water. He was also a passionate debunker of fraudulent mediums, which puts him in surprisingly good company."
+  books:
+    - title: "Sherlock Holmes. The Thinking Engine"
+      url: "/posts/sherlock-holmes-the-thinking-engine/"
+  wikipedia: "https://en.wikipedia.org/wiki/Harry_Houdini"
+
+- name: "A.J. Raffles"
+  description: "The Amateur Cracksman, created by E.W. Hornung — Arthur Conan Doyle's own brother-in-law — in 1898. A gentleman cricketer by day and jewel thief by night, Raffles is essentially Holmes inverted: the same brilliance and sangfroid, applied to the wrong side of the law. Hornung dedicated the first collection to Doyle, 'to whom the debt is almost a matter of course.'"
+  books:
+    - title: "Encounters of Sherlock Holmes"
+      url: "/posts/encountersofsherlockholmes/"
+  wikipedia: "https://en.wikipedia.org/wiki/A._J._Raffles"
+
