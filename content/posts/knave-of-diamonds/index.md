@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 author: Laurie R King
 author_last: King
 book_title: Knave of Diamonds
