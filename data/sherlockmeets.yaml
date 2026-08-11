@@ -22,6 +22,10 @@
       url: "/posts/dr-jekyll-and-mr-holmes/"
     - title: "Encounters of Sherlock Holmes"
       url: "/posts/encountersofsherlockholmes/"
+    - title: "Sherlock Holmes and Mr Hyde"
+      url: "/posts/sherlock-holmes-and-mr-hyde/"
+    - title: "Sherlock Holmes and Dorian Gray"
+      url: "/posts/sherlock-holmes-and-dorian-gray/"
   wikipedia: "https://en.wikipedia.org/wiki/Dr_Jekyll_and_Mr_Hyde_(character)"
 
 - name: "Sigmund Freud"
@@ -38,6 +42,12 @@
   books:
     - title: "Dust and Shadow"
       url: "/posts/dust-and-shadow/"
+    - title: "Sherlock Holmes and Mr Hyde"
+      url: "/posts/sherlock-holmes-and-mr-hyde/"
+    - title: "All Roads Lead to Whitechapel"
+      url: "/posts/all-roads-lead-to-whitechapel/"
+    - title: "Sherlock Holmes and the Adventure of the Black Pharaoh"
+      url: "/posts/sherlock-holmes-and-the-adventure-of-the-black-pharaoh/"
   wikipedia: "https://en.wikipedia.org/wiki/Jack_the_Ripper"
 
 - name: "Count Dracula"
@@ -106,6 +116,7 @@
 
 - name: "Professor Van Helsing"
   description: "Professor Abraham Van Helsing, the Dutch physician and polymath from Bram Stoker's Dracula (1897). Expert in obscure folklore, occult medicine, and the very specific problem of vampires. The man who first identified Count Dracula for what he was — and lived to write it up at considerable length."
+  image: "vanhelsing.png"
   books:
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
@@ -121,6 +132,7 @@
 
 - name: "Harry Houdini"
   description: "The Hungarian-American escape artist, illusionist, and stunt performer (1874–1926) — one of the most famous men in the world in his time. Known for escaping from handcuffs, straightjackets, and locked milk cans submerged in water. He was also a passionate debunker of fraudulent mediums, which puts him in surprisingly good company."
+  image: "houdini.png"
   books:
     - title: "Sherlock Holmes. The Thinking Engine"
       url: "/posts/sherlock-holmes-the-thinking-engine/"
@@ -133,4 +145,19 @@
     - title: "Encounters of Sherlock Holmes"
       url: "/posts/encountersofsherlockholmes/"
   wikipedia: "https://en.wikipedia.org/wiki/A._J._Raffles"
+
+- name: "The Phantom of the Opera"
+  description: "Erik, the disfigured musical genius haunting the cellars of the Paris Opera House in Gaston Leroux's 1910 novel. "
+  books:
+    - title: "The Canary Trainer"
+      url: "/posts/the-canary-trainer/"
+  wikipedia: "https://en.wikipedia.org/wiki/Erik_(The_Phantom_of_the_Opera)"
+
+- name: "Newbury & Hobbes"
+  description: "Sir Maurice Newbury and Miss Veronica Hobbes, George Mann's steampunk investigators working for Queen Victoria in an alternate Victorian London of airships and clockwork automata. An occult detective and his considerably more practical assistant — a partnership with obvious Baker Street ancestry, here meeting the original."
+  image: "newbury.png"
+  books:
+    - title: "Encounters of Sherlock Holmes"
+      url: "/posts/encountersofsherlockholmes/"
+  wikipedia: "https://en.wikipedia.org/wiki/George_Mann_(writer)"
 
