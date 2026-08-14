@@ -9,15 +9,7 @@
     {{- $image := .Resources.GetMatch "cover.*" }}
     {{- if $image }}
     <div class="post-hero-cover">
-      {{- $img := $image.Resize "200x" }}
-      <img
-        src="{{ $img.RelPermalink }}"
-        alt="Cover of {{ .Params.book_title | default .Title | plainify }}"
-        loading="lazy"
-        width="{{ $img.Width }}"
-        height="{{ $img.Height }}"
-        class="book-cover-image"
-      />
+      {{- partial "responsive-cover.html" (dict "page" . "width" 200 "alt" (printf "Cover of %s" (.Params.book_title | default .Title | plainify)) "imgClass" "book-cover-image") }}
     </div>
     {{- end }}
 

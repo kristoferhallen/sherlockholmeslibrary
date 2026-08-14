@@ -43,6 +43,12 @@ Disallow: /
 User-agent: SemrushBot
 Disallow: /
 
+User-agent: SERankingBacklinksBot
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
 # Default for everyone else
 User-agent: *
 Allow: /

@@ -7,7 +7,7 @@ RedirectMatch 301 ^/post/(.*)$ /posts/$1
 Redirect 301 /sherlocksiluett.jpeg /sherlocksiluett.jpg
 
 # Redirect WordPress probes to home (avoids 404 noise)
-RedirectMatch 301 ^/wp-(includes|content|admin)/.*$ /
+RedirectMatch 301 ^/wp-(includes|content|admin|login\.php)/?.*$ /
 
 # Redirect Joomla probes to home
 RedirectMatch 301 ^/media/system/.*$ /

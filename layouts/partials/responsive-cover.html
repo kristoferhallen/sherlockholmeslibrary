@@ -1,0 +1,27 @@
+{{/*
+  Usage: {{ partial "responsive-cover.html" (dict "page" . "width" 220 "alt" "Cover of ...") }}
+  Renders a <picture> with a WebP source (1x/2x) and a JPEG <img> fallback (1x/2x).
+*/}}
+{{- $page := .page }}
+{{- $width := .width | default 220 }}
+{{- $alt := .alt }}
+{{- $imgClass := .imgClass }}
+{{- $cover := $page.Resources.GetMatch "cover.*" }}
+{{- if $cover }}
+  {{- $width2x := mul $width 2 }}
+  {{- $jpg1x := $cover.Resize (printf "%dx" $width) }}
+  {{- $jpg2x := $cover.Resize (printf "%dx" $width2x) }}
+  {{- $webp1x := $cover.Resize (printf "%dx webp" $width) }}
+  {{- $webp2x := $cover.Resize (printf "%dx webp" $width2x) }}
+<picture>
+  <source type="image/webp" srcset="{{ $webp1x.RelPermalink }} 1x, {{ $webp2x.RelPermalink }} 2x">
+  <img src="{{ $jpg1x.RelPermalink }}"
+       srcset="{{ $jpg1x.RelPermalink }} 1x, {{ $jpg2x.RelPermalink }} 2x"
+       alt="{{ $alt }}"
+       loading="lazy"
+       decoding="async"
+       width="{{ $jpg1x.Width }}"
+       height="{{ $jpg1x.Height }}"{{ with $imgClass }}
+       class="{{ . }}"{{ end }}>
+</picture>
+{{- end }}

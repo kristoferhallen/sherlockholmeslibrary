@@ -72,12 +72,7 @@
   {{- $cover := $page.Resources.GetMatch "cover.*" }}
   {{- if $cover }}
   <div class="entry-cover-wrap">
-    {{- $img := $cover.Resize "220x" }}
-    <img src="{{ $img.RelPermalink }}"
-         alt="Cover of {{ $page.Params.book_title | default $page.Title | plainify }}"
-         loading="lazy"
-         width="{{ $img.Width }}"
-         height="{{ $img.Height }}">
+    {{- partial "responsive-cover.html" (dict "page" $page "width" 220 "alt" (printf "Cover of %s" ($page.Params.book_title | default $page.Title | plainify))) }}
     {{- if $page.Params.grade }}
     <div class="grade-medallion {{ $gradeClass }}">
       <span class="gn">{{ $page.Params.grade | int }}</span>
