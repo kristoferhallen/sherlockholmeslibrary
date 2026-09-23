@@ -6,10 +6,10 @@ date: 2024-09-03
 grade: 6.0
 tags:
 - Sweden
-- Science
+- science
 - Silver Blaze
-- The Red-headed league
-- The adventure of the six Napoleons
+- The Red-Headed League
+- The Six Napoleons
 title: Trepiporsproblem och bagateller (Three-pipe problems and trifles)
 description: "Review of Trepiporsproblem och bagateller by Hans-Uno Bengtsson — a Swedish theoretical physicist examines the real science behind Sherlock Holmes's cases. Swedish only. Rated 6/10."
 cover:

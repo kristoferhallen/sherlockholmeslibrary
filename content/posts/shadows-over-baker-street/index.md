@@ -5,9 +5,10 @@ book_title: Shadows over Baker street
 date: 2025-02-02
 grade: 8.0
 tags:
-- lovecraft
+- sherlock-meets
+- HP Lovecraft
 - horror
-- cthulhu
+- Cthulhu
 title: Shadows over Baker street
 description: "Review of Shadows over Baker Street — a Lovecraftian Holmes anthology where Holmes faces monsters beyond logic, including Neil Gaiman's celebrated A Study in Emerald. Rated 8/10."
 cover:

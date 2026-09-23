@@ -5,8 +5,8 @@ book_title: The whole art of detection. Lost mysteries of Sherlock Holmes
 date: 2025-05-11
 grade: 8.0
 tags:
-- traditionalpastiche
-- youngholmes
+- traditional-pastiche
+- young-holmes
 title: The whole art of detection. Lost mysteries of Sherlock Holmes
 description: "Review of The Whole Art of Detection by Lyndsay Faye — superb traditional Holmes pastiches spanning his entire career, from early cases before Watson to his final years. Rated 8/10."
 cover:

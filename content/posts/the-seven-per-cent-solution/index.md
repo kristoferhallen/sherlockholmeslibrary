@@ -7,10 +7,10 @@ grade: 10.0
 series: Nicholas Meyer Holmes novels
 series_order: 1
 tags:
-- drug addiction
-- Freud
+- drug-addiction
+- Sigmund Freud
 - Moriarty
-- sherlockholmesmeets
+- sherlock-meets
 title: The Seven-Per-Cent Solution
 description: "Review of The Seven-Per-Cent Solution by Nicholas Meyer — Watson convinces a drug-addicted Holmes to seek treatment from Sigmund Freud in Vienna, where a new case unfolds. Rated 10/10."
 cover:

@@ -5,14 +5,15 @@ book_title: The Strange Case of the Alchemist's Daughter
 date: 2026-05-15
 grade: 7.0
 tags:
-- sherlockholmesmeets
+- sherlock-meets
 - Watson
 - Mary Jekyll
 - Frankenstein
 - Dr Moreau
 - Van Helsing
-- Rappaccinis Daughter
+- "Rappaccini's Daughter"
 - Dr Jekyll
+- Hyde
 title: The Strange Case of the Alchemist's Daughter
 description: "Review of The Strange Case of the Alchemist's Daughter by Theodora Goss — Mary Jekyll teams up with Sherlock Holmes and a group of remarkable women born of mad science to solve a series of gruesome murders. Book 1 in the Extraordinary Adventures of the Athena Club series."
 series: The Extraordinary Adventures of the Athena Club

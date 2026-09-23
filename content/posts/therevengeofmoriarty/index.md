@@ -7,7 +7,7 @@ grade: 6
 series: John Gardner's Moriarty
 series_order: 2
 tags:
-- traditionalpastiche
+- traditional-pastiche
 - Moriarty
 title: The revenge of Moriarty
 description: "Review of John Gardner's The revenge of Moriarty. Rated 6/10."

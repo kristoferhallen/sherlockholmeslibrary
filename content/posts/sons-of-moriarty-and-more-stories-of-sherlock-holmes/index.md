@@ -5,7 +5,7 @@ book_title: Sons of Moriarty and more stories of Sherlock Holmes
 date: 2024-11-10
 grade: 10.0
 tags:
-- traditionalpastiche
+- traditional-pastiche
 - Moriarty
 - Schlock Homes
 - sci-fi

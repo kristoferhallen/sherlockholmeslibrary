@@ -5,14 +5,14 @@ book_title: Encounters of Sherlock Holmes
 date: 2026-02-28
 grade: 9.0
 tags:
-- Space
+- space
 - Martians
 - HG Wells
-- Aj raffles 
+- AJ Raffles
 - Dr Jekyll
-- Newbury Hobbes 
+- Newbury and Hobbes
 - Frankenstein
-- sherlockholmesmeets
+- sherlock-meets
 - steampunk
 title: Encounters of Sherlock Holmes
 description: "Review of Encounters of Sherlock Holmes edited by George Mann — a crossover anthology where Holmes meets H.G. Wells, Frankenstein's monster, Martians and AJ Raffles. Rated 9/10."

@@ -5,6 +5,7 @@ book_title: Sherlock Holmes and the Adventure of the Black Pharaoh
 date: 2026-05-03
 grade: 7.0
 tags:
+- sherlock-meets
 - Egypt
 - Jack the Ripper
 - space

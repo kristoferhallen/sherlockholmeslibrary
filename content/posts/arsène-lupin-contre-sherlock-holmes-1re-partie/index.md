@@ -5,10 +5,10 @@ book_title: Arsène Lupin contre Sherlock Holmes - 1re partie
 date: 2025-09-21
 grade: 2.0
 tags:
-- Arsene Lupin
-- sherlockholmesmeets
+- Arsène Lupin
+- sherlock-meets
 - France
-- Comic
+- comic
 title: Arsène Lupin contre Sherlock Holmes - 1re partie
 description: "Review of a French comics pastiche where Sherlock Holmes meets Arsène Lupin, told from the gentleman thief's perspective. Part one of two. Rated 2/10."
 cover:

@@ -5,7 +5,7 @@ book_title: What Child is this
 date: 2024-10-25
 grade: 4.0
 tags:
-- traditionalpastiche
+- traditional-pastiche
 - Christmas
 title: What Child is this
 description: "Review of What Child is This by Bonnie MacBird — Holmes and Watson thwart a Christmas child abduction in Victorian London, well-written but thin on plot depth. Rated 4/10."

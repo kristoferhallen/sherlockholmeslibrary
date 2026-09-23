@@ -10,7 +10,7 @@ series_order: 19
 tags:
 - Mary Russell
 - Ireland
-- historicalevent
+- historical-event
 title: Knave of Diamonds
 description: "Review of Knave of Diamonds by Laurie R King — Mary Russell's long-lost uncle Jake resurfaces with a connection to the unsolved 1907 theft of the Irish Crown Jewels. Book 19 in the Mary Russell series."
 cover:

@@ -7,7 +7,7 @@ grade: 8.0
 series: The Classified Dossier
 series_order: 1
 tags:
-- sherlockholmesmeets
+- sherlock-meets
 - Moriarty
 - Dracula
 - vampire

@@ -7,8 +7,8 @@ grade: 8.0
 tags:
 - Hercule Poirot
 - Agatha Christie
-- sherlockholmesmeets
-- oldsherlock
+- sherlock-meets
+- old-sherlock
 title: The Adventure of the Murder on the Calais Coach
 description: "Review of The Adventure of the Murder on the Calais Coach — a retired Holmes re-examines Hercule Poirot's verdict on the Murder on the Orient Express. Rated 8/10."
 cover:

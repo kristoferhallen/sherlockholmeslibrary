@@ -5,7 +5,7 @@ book_title: The Execution of Sherlock Holmes
 date: 2024-11-10
 grade: 8.0
 tags:
-- traditionalpastiche
+- traditional-pastiche
 title: The Execution of Sherlock Holmes
 description: "Review of The Execution of Sherlock Holmes by Donald Thomas — five traditional pastiche stories, including Holmes captured by old enemies and facing execution. Rated 8/10."
 cover:

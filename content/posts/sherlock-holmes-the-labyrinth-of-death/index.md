@@ -5,7 +5,7 @@ book_title: 'Sherlock Holmes: The Labyrinth of Death'
 date: 2024-10-04
 grade: 6.0
 tags:
-- traditionalpastiche
+- traditional-pastiche
 - labyrinth
 title: 'Sherlock Holmes: The Labyrinth of Death'
 description: "Review of Sherlock Holmes: The Labyrinth of Death by James Lovegrove — Holmes tracks a missing woman who has joined a sect obsessed with Ancient Greek myths. Rated 6/10."

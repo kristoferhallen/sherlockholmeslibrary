@@ -5,9 +5,9 @@ book_title: Arsène Lupin v/s Sherlock Holmes
 date: 2024-12-31
 grade: 8.0
 tags:
-- Arsene Lupin
+- Arsène Lupin
 - Herlock Sholmes
-- sherlockholmesmeets
+- sherlock-meets
 - France
 title: Arsène Lupin v/s Sherlock Holmes
 description: "Review of Maurice Leblanc's classic crossover where Arsène Lupin faces Sherlock Holmes — a duel of two brilliant minds neither is allowed to win easily. Rated 8/10."

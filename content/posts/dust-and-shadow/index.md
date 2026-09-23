@@ -7,7 +7,7 @@ grade: 8.0
 tags:
 - Jack the Ripper
 - Mycroft
-- sherlockholmesmeets
+- sherlock-meets
 - Lestrade
 title: Dust and Shadow
 description: "Review of Lyndsay Faye's Dust and Shadow — Sherlock Holmes hunts Jack the Ripper through Victorian London, with Mycroft and Lestrade along for the chase. Rated 8/10."

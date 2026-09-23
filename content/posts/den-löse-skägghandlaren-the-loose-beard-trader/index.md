@@ -6,7 +6,7 @@ date: 2025-06-23
 grade: 6.0
 tags:
 - Ture Sventon
-- sherlockholmesmeets
+- sherlock-meets
 - Sweden
 title: Den löse skägghandlaren (The loose beard trader)
 description: "Review of Lars Jannedal's pastiche where Sherlock Holmes meets Swedish detective Ture Sventon in Stockholm, arriving by flying carpet. Rated 6/10."

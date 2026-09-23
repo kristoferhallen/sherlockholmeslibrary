@@ -8,10 +8,11 @@ grade: 9.0
 series: The Classified Dossier
 series_order: 2
 tags:
-- sherlockholmesmeets
+- sherlock-meets
 - Dr Jekyll
 - Hyde
 - Jack the Ripper
+- Dracula
 title: Sherlock Holmes and Mr Hyde
 description: "Review of Sherlock Holmes and Mr Hyde by Christian Klaver — Dr Jekyll asks Holmes to clear his friend Edward Hyde of a series of grisly murders. Book 2 in The Classified Dossier. Rated 9/10."
 cover:

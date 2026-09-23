@@ -26,6 +26,8 @@
       url: "/posts/sherlock-holmes-and-mr-hyde/"
     - title: "Sherlock Holmes and Dorian Gray"
       url: "/posts/sherlock-holmes-and-dorian-gray/"
+    - title: "The Strange Case of the Alchemist's Daughter"
+      url: "/posts/the-strange-case-of-the-alchemists-daughter/"
   wikipedia: "https://en.wikipedia.org/wiki/Dr_Jekyll_and_Mr_Hyde_(character)"
 
 - name: "Sigmund Freud"
@@ -51,11 +53,15 @@
   wikipedia: "https://en.wikipedia.org/wiki/Jack_the_Ripper"
 
 - name: "Count Dracula"
-  description: "The Transylvanian vampire nobleman created by Bram Stoker. In this story Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead."
+  description: "The Transylvanian vampire nobleman created by Bram Stoker. In Christian Klaver's Classified Dossier series Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead that lasts through the whole series."
   image: "dracula.png"
   books:
     - title: "Sherlock Holmes and Count Dracula"
       url: "/posts/sherlock-holmes-and-count-dracula/"
+    - title: "Sherlock Holmes and Mr Hyde"
+      url: "/posts/sherlock-holmes-and-mr-hyde/"
+    - title: "Sherlock Holmes and Dorian Gray"
+      url: "/posts/sherlock-holmes-and-dorian-gray/"
   wikipedia: "https://en.wikipedia.org/wiki/Count_Dracula"
 
 - name: "Cthulhu"

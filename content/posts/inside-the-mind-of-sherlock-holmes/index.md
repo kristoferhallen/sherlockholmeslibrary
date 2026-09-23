@@ -5,8 +5,8 @@ book_title: Inside The Mind of Sherlock Holmes
 date: 2025-01-19
 grade: 8.0
 tags:
-- graphic novel
-- Comic
+- graphic-novel
+- comic
 title: Inside The Mind of Sherlock Holmes
 description: "Review of Inside the Mind of Sherlock Holmes — a stunning graphic novel that visualises Holmes's deductive thinking, following a literal red thread across the pages. Rated 8/10."
 cover:

@@ -5,7 +5,7 @@ book_title: Dr. Jekyll and Mr. Holmes
 date: 2024-10-20
 grade: 6.0
 tags:
-- sherlockholmesmeets
+- sherlock-meets
 - Dr Jekyll
 - Hyde
 title: Dr. Jekyll and Mr. Holmes

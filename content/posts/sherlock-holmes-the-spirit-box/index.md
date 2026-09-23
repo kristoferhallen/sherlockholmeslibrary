@@ -5,9 +5,9 @@ book_title: Sherlock Holmes The Spirit Box
 date: 2024-10-06
 grade: 6.0
 tags:
-- traditionalpastiche
+- traditional-pastiche
 - spiritualism
-- oldsherlock
+- old-sherlock
 title: Sherlock Holmes The Spirit Box
 description: "Review of Sherlock Holmes: The Spirit Box by George Mann — Holmes and Watson come out of WWI retirement to help Mycroft solve a series of unexplained deaths. Rated 6/10."
 cover:

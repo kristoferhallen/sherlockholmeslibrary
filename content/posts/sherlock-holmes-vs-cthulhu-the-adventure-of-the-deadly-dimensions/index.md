@@ -5,11 +5,11 @@ book_title: Sherlock Holmes vs Cthulhu. The adventure of the deadly dimensions
 date: 2024-12-27
 grade: 4.0
 tags:
-- sherlockholmesmeets
-- cthulhu
-- moriarty
+- sherlock-meets
+- Cthulhu
+- Moriarty
 - horror
-- lovecraft
+- HP Lovecraft
 title: Sherlock Holmes vs Cthulhu. The adventure of the deadly dimensions
 description: "Review of Sherlock Holmes vs Cthulhu by Lois H Gresh — Holmes investigates London murders that drag him into a Lovecraftian nightmare beyond rational explanation. Rated 4/10."
 cover:

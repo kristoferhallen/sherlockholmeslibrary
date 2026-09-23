@@ -6,7 +6,7 @@ date: 2025-01-27
 grade: 10.0
 tags:
 - ai
-- traditionalpastiche
+- traditional-pastiche
 - Mycroft
 title: Art in the blood
 description: "Review of Bonnie MacBird's Art in the Blood — a gripping Holmes pastiche with classic deductions, cocaine, Mycroft, and a race across Paris and Victorian England. Rated 10/10."
