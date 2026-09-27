@@ -154,6 +154,7 @@
 
 - name: "The Phantom of the Opera"
   description: "Erik, the disfigured musical genius haunting the cellars of the Paris Opera House in Gaston Leroux's 1910 novel. "
+  image: "phantom.jpg"
   books:
     - title: "The Canary Trainer"
       url: "/posts/the-canary-trainer/"

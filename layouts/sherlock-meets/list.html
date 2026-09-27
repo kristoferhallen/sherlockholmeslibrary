@@ -11,11 +11,29 @@
 
 <div class="meets-grid">
   {{- range hugo.Data.sherlockmeets }}
+  {{- $person := . }}
   <div class="meets-card">
 
     <div class="meets-portrait">
-      {{- if .image }}
-      <div class="meets-portrait-img" style="background-image: url('/images/sherlock-meets/{{ .image }}')" role="img" aria-label="{{ .name }}"></div>
+      {{- $portrait := "" }}
+      {{- with .image }}
+        {{- $portrait = resources.Get (printf "images/sherlock-meets/%s" .) }}
+        {{- if not $portrait }}{{ warnf "sherlock-meets: image %q not found in assets/images/sherlock-meets/" . }}{{ end }}
+      {{- end }}
+      {{- with $portrait }}
+      {{- $img1x := .Resize "170x" }}
+      {{- $img2x := .Resize "340x" }}
+      <picture>
+        <source type="image/webp" srcset="{{ (.Resize "170x webp q80").RelPermalink }} 1x, {{ (.Resize "340x webp q80").RelPermalink }} 2x">
+        <img class="meets-portrait-img"
+             src="{{ $img1x.RelPermalink }}"
+             srcset="{{ $img1x.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x"
+             alt="Silhouettes of Sherlock Holmes and {{ $person.name }}"
+             loading="lazy"
+             decoding="async"
+             width="{{ $img1x.Width }}"
+             height="{{ $img1x.Height }}">
+      </picture>
       {{- else }}
       <div class="meets-portrait-placeholder">?</div>
       {{- end }}
