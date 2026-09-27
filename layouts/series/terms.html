@@ -42,7 +42,7 @@
     {{- if and .Params.author (not $author) }}{{- $author = .Params.author }}{{- end }}
   {{- end }}
 
-  {{- $seriesData := index site.Data.series_descriptions $termPage.Title }}
+  {{- $seriesData := index hugo.Data.series_descriptions $termPage.Title }}
 
   <a class="series-row" href="{{ $termPage.Permalink }}">
     {{- if $firstBook }}
