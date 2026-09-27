@@ -1337,6 +1337,7 @@ body > .header { display: none; }
   color: var(--rr-acc2);
   letter-spacing: 0.06em;
   margin-right: 0.25rem;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
