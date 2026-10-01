@@ -1,5 +1,11 @@
 Options -Indexes
 
+# Server sends .avif without a Content-Type
+AddType image/avif .avif
+
+# Renamed post slug (must precede the /post/ rule so /post/thethinkingengine/ is a single hop)
+RedirectMatch 301 ^/posts?/thethinkingengine/?$ /posts/sherlock-holmes-the-thinking-engine/
+
 # Old singular /post/<slug> → plural /posts/<slug>
 RedirectMatch 301 ^/post/(.*)$ /posts/$1
 

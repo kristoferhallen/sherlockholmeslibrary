@@ -1,0 +1,30 @@
+# {{ site.Title }}
+
+> {{ site.Params.homeInfoParams.Content }} Written by Kristofer Hallén, a member of the Swedish Sherlock Holmes society The Baskerville Hall Club of Sweden. Each review gives the book a grade out of 10.
+
+{{- $posts := where site.RegularPages "Section" "posts" }}
+
+## Sections
+
+- [All books]({{ "books/" | absURL }}): every review, organised by author
+- [Top rated]({{ "top-books/" | absURL }}): the highest graded books
+- [Series]({{ "series/" | absURL }}): reviews grouped by book series, in reading order
+- [Sherlock Meets]({{ "sherlock-meets/" | absURL }}): real and fictional people Holmes encounters in the pastiches
+- [Tags]({{ "tags/" | absURL }}): themes such as traditional pastiche, young Holmes or Mycroft
+- [About]({{ "about/" | absURL }}): about the site and its author
+
+## Reviews
+
+{{- /* grade is a mix of ints and floats in front matter; normalise before sorting */}}
+{{- $rows := slice }}
+{{- range sort $posts "Title" }}
+  {{- $rows = $rows | append (dict "grade" (float (.Params.grade | default 0)) "page" .) }}
+{{- end }}
+
+{{ range sort $rows "grade" "desc" }}{{ with .page -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Params.author }} by {{ trim . " " }}{{ end }}{{ with .Params.grade }} ({{ . }}/10){{ end }}{{ with .Description }}: {{ . | plainify | replaceRE `\s+` " " }}{{ end }}
+{{ end }}{{ end }}
+## Optional
+
+- [RSS feed]({{ "index.xml" | absURL }}): latest reviews
+- [Sitemap]({{ "sitemap.xml" | absURL }})

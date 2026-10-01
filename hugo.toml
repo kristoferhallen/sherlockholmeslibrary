@@ -19,6 +19,16 @@ theme = "PaperMod"
     iconHeight = 45
 
   
+# /llms.txt (https://llmstxt.org/), generated from layouts/index.llms.txt
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "llms"]
+
 [taxonomies]
   author = "authors"
   tag = "tags"
