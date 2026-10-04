@@ -13,6 +13,7 @@ tags:
 - Hyde
 - Jack the Ripper
 - Dracula
+- Mina Harker
 title: Sherlock Holmes and Mr Hyde
 description: "Review of Sherlock Holmes and Mr Hyde by Christian Klaver — Dr Jekyll asks Holmes to clear his friend Edward Hyde of a series of grisly murders. Book 2 in The Classified Dossier. Rated 9/10."
 cover:

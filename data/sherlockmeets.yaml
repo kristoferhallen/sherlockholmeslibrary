@@ -28,14 +28,18 @@
       url: "/posts/sherlock-holmes-and-dorian-gray/"
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Dr_Jekyll_and_Mr_Hyde_(character)"
 
 - name: "Sigmund Freud"
-  description: "The Austrian neurologist and founder of psychoanalysis. Watson brings a cocaine-addicted Holmes to Vienna to seek treatment from Freud, and the two brilliant minds quickly form an unlikely bond — especially when a new case draws them both in."
+  description: "The Austrian neurologist and founder of psychoanalysis. Watson brings a cocaine-addicted Holmes to Vienna to seek treatment from Freud, and the two brilliant minds quickly form an unlikely bond — especially when a new case draws them both in. In the Athena Club series Dr Freud helps Mary Jekyll and her friends when their search for Lucinda Van Helsing takes them to Vienna."
   image: "sigmundfreud.png"
   books:
     - title: "The Seven-Per-Cent Solution"
       url: "/posts/the-seven-per-cent-solution/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Sigmund_Freud"
 
 - name: "Jack the Ripper"
@@ -53,7 +57,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Jack_the_Ripper"
 
 - name: "Count Dracula"
-  description: "The Transylvanian vampire nobleman created by Bram Stoker. In Christian Klaver's Classified Dossier series Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead that lasts through the whole series."
+  description: "The Transylvanian vampire nobleman created by Bram Stoker. In Christian Klaver's Classified Dossier series Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead that lasts through the whole series. He also turns up in Theodora Goss's Athena Club series, in his castle in Styria."
   image: "dracula.png"
   books:
     - title: "Sherlock Holmes and Count Dracula"
@@ -62,7 +66,22 @@
       url: "/posts/sherlock-holmes-and-mr-hyde/"
     - title: "Sherlock Holmes and Dorian Gray"
       url: "/posts/sherlock-holmes-and-dorian-gray/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Count_Dracula"
+
+- name: "Mina Harker"
+  description: "Wilhelmina Harker, née Murray, the clever schoolmistress from Bram Stoker's Dracula (1897) who helps Van Helsing hunt down the Count. In Christian Klaver's Classified Dossier she is Dracula's companion and ally, and in Theodora Goss's Athena Club series she is Mina Murray, a resourceful woman with her own version of what really happened in Stoker's novel."
+  books:
+    - title: "Sherlock Holmes and Count Dracula"
+      url: "/posts/sherlock-holmes-and-count-dracula/"
+    - title: "Sherlock Holmes and Mr Hyde"
+      url: "/posts/sherlock-holmes-and-mr-hyde/"
+    - title: "Sherlock Holmes and Dorian Gray"
+      url: "/posts/sherlock-holmes-and-dorian-gray/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
+  wikipedia: "https://en.wikipedia.org/wiki/Mina_Harker"
 
 - name: "Cthulhu"
   description: "The cosmic entity created by H.P. Lovecraft, lying dormant beneath the Pacific Ocean in the sunken city of R'lyeh. When Cthulhu's influence spreads across London, Holmes must apply cold Victorian reason to horrors that defy all rational explanation."
@@ -100,6 +119,8 @@
       url: "/posts/sherlock-holmes-and-dorian-gray/"
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Doctor_Moreau"
 
 - name: "Rappaccini's Daughter"
@@ -108,6 +129,8 @@
   books:
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Rappaccini%27s_Daughter"
 
 - name: "Frankenstein's Monster"
@@ -118,6 +141,8 @@
       url: "/posts/encountersofsherlockholmes/"
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Frankenstein%27s_monster"
 
 - name: "Professor Van Helsing"
@@ -126,6 +151,8 @@
   books:
     - title: "The Strange Case of the Alchemist's Daughter"
       url: "/posts/the-strange-case-of-the-alchemists-daughter/"
+    - title: "European Travel for the Monstrous Gentlewoman"
+      url: "/posts/european-travel-for-the-monstrous-gentlewoman/"
   wikipedia: "https://en.wikipedia.org/wiki/Professor_Van_Helsing"
 
 - name: "Hercule Poirot"
