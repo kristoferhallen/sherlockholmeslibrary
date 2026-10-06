@@ -72,6 +72,7 @@
 
 - name: "Mina Harker"
   description: "Wilhelmina Harker, née Murray, the clever schoolmistress from Bram Stoker's Dracula (1897) who helps Van Helsing hunt down the Count. In Christian Klaver's Classified Dossier she is Dracula's companion and ally, and in Theodora Goss's Athena Club series she is Mina Murray, a resourceful woman with her own version of what really happened in Stoker's novel."
+  image: "minaharker.jpg"
   books:
     - title: "Sherlock Holmes and Count Dracula"
       url: "/posts/sherlock-holmes-and-count-dracula/"
