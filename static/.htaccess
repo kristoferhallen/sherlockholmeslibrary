@@ -6,6 +6,49 @@ AddType image/avif .avif
 # Renamed post slug (must precede the /post/ rule so /post/thethinkingengine/ is a single hop)
 RedirectMatch 301 ^/posts?/thethinkingengine/?$ /posts/sherlock-holmes-the-thinking-engine/
 
+# Old slugs from the previous site (no hyphens, sometimes a different name)
+# → current slugs. Must precede the /post/ rule so old links are a single hop.
+RedirectMatch 301 ^/posts?/arsenevsholmes/?$ /posts/arsène-lupin-vs-sherlock-holmes/
+RedirectMatch 301 ^/posts?/arsenevsholmescomic/?$ /posts/arsène-lupin-contre-sherlock-holmes-1re-partie/
+RedirectMatch 301 ^/posts?/artintheblood/?$ /posts/art-in-the-blood/
+RedirectMatch 301 ^/posts?/aslighttrickofthemind/?$ /posts/a-slight-trick-of-the-mind/
+RedirectMatch 301 ^/posts?/booknook/?$ /posts/lego-sherlock-holmes-book-nook/
+RedirectMatch 301 ^/posts?/denloseskagghandlaren/?$ /posts/den-löse-skägghandlaren-the-loose-beard-trader/
+RedirectMatch 301 ^/posts?/dodengaristockholm/?$ /posts/en-skandal-i-stockholm-a-scandal-in-stockholm/
+RedirectMatch 301 ^/posts?/drjekyllandmrholmes/?$ /posts/dr-jekyll-and-mr-holmes/
+RedirectMatch 301 ^/posts?/dustshadow/?$ /posts/dust-and-shadow/
+RedirectMatch 301 ^/posts?/enoscarianskskandal/?$ /posts/en-oscariansk-skandal-sherlock-holmes-i-stockholm/
+RedirectMatch 301 ^/posts?/furthermemoirsofsherlockholmes/?$ /posts/the-further-memoirs-of-sherlock-holmes/
+RedirectMatch 301 ^/posts?/galacticcasebook/?$ /posts/the-galactic-casebook-of-sherlock-holmes/
+RedirectMatch 301 ^/posts?/garmentofshadows/?$ /posts/garment-of-shadows/
+RedirectMatch 301 ^/posts?/insidethemindofsherlockholmes/?$ /posts/inside-the-mind-of-sherlock-holmes/
+RedirectMatch 301 ^/posts?/labyrinthofdeath/?$ /posts/sherlock-holmes-the-labyrinth-of-death/
+RedirectMatch 301 ^/posts?/shadowsoverbakestreet/?$ /posts/shadows-over-baker-street/
+RedirectMatch 301 ^/posts?/sherlockholmesandcountdracula/?$ /posts/sherlock-holmes-and-count-dracula/
+RedirectMatch 301 ^/posts?/sherlockholmesanddoriangray/?$ /posts/sherlock-holmes-and-dorian-gray/
+RedirectMatch 301 ^/posts?/sherlockholmesandmrhyde/?$ /posts/sherlock-holmes-and-mr-hyde/
+RedirectMatch 301 ^/posts?/sherlockholmesinybelysning/?$ /posts/sherlock-holmes-i-ny-belysning-sherlock-holmes-in-a-new-light/
+RedirectMatch 301 ^/posts?/sherlockholmesvscthuluhu/?$ /posts/sherlock-holmes-vs-cthulhu-the-adventure-of-the-deadly-dimensions/
+RedirectMatch 301 ^/posts?/sonsofmoriarty/?$ /posts/sons-of-moriarty-and-more-stories-of-sherlock-holmes/
+RedirectMatch 301 ^/posts?/theadventureofthemurderonthecalaiscoach/?$ /posts/the-adventure-of-the-murder-on-the-calais-coach/
+RedirectMatch 301 ^/posts?/thebeekeepersapprentice/?$ /posts/the-beekeepers-apprentice/
+RedirectMatch 301 ^/posts?/theemptybirdcage/?$ /posts/mycroft-and-sherlock-the-empty-birdcage/
+RedirectMatch 301 ^/posts?/theexecutionofsherlockholmes/?$ /posts/the-execution-of-sherlock-holmes/
+RedirectMatch 301 ^/posts?/thefinalsolution/?$ /posts/the-final-solution/
+RedirectMatch 301 ^/posts?/thegame/?$ /posts/the-game/
+RedirectMatch 301 ^/posts?/thehouseofsilk/?$ /posts/the-house-of-silk/
+RedirectMatch 301 ^/posts?/theitaliansecretary/?$ /posts/the-italian-secretary/
+RedirectMatch 301 ^/posts?/thelanternsdance/?$ /posts/the-lanterns-dance/
+RedirectMatch 301 ^/posts?/themurderofmaryrussel/?$ /posts/the-murder-of-mary-russel/
+RedirectMatch 301 ^/posts?/thescrollofthedead/?$ /posts/the-scroll-of-the-dead/
+RedirectMatch 301 ^/posts?/thesevenpercentsolution/?$ /posts/the-seven-per-cent-solution/
+RedirectMatch 301 ^/posts?/thespiritbox/?$ /posts/sherlock-holmes-the-spirit-box/
+RedirectMatch 301 ^/posts?/thestoneofdestiny/?$ /posts/the-stone-of-destiny/
+RedirectMatch 301 ^/posts?/trepiporsproblem/?$ /posts/trepiporsproblem-och-bagateller-three-pipe-problems-and-trifles/
+RedirectMatch 301 ^/posts?/veiled_detective/?$ /posts/the-veiled-detective/
+RedirectMatch 301 ^/posts?/whatchildisthis/?$ /posts/what-child-is-this/
+RedirectMatch 301 ^/posts?/wholeartofdetection/?$ /posts/the-whole-art-of-detection-lost-mysteries-of-sherlock-holmes/
+
 # Old singular /post/<slug> → plural /posts/<slug>
 RedirectMatch 301 ^/post/(.*)$ /posts/$1
 
