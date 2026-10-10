@@ -45,7 +45,7 @@
   font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
   color: var(--primary); margin: 0 0 .3rem;
 }
-.guide-notes p { margin: 0; font-size: .97rem; }
+.guide-notes p { margin: 0; font-size: .97rem; color: var(--content); }
 
 /* List header and filter */
 .guide-list-head {

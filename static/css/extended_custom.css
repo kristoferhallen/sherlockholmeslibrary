@@ -20,7 +20,9 @@
   --rr-acc3:     #D4956A;
 }
 
-[data-theme="dark"] {
+/* :root raises specificity to match PaperMod's own :root[data-theme="dark"],
+   so these colours win (this file loads after the theme). */
+:root[data-theme="dark"] {
   --theme:     #1C1610;
   --entry:     #261E16;
   --primary:   #C4724A;
@@ -252,57 +254,60 @@ body > .header { display: none; }
    Library Statistics (Home Page)
    ========================================================================== */
 
-.library-stats {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: 1.5rem 0;
+/* Catalogue card with the library statistics (home page) */
+.library-card {
+  max-width: 420px;
+  margin: 1.75rem auto .5rem;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1rem 1.4rem 1.1rem;
+  position: relative;
+  /* a second card peeking out underneath */
+  box-shadow: 0 1px 0 var(--border), 0 3px 0 -1px var(--entry), 0 4px 0 -1px var(--border);
 }
-
-.library-stats .stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1rem 1.5rem;
-  min-width: 100px;
-  border-right: 1px solid var(--border);
+/* the punched hole at the top of a catalogue card */
+.library-card::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  width: 18px;
+  height: 9px;
+  margin-left: -9px;
+  background: var(--code-bg); /* PaperMod's list-page background */
+  border: 1px solid var(--border);
+  border-top: 0;
+  border-radius: 0 0 9px 9px;
 }
-
-.library-stats .stat:last-child {
-  border-right: none;
-}
-
-.library-stats .stat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--secondary);
-  margin-bottom: 0.5rem;
-}
-
-.library-stats .stat-icon svg {
-  width: 20px;
-  height: 20px;
-}
-
-.library-stats .stat-number {
-  display: block;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.library-stats .stat-label {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--secondary);
-  margin-top: 0.35rem;
+[data-theme="dark"] .library-card::before { background: var(--theme); } /* dark list pages use --theme */
+.library-card h2 {
+  font-size: .72rem;
+  letter-spacing: .24em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--primary);
+  text-align: center;
+  margin: .3rem 0 .7rem;
+  padding-bottom: .5rem;
+  border-bottom: 3px double var(--border);
 }
+.library-card a {
+  display: flex;
+  align-items: baseline;
+  gap: .4rem;
+  color: var(--content);
+  padding: .22rem 0;
+  box-shadow: none;
+}
+.library-card a span { white-space: nowrap; }
+.library-card a i {
+  flex: 1;
+  border-bottom: 1px dotted var(--secondary);
+  opacity: .6;
+  transform: translateY(-4px);
+}
+.library-card a b { font-family: 'Lora', serif; color: var(--primary); white-space: nowrap; }
+.library-card a:hover span { color: var(--primary); }
 
 .home-info {
   margin-bottom: 2rem;
@@ -320,34 +325,6 @@ body > .header { display: none; }
   font-size: 1rem;
 }
 
-@media (max-width: 500px) {
-  .library-stats {
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  .library-stats .stat {
-    padding: 0.75rem 1rem;
-    min-width: 80px;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    flex: 1 1 40%;
-  }
-
-  .library-stats .stat:nth-child(3),
-  .library-stats .stat:nth-child(4) {
-    border-bottom: none;
-  }
-
-  .library-stats .stat-number {
-    font-size: 1.5rem;
-  }
-
-  .library-stats .stat-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-}
 
 /* ==========================================================================
    Book Review Specific Styles
