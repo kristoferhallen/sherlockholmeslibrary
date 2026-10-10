@@ -9,4 +9,4 @@ notes:
     text: "The books have different titles in the UK and the US. **The House at Baker Street** is also published as All Roads Lead to Whitechapel, and **The Women of Baker Street** as No One Notices the Boys."
 ---
 
-When Holmes turns away a desperate young bride, Mrs Hudson and Mary Watson decide to take the case themselves. A refreshing take on the Holmes universe: Holmes and Watson are there, but not as the main characters, and we get to know Mrs Hudson and Mary better.
+When Holmes turns away a desperate young bride, Mrs Hudson and Mary Watson decide to take the case themselves. Holmes and Watson are there, but not as the main characters, and we get to see new sides of Mrs Hudson and Mary.

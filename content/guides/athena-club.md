@@ -11,4 +11,4 @@ notes:
     text: "Yes. I liked **#2** better: more characters, a journey across Europe, and help from Irene Adler."
 ---
 
-Mary Jekyll, alone and penniless after her parents' death, starts digging into her father's past and finds a group of extraordinary women, all created through scientific experiments. Together they form the Athena Club. It is a great mashup of Jekyll and Hyde, Rappaccini's Daughter, Doctor Moreau, Van Helsing and Frankenstein, with Holmes and Watson in supporting roles.
+Mary Jekyll, alone and penniless after her parents' death, starts digging into her father's past and finds a group of extraordinary women, all created through scientific experiments. Together they form the Athena Club. It is a great mashup of Sherlock Holmes that brings together the monsters of 19th-century gothic fiction. You will meet Jekyll and Hyde, Rappaccini's Daughter, Doctor Moreau, Van Helsing and Frankenstein, with Holmes and Watson in supporting roles.
