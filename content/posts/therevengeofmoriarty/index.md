@@ -6,6 +6,7 @@ date: 2026-03-22
 grade: 6
 series: John Gardner's Moriarty
 series_order: 2
+publication_year: 1975
 tags:
 - traditional-pastiche
 - Moriarty

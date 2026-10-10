@@ -1,0 +1,141 @@
+{{- /*
+  One compact, sortable list of every review. Used by /books/ (sorted by
+  author) and /top-books/ (sorted by rating). The page renders in its default
+  order with group headings; the script re-sorts and filters in place.
+  Usage: {{ partial "book-index.html" (dict "page" . "sort" "author") }}
+*/ -}}
+{{- $sort := .sort }}
+{{- $posts := where site.RegularPages "Type" "posts" }}
+{{- if eq $sort "rating" }}
+  {{- $posts = sort (sort $posts "Params.book_title") "Params.grade" "desc" }}
+{{- else }}
+  {{- $posts = sort (sort $posts "Params.book_title") "Params.author_last" }}
+{{- end }}
+
+<div class="book-index" data-sort="{{ $sort }}">
+  <div class="book-index-controls">
+    <input type="search" class="book-index-search" placeholder="Find a title, author or series" aria-label="Find a book">
+    <div class="book-index-sort" role="group" aria-label="Sort books">
+      <span>Sort</span>
+      <a href="{{ "/books/" | relURL }}" data-sort="author"{{ if eq $sort "author" }} aria-current="true"{{ end }}>Author</a>
+      <a href="{{ "/top-books/" | relURL }}" data-sort="rating"{{ if eq $sort "rating" }} aria-current="true"{{ end }}>Rating</a>
+      <a href="{{ "/books/" | relURL }}#newest" data-sort="newest">Newest</a>
+    </div>
+  </div>
+  <p class="book-index-count" aria-live="polite"><span>{{ len $posts }}</span> books</p>
+  <nav class="book-index-jump" aria-label="Jump to letter"></nav>
+
+  <ol class="book-index-list">
+  {{- $group := "" }}
+  {{- range $posts }}
+    {{- $grade := .Params.grade | int }}
+    {{- $letter := upper (substr (.Params.author_last | default .Params.author) 0 1) }}
+    {{- $key := cond (eq $sort "rating") (string $grade) $letter }}
+    {{- if ne $key $group }}
+    {{- $group = $key }}
+    <li class="book-index-group" id="group-{{ $key }}">{{ if eq $sort "rating" }}{{ $key }}/10{{ else }}{{ $key }}{{ end }}</li>
+    {{- end }}
+    {{- $title := .Params.book_title | default .Title }}
+    {{- /* Books in a series sort by their place in it, the rest by title. */}}
+    {{- $order := $title | lower }}
+    {{- if .Params.series }}{{ $order = printf "%s %03d" (lower .Params.series) (int (.Params.series_order | default 0)) }}{{ end }}
+    {{- $gradeClass := "grade-mid" }}
+    {{- if ge $grade 10 }}{{ $gradeClass = "grade-top" }}
+    {{- else if ge $grade 7 }}{{ $gradeClass = "grade-high" }}
+    {{- else if lt $grade 5 }}{{ $gradeClass = "grade-low" }}{{ end }}
+    <li class="book-row"
+        data-author="{{ .Params.author_last | lower }}" data-letter="{{ $letter }}"
+        data-title="{{ $title | lower }}" data-order="{{ $order }}" data-grade="{{ $grade }}" data-date="{{ .Date.Format "2006-01-02" }}"
+        data-text="{{ printf "%s %s %s" $title .Params.author (.Params.series | default "") | lower }}">
+      <a href="{{ .Permalink }}">
+        <span class="book-row-cover">
+          {{- partial "responsive-cover.html" (dict "page" . "width" 44 "alt" "") }}
+        </span>
+        <span class="book-row-text">
+          <span class="book-row-title">{{ $title }}</span>
+          <span class="book-row-meta">
+            {{- .Params.author }}
+            {{- with .Params.series }} · {{ . }}{{ with $.Params.series_order }} #{{ . }}{{ end }}{{ end }}
+            {{- with .Params.publication_year }} · {{ . }}{{ end -}}
+          </span>
+        </span>
+        <span class="grade-medallion grade-small {{ $gradeClass }}" aria-label="Rated {{ $grade }} of 10"><span class="gn">{{ $grade }}</span></span>
+      </a>
+    </li>
+  {{- end }}
+  </ol>
+  <p class="book-index-empty" hidden>No books match.</p>
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.book-index');
+  if (!root) return;
+  var list = root.querySelector('.book-index-list');
+  var rows = Array.prototype.slice.call(list.querySelectorAll('.book-row'));
+  var search = root.querySelector('.book-index-search');
+  var jump = root.querySelector('.book-index-jump');
+  var count = root.querySelector('.book-index-count span');
+  var empty = root.querySelector('.book-index-empty');
+  var sort = location.hash === '#newest' ? 'newest' : root.dataset.sort;
+
+  var cmp = {
+    author: function (a, b) { return a.dataset.author.localeCompare(b.dataset.author) || a.dataset.order.localeCompare(b.dataset.order); },
+    rating: function (a, b) { return b.dataset.grade - a.dataset.grade || a.dataset.title.localeCompare(b.dataset.title); },
+    newest: function (a, b) { return b.dataset.date.localeCompare(a.dataset.date); }
+  };
+  var groupOf = {
+    author: function (r) { return r.dataset.letter; },
+    rating: function (r) { return r.dataset.grade + '/10'; },
+    newest: function (r) { return 'Reviewed ' + r.dataset.date.slice(0, 4); }
+  };
+
+  function render() {
+    var q = search.value.trim().toLowerCase();
+    var shown = rows.filter(function (r) { return !q || r.dataset.text.indexOf(q) !== -1; }).sort(cmp[sort]);
+    list.textContent = '';
+    var group = null, groups = [];
+    shown.forEach(function (r) {
+      var g = groupOf[sort](r);
+      if (g !== group) {
+        group = g;
+        var h = document.createElement('li');
+        h.className = 'book-index-group';
+        h.id = 'group-' + g.replace(/\W+/g, '');
+        h.textContent = g;
+        list.appendChild(h);
+        groups.push(g);
+      }
+      list.appendChild(r);
+    });
+    count.textContent = shown.length;
+    empty.hidden = shown.length > 0;
+    // A–Z jump links only make sense for the author order.
+    jump.textContent = '';
+    jump.hidden = sort !== 'author' || q !== '';
+    if (!jump.hidden) {
+      groups.forEach(function (g) {
+        var a = document.createElement('a');
+        a.href = '#group-' + g;
+        a.textContent = g;
+        jump.appendChild(a);
+      });
+    }
+    root.querySelectorAll('.book-index-sort a').forEach(function (a) {
+      if (a.dataset.sort === sort) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+
+  root.querySelectorAll('.book-index-sort a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      sort = a.dataset.sort;
+      history.replaceState(null, '', a.getAttribute('href'));
+      render();
+    });
+  });
+  search.addEventListener('input', render);
+  render();
+})();
+</script>

@@ -1,0 +1,5 @@
+{{- /* Tabs shared by the Books pages. /top-books/ is the same list sorted by rating. */ -}}
+<nav class="books-tabs" aria-label="Browse books">
+  <a href="{{ "/books/" | relURL }}"{{ if in (slice "books" "top-books") .Section }} aria-current="page"{{ end }}>All books</a>
+  <a href="{{ "/tags/" | relURL }}"{{ if eq .Section "tags" }} aria-current="page"{{ end }}>Tags</a>
+</nav>

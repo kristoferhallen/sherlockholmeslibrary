@@ -3,4 +3,4 @@ title: "All Books"
 layout: "books"
 ---
 
-Browse all book reviews organized by author.
+Every book I have reviewed. Search, or sort by author, rating or newest review.

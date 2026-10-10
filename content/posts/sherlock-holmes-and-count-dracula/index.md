@@ -6,6 +6,7 @@ date: 2024-10-12
 grade: 8.0
 series: The Classified Dossier
 series_order: 1
+publication_year: 2021
 tags:
 - sherlock-meets
 - Moriarty

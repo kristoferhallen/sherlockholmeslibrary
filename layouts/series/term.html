@@ -12,6 +12,16 @@
 <div class="post-content">{{ .Content }}</div>
 {{- end }}
 
+{{- $slug := .Title | urlize }}
+{{- with site.GetPage "/guides" }}
+  {{- range where .Pages "Params.guide_series" "!=" nil }}
+    {{- if eq (.Params.guide_series | urlize) $slug }}
+      {{- $books := partial "guide-books.html" .Params.guide_series }}
+<p class="series-guide-link">Reading guide: <a href="{{ .Permalink }}">all {{ len $books }} books in reading order →</a></p>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 {{- $pages := sort .Pages ".Params.series_order" }}
 
 <div class="series-term-list">

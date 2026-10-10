@@ -7,6 +7,7 @@ date: 2026-06-21
 grade: 7
 series: Mary Russell
 series_order: 19
+publication_year: 2025
 tags:
 - Mary Russell
 - Ireland

@@ -6,6 +6,7 @@ date: 2025-09-10
 grade: 8.0
 series: The Classified Dossier
 series_order: 3
+publication_year: 2024
 tags:
 - Dorian Gray
 - Mycroft

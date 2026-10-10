@@ -3,4 +3,4 @@ title: "Top Rated Books"
 layout: "top-books"
 ---
 
-The highest rated Sherlock Holmes books.
+Every book I have reviewed, best rated first.

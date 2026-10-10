@@ -6,6 +6,7 @@ date: 2025-12-14
 grade: 8.0
 series: Mary Russell
 series_order: 1
+publication_year: 1994
 tags:
 - Mary Russell
 title: The Beekeepers apprentice

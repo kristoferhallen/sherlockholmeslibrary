@@ -1,0 +1,11 @@
+{{- /*
+  Returns every book in a series in reading order: reviews from
+  content/posts/ plus not-yet-reviewed books from content/unread/.
+  Usage: {{ $books := partial "guide-books.html" "Mary Russell" }}
+*/ -}}
+{{- $reviews := where (where site.RegularPages "Type" "posts") "Params.series" . }}
+{{- $unread := slice }}
+{{- with site.GetPage "/unread" }}
+  {{- $unread = where .Pages "Params.series" $ }}
+{{- end }}
+{{- return sort ($reviews | union $unread) "Params.series_order" }}

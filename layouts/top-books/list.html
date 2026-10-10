@@ -6,50 +6,7 @@
   <div class="post-description">{{ .Content }}</div>
   {{- end }}
 </header>
-
-{{- $posts := where site.RegularPages "Type" "posts" }}
-{{- $sortedPosts := sort $posts ".Params.grade" "desc" }}
-
-<ol class="top-books-ranked">
-  {{- $rank := 0 }}
-  {{- range $sortedPosts }}
-  {{- if .Params.grade }}
-  {{- $rank = add $rank 1 }}
-
-  {{- $gradeClass := "grade-mid" }}
-  {{- if ge .Params.grade 10.0 }}{{- $gradeClass = "grade-top" }}
-  {{- else if ge .Params.grade 7.0 }}{{- $gradeClass = "grade-high" }}
-  {{- else if ge .Params.grade 5.0 }}{{- $gradeClass = "grade-mid" }}
-  {{- else }}{{- $gradeClass = "grade-low" }}
-  {{- end }}
-
-  <li class="ranked-entry">
-    <span class="rank-num">#{{ $rank }}</span>
-    {{- $image := .Resources.GetMatch "cover.*" }}
-    {{- if $image }}
-    <div class="ranked-cover">
-      {{- partial "responsive-cover.html" (dict "page" . "width" 100 "alt" (printf "Cover of %s" (.Params.book_title | default .Title | plainify))) }}
-    </div>
-    {{- end }}
-    <div class="ranked-info">
-      <h3><a href="{{ .Permalink }}">{{ .Params.book_title | default .Title }}</a></h3>
-      <div class="ranked-author">{{ .Params.author }}</div>
-      {{- with .Params.series }}
-      <div class="ranked-series">
-        <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
-        {{- with $.Params.series_order }} #{{ . }}{{- end }}
-      </div>
-      {{- end }}
-    </div>
-    <div class="ranked-grade-wrap">
-      <div class="grade-medallion {{ $gradeClass }}">
-        <span class="gn">{{ .Params.grade | int }}</span>
-      </div>
-    </div>
-    <a class="entry-link" href="{{ .Permalink }}" aria-label="Read review of {{ .Title | plainify }}"></a>
-  </li>
-  {{- end }}
-  {{- end }}
-</ol>
+{{ partial "books-tabs.html" . }}
+{{ partial "book-index.html" (dict "page" . "sort" "rating") }}
 
 {{- end }}{{/* end main */}}

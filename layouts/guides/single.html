@@ -1,0 +1,111 @@
+{{- define "main" }}
+{{- $series := .Params.guide_series }}
+{{- $books := partial "guide-books.html" $series }}
+{{- $s := partial "guide-stats.html" $books }}
+{{- $long := ge $s.total 6 }}
+
+<article class="guide">
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <span class="guide-eyebrow">Reading Guide</span>
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.byline }}
+  <p class="guide-byline">{{ . }}</p>
+  {{- end }}
+</header>
+
+<div class="post-content guide-intro">{{ .Content }}</div>
+
+<section class="guide-summary" aria-label="Series overview">
+  <div class="guide-stats">
+    <div class="guide-stat"><b>{{ $s.total }}</b><span>{{ cond (eq $s.total 1) "book" "books" }}</span></div>
+    <div class="guide-stat"><b>{{ len $s.reviewed }}</b><span>reviewed</span></div>
+    {{- if gt $s.avg 0.0 }}
+    <div class="guide-stat"><b>{{ printf "%.1f" $s.avg }}</b><span>my average</span></div>
+    {{- end }}
+    <div class="guide-stat"><b>{{ $s.first }}{{ if ne $s.first $s.last }}–{{ $s.last }}{{ end }}</b><span>published</span></div>
+  </div>
+  {{- if $long }}
+  <div class="guide-shelf" style="grid-template-columns:repeat({{ $s.total }},1fr)">
+    {{- range $books }}
+    {{- $r := eq .Type "posts" }}
+    <a href="#book-{{ .Params.series_order }}"{{ if $r }} class="r"{{ end }} title="#{{ .Params.series_order }} {{ .Params.book_title | default .Title }}{{ if $r }} ({{ .Params.grade | int }}/10){{ end }}"></a>
+    {{- end }}
+  </div>
+  <div class="guide-legend"><i class="r"></i>Reviewed <i></i>Not yet reviewed</div>
+  {{- end }}
+</section>
+
+{{- with .Params.notes }}
+<div class="guide-notes">
+  {{- range . }}
+  <div><h2>{{ .heading }}</h2><p>{{ .text | markdownify }}</p></div>
+  {{- end }}
+</div>
+{{- end }}
+
+<div class="guide-list-head">
+  <h2>{{ if $long }}All {{ $s.total }} books in reading order{{ else }}The {{ $s.total }} books in reading order{{ end }}</h2>
+  {{- if $long }}
+  <div class="guide-filters" role="group" aria-label="Filter books">
+    <button type="button" class="on" data-f="all">All</button>
+    <button type="button" data-f="reviewed">Reviewed</button>
+    <button type="button" data-f="unread">Not yet reviewed</button>
+  </div>
+  {{- end }}
+</div>
+
+<ol class="guide-books">
+{{- range $books }}
+  {{- $title := .Params.book_title | default .Title }}
+  {{- $alt := printf "Cover of %s" ($title | plainify) }}
+  {{- if eq .Type "posts" }}
+  {{- $gradeClass := "grade-mid" }}
+  {{- if ge .Params.grade 10.0 }}{{ $gradeClass = "grade-top" }}
+  {{- else if ge .Params.grade 7.0 }}{{ $gradeClass = "grade-high" }}
+  {{- else if lt .Params.grade 5.0 }}{{ $gradeClass = "grade-low" }}{{ end }}
+  <li class="guide-book reviewed" id="book-{{ .Params.series_order }}" data-s="reviewed">
+    <div class="guide-cover">
+      {{- partial "responsive-cover.html" (dict "page" . "width" 96 "alt" $alt) }}
+      <div class="grade-medallion grade-small {{ $gradeClass }}"><span class="gn">{{ .Params.grade | int }}</span></div>
+    </div>
+    <div>
+      <h3 class="guide-book-title"><span class="series-num">#{{ .Params.series_order }}</span><a href="{{ .Permalink }}">{{ $title }}</a>{{ with .Params.publication_year }} <span class="guide-year">({{ . }})</span>{{ end }}</h3>
+      <p class="guide-excerpt">{{ .Summary | plainify | htmlUnescape }}</p>
+      <a class="guide-read" href="{{ .Permalink }}">Read my review →</a>
+    </div>
+  </li>
+  {{- else }}
+  <li class="guide-book unread" id="book-{{ .Params.series_order }}" data-s="unread">
+    <div class="guide-cover">
+      {{- if .Resources.GetMatch "cover.*" }}
+      {{- partial "responsive-cover.html" (dict "page" . "width" 56 "alt" $alt) }}
+      {{- else }}
+      <div class="guide-spine" aria-hidden="true">#{{ .Params.series_order }}</div>
+      {{- end }}
+    </div>
+    <div>
+      <h3 class="guide-book-title"><span class="series-num">#{{ .Params.series_order }}</span>{{ $title }}{{ with .Params.publication_year }} <span class="guide-year">({{ . }})</span>{{ end }}</h3>
+      <span class="guide-pending">Not yet reviewed</span>
+    </div>
+  </li>
+  {{- end }}
+{{- end }}
+</ol>
+
+<p class="guide-footer">Want only the reviews? See the <a href="{{ printf "/series/%s/" ($series | urlize) | relURL }}">{{ $series }} series in the library</a>, or browse <a href="{{ "/guides/" | relURL }}">all series</a>.</p>
+</article>
+
+{{- if $long }}
+<script>
+document.querySelectorAll('.guide-filters button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    document.querySelectorAll('.guide-filters button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    document.querySelectorAll('.guide-book').forEach(function (li) {
+      li.hidden = b.dataset.f !== 'all' && li.dataset.s !== b.dataset.f;
+    });
+  });
+});
+</script>
+{{- end }}
+{{- end }}{{- /* end main */ -}}

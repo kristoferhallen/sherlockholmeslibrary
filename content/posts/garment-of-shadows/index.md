@@ -6,6 +6,7 @@ date: 2025-04-15
 grade: 8.0
 series: Mary Russell
 series_order: 12
+publication_year: 2012
 tags:
 - Mary Russell
 - Morocco

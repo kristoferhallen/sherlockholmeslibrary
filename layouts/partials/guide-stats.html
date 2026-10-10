@@ -1,0 +1,13 @@
+{{- /*
+  Summary numbers for a list of books from guide-books.html.
+  Returns dict: total, reviewed (pages), avg (float, 0 if none), first, last (years).
+*/ -}}
+{{- $reviewed := where . "Type" "posts" }}
+{{- $sum := 0.0 }}
+{{- range $reviewed }}{{ $sum = add $sum (float .Params.grade) }}{{ end }}
+{{- $avg := 0.0 }}
+{{- with len $reviewed }}{{ $avg = div $sum . }}{{ end }}
+{{- $years := slice }}
+{{- range . }}{{ with .Params.publication_year }}{{ $years = $years | append . }}{{ end }}{{ end }}
+{{- $years = sort $years }}
+{{- return dict "total" (len .) "reviewed" $reviewed "avg" $avg "first" (index $years 0) "last" (index $years (sub (len $years) 1)) }}

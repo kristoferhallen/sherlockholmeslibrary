@@ -6,6 +6,7 @@ date: 2024-11-18
 grade: 8.0
 series: Mary Russell
 series_order: 14
+publication_year: 2016
 tags:
 - Mary Russell
 - Mycroft

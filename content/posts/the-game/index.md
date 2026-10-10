@@ -6,6 +6,7 @@ date: 2025-04-21
 grade: 8.0
 series: Mary Russell
 series_order: 7
+publication_year: 2004
 tags:
 - Mary Russell
 - India

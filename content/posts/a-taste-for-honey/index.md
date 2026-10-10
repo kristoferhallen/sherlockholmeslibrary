@@ -12,6 +12,7 @@ title: A Taste for Honey
 description: "Review of A Taste for Honey by H.F. Heard — a retired Mr. Mycroft, strongly implied to be Sherlock Holmes, investigates a death-by-bees murder on the Sussex Downs. Book 1 in the Mr. Mycroft series."
 series: Mr. Mycroft
 series_order: 1
+publication_year: 1941
 cover:
   image: cover.jpg
   relative: true

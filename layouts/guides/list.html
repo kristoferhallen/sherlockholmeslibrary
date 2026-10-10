@@ -1,0 +1,41 @@
+{{- define "main" }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+</header>
+
+<div class="post-content guide-intro">{{ .Content }}</div>
+
+<div class="guide-index">
+{{- range .Pages.ByWeight }}
+  {{- $books := partial "guide-books.html" .Params.guide_series }}
+  {{- $s := partial "guide-stats.html" $books }}
+  <a class="guide-card" href="{{ .Permalink }}">
+    <div class="guide-card-covers" aria-hidden="true">
+      {{- range first 4 $books }}
+        {{- if .Resources.GetMatch "cover.*" }}
+        {{- partial "responsive-cover.html" (dict "page" . "width" 56 "alt" "") }}
+        {{- else }}
+        <div class="guide-spine">#{{ .Params.series_order }}</div>
+        {{- end }}
+      {{- end }}
+    </div>
+    <div class="guide-card-info">
+      <h2>{{ .Title }}</h2>
+      <p class="guide-card-meta">
+        {{ $s.total }} books · {{ len $s.reviewed }} reviewed
+        {{- if gt $s.avg 0.0 }} · my average {{ printf "%.1f" $s.avg }}{{ end }}
+        · {{ $s.first }}{{ if ne $s.first $s.last }}–{{ $s.last }}{{ end }}
+      </p>
+      {{- /* Description keys follow the series term titles, which Hugo capitalises. */}}
+      {{- $slug := .Params.guide_series | urlize }}
+      {{- range $name, $d := hugo.Data.series_descriptions }}
+        {{- if eq ($name | urlize) $slug }}
+      <p class="guide-card-desc">{{ $d.description }}</p>
+        {{- end }}
+      {{- end }}
+    </div>
+  </a>
+{{- end }}
+</div>
+{{- end }}{{- /* end main */ -}}

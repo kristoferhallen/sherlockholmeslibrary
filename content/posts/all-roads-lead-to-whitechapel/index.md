@@ -15,6 +15,7 @@ title: All Roads Lead to Whitechapel
 description: "Review of All Roads Lead to Whitechapel by Michelle Birkby — Mrs. Hudson and Mary Watson set up their own detective agency after Holmes dismisses a desperate client, leading them into the dark streets of Whitechapel. Book 1 in the Baker Street Inquiries series."
 series: Baker Street Inquiries
 series_order: 1
+publication_year: 2016
 cover:
   image: cover.jpg
   relative: true

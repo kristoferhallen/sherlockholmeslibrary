@@ -6,6 +6,7 @@ date: 2025-05-06
 grade: 8.0
 series: Mary Russell
 series_order: 18
+publication_year: 2024
 tags:
 - Mary Russell
 - India

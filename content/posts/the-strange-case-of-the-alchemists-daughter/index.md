@@ -18,6 +18,7 @@ title: The Strange Case of the Alchemist's Daughter
 description: "Review of The Strange Case of the Alchemist's Daughter by Theodora Goss — Mary Jekyll teams up with Sherlock Holmes and a group of remarkable women born of mad science to solve a series of gruesome murders. Book 1 in the Extraordinary Adventures of the Athena Club series."
 series: The Extraordinary Adventures of the Athena Club
 series_order: 1
+publication_year: 2017
 cover:
   image: cover.jpg
   relative: true

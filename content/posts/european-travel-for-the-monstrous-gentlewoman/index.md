@@ -23,6 +23,7 @@ title: European Travel for the Monstrous Gentlewoman
 description: "Review of European Travel for the Monstrous Gentlewoman by Theodora Goss — the Athena Club travels across Europe to rescue Lucinda Van Helsing from her father's experiments. Book 2 in the Extraordinary Adventures of the Athena Club series."
 series: The Extraordinary Adventures of the Athena Club
 series_order: 2
+publication_year: 2018
 cover:
   image: cover.jpg
   relative: true

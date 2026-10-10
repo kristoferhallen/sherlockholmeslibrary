@@ -14,6 +14,9 @@ theme = "PaperMod"
     Title = "Welcome to Kristofer's Sherlock Holmes Library"
     Content = "A collection of reviews of Sherlock Holmes pastiches, novels, and stories featuring the world's greatest detective."
 
+  [params.footer]
+    text = "[RSS feed](/index.xml)"
+
   [params.label]
     icon = "/sherlocksiluett.jpg"
     iconHeight = 45
@@ -34,54 +37,35 @@ theme = "PaperMod"
   tag = "tags"
   series = "series"
 
-[[menu.main]]
-  name = "Home"
-  url = "/"
-  weight = 1
-
+# Main menu. `sections` lists the content sections where an item is shown
+# as the current page (see layouts/partials/header.html).
 [[menu.main]]
   name = "Books"
-  url = "#"
-  weight = 2
-
-[[menu.main]]
-  name = "All Books"
   url = "/books/"
-  parent = "Books"
   weight = 1
+  [menu.main.params]
+    sections = ["books", "top-books", "tags", "posts"]
 
 [[menu.main]]
   name = "Series"
-  url = "/series/"
-  parent = "Books"
+  url = "/guides/"
   weight = 2
-
-[[menu.main]]
-  name = "Tags"
-  url = "/tags/"
-  parent = "Books"
-  weight = 3
-
-[[menu.main]]
-  name = "Top Rated"
-  url = "/top-books/"
-  parent = "Books"
-  weight = 4
+  [menu.main.params]
+    sections = ["guides", "series"]
 
 [[menu.main]]
   name = "Sherlock Meets"
   url = "/sherlock-meets/"
   weight = 3
+  [menu.main.params]
+    sections = ["sherlock-meets"]
 
 [[menu.main]]
   name = "About"
   url = "/about/"
   weight = 4
-
-[[menu.main]]
-  name = "RSS"
-  url = "/index.xml"
-  weight = 5
+  [menu.main.params]
+    sections = ["about"]
 
 [imaging]
   # Image processing quality

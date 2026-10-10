@@ -6,6 +6,7 @@ date: 2024-12-15
 grade: 10.0
 series: Nicholas Meyer Holmes novels
 series_order: 1
+publication_year: 1974
 tags:
 - drug-addiction
 - Sigmund Freud

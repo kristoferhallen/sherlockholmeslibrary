@@ -7,6 +7,7 @@ date: 2026-08-11
 grade: 9.0
 series: The Classified Dossier
 series_order: 2
+publication_year: 2022
 tags:
 - sherlock-meets
 - Dr Jekyll

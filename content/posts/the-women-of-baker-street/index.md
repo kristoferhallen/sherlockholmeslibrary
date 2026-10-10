@@ -7,6 +7,7 @@ date: 2026-09-17
 grade: 7
 series: Baker Street Inquiries
 series_order: 2
+publication_year: 2017
 tags:
 - Mrs Hudson
 - Mary Watson

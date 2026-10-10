@@ -14,24 +14,15 @@
     </div>
     <nav aria-label="Main navigation">
       <ul class="nav-links" id="nav-links" role="list">
-        {{- $currentPage := . }}
-        {{- $currentURL := .Permalink | absLangURL }}
+        {{- $section := .Section }}
+        {{- if and .IsPage (eq .Type "page") }}{{ $section = .File.BaseFileName }}{{ end }}
         {{- range site.Menus.main }}
-          {{- if .HasChildren }}
-            {{- range .Children }}
-              {{- $itemURL := .URL | absLangURL }}
-              <li><a href="{{ .URL | absLangURL }}"
-                {{- if eq $currentURL $itemURL }} class="active"{{- end }}>
-                {{- .Name -}}
-              </a></li>
-            {{- end }}
-          {{- else }}
-            {{- $itemURL := .URL | absLangURL }}
-            <li><a href="{{ .URL | absLangURL }}"
-              {{- if eq $currentURL $itemURL }} class="active"{{- end }}>
-              {{- .Name -}}
-            </a></li>
-          {{- end }}
+          {{- $active := in (.Params.sections | default slice) $section }}
+          {{- $here := eq ($.RelPermalink) (.URL | relLangURL) }}
+          <li><a href="{{ .URL | absLangURL }}"
+            {{- if $active }} class="active" aria-current="{{ cond $here "page" "true" }}"{{ end }}>
+            {{- .Name -}}
+          </a></li>
         {{- end }}
       </ul>
       <div class="nav-controls">
