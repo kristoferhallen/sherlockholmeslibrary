@@ -7,6 +7,8 @@
 {{- $sort := .sort }}
 {{- $posts := where site.RegularPages "Type" "posts" }}
 {{- if eq $sort "rating" }}
+  {{- /* Reviews of things that are not books (not_a_book: true) are not ranked. */}}
+  {{- $posts = where $posts "Params.not_a_book" "!=" true }}
   {{- $posts = sort (sort $posts "Params.book_title") "Params.grade" "desc" }}
 {{- else }}
   {{- $posts = sort (sort $posts "Params.book_title") "Params.author_last" }}
@@ -35,35 +37,17 @@
     {{- $group = $key }}
     <li class="book-index-group" id="group-{{ $key }}">{{ if eq $sort "rating" }}{{ $key }}/10{{ else }}{{ $key }}{{ end }}</li>
     {{- end }}
-    {{- $title := .Params.book_title | default .Title }}
-    {{- /* Books in a series sort by their place in it, the rest by title. */}}
-    {{- $order := $title | lower }}
-    {{- if .Params.series }}{{ $order = printf "%s %03d" (lower .Params.series) (int (.Params.series_order | default 0)) }}{{ end }}
-    {{- $gradeClass := "grade-mid" }}
-    {{- if ge $grade 10 }}{{ $gradeClass = "grade-top" }}
-    {{- else if ge $grade 7 }}{{ $gradeClass = "grade-high" }}
-    {{- else if lt $grade 5 }}{{ $gradeClass = "grade-low" }}{{ end }}
-    <li class="book-row"
-        data-author="{{ .Params.author_last | lower }}" data-letter="{{ $letter }}"
-        data-title="{{ $title | lower }}" data-order="{{ $order }}" data-grade="{{ $grade }}" data-date="{{ .Date.Format "2006-01-02" }}"
-        data-text="{{ printf "%s %s %s" $title .Params.author (.Params.series | default "") | lower }}">
-      <a href="{{ .Permalink }}">
-        <span class="book-row-cover">
-          {{- partial "responsive-cover.html" (dict "page" . "width" 44 "alt" "") }}
-        </span>
-        <span class="book-row-text">
-          <span class="book-row-title">{{ $title }}</span>
-          <span class="book-row-meta">
-            {{- .Params.author }}
-            {{- with .Params.series }} · {{ . }}{{ with $.Params.series_order }} #{{ . }}{{ end }}{{ end }}
-            {{- with .Params.publication_year }} · {{ . }}{{ end -}}
-          </span>
-        </span>
-        <span class="grade-medallion grade-small {{ $gradeClass }}" aria-label="Rated {{ $grade }} of 10"><span class="gn">{{ $grade }}</span></span>
-      </a>
-    </li>
+    {{ partial "book-row.html" . }}
   {{- end }}
   </ol>
+  {{- if eq $sort "rating" }}
+  {{- /* Not ranked, but still listed when the visitor sorts by author or date. */}}
+  <template id="book-index-unranked">
+    {{- range where (where site.RegularPages "Type" "posts") "Params.not_a_book" true }}
+    {{ partial "book-row.html" . }}
+    {{- end }}
+  </template>
+  {{- end }}
   <p class="book-index-empty" hidden>No books match.</p>
 </div>
 
@@ -73,6 +57,9 @@
   if (!root) return;
   var list = root.querySelector('.book-index-list');
   var rows = Array.prototype.slice.call(list.querySelectorAll('.book-row'));
+  // The rating page renders without unranked rows; keep a copy for the other sorts.
+  var extra = document.getElementById('book-index-unranked');
+  if (extra) rows = rows.concat(Array.prototype.slice.call(extra.content.querySelectorAll('.book-row')));
   var search = root.querySelector('.book-index-search');
   var jump = root.querySelector('.book-index-jump');
   var count = root.querySelector('.book-index-count span');
@@ -92,7 +79,10 @@
 
   function render() {
     var q = search.value.trim().toLowerCase();
-    var shown = rows.filter(function (r) { return !q || r.dataset.text.indexOf(q) !== -1; }).sort(cmp[sort]);
+    var shown = rows.filter(function (r) {
+      if (sort === 'rating' && r.hasAttribute('data-unranked')) return false;
+      return !q || r.dataset.text.indexOf(q) !== -1;
+    }).sort(cmp[sort]);
     list.textContent = '';
     var group = null, groups = [];
     shown.forEach(function (r) {

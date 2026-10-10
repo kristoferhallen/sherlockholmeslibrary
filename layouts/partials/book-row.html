@@ -1,0 +1,31 @@
+{{- /* One row in the book index (book-index.html). Context: the review page. */ -}}
+{{- $letter := upper (substr (.Params.author_last | default .Params.author) 0 1) }}
+{{- $grade := .Params.grade | int }}
+{{- $title := .Params.book_title | default .Title }}
+{{- /* Books in a series sort by their place in it, the rest by title. */}}
+{{- $order := $title | lower }}
+{{- if .Params.series }}{{ $order = printf "%s %03d" (lower .Params.series) (int (.Params.series_order | default 0)) }}{{ end }}
+{{- $gradeClass := "grade-mid" }}
+{{- if ge $grade 10 }}{{ $gradeClass = "grade-top" }}
+{{- else if ge $grade 7 }}{{ $gradeClass = "grade-high" }}
+{{- else if lt $grade 5 }}{{ $gradeClass = "grade-low" }}{{ end }}
+<li class="book-row"
+    data-author="{{ .Params.author_last | lower }}" data-letter="{{ $letter }}"
+    {{- if .Params.not_a_book }} data-unranked{{ end }}
+    data-title="{{ $title | lower }}" data-order="{{ $order }}" data-grade="{{ $grade }}" data-date="{{ .Date.Format "2006-01-02" }}"
+    data-text="{{ printf "%s %s %s" $title .Params.author (.Params.series | default "") | lower }}">
+  <a href="{{ .Permalink }}">
+    <span class="book-row-cover">
+      {{- partial "responsive-cover.html" (dict "page" . "width" 44 "alt" "") }}
+    </span>
+    <span class="book-row-text">
+      <span class="book-row-title">{{ $title }}</span>
+      <span class="book-row-meta">
+        {{- .Params.author }}
+        {{- with .Params.series }} · {{ . }}{{ with $.Params.series_order }} #{{ . }}{{ end }}{{ end }}
+        {{- with .Params.publication_year }} · {{ . }}{{ end -}}
+      </span>
+    </span>
+    <span class="grade-medallion grade-small {{ $gradeClass }}" aria-label="Rated {{ $grade }} of 10"><span class="gn">{{ $grade }}</span></span>
+  </a>
+</li>

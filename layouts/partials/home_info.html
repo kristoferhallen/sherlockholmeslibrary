@@ -8,7 +8,8 @@
     </div>
 
     {{/* Calculate statistics */}}
-    {{- $posts := where site.RegularPages "Type" "posts" }}
+    {{- /* Reviews of things that are not books (not_a_book: true) stay out of the numbers. */}}
+    {{- $posts := where (where site.RegularPages "Type" "posts") "Params.not_a_book" "!=" true }}
     {{- $totalBooks := len $posts }}
 
     {{- $grades := slice }}

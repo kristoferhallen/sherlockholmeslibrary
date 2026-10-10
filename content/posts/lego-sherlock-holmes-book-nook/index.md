@@ -4,6 +4,8 @@ author_last: Lego
 book_title: Lego Sherlock Holmes book nook
 date: 2025-07-29
 grade: 10.0
+# A Lego set, not a book: kept as a review but left out of rankings and book stats
+not_a_book: true
 tags:
 - Lego
 title: Lego Sherlock Holmes book nook
