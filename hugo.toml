@@ -19,7 +19,11 @@ disableAliases = true
     Content = "A collection of reviews of Sherlock Holmes pastiches, novels, and stories featuring the world's greatest detective."
 
   [params.footer]
-    text = "[RSS feed](/index.xml)"
+    text = "[RSS feed](/index.xml) · [Bluesky](https://bsky.app/profile/kristoferhallen.bsky.social)"
+
+  # Other places that are me (Organization/WebSite schema on the home page)
+  [params.schema]
+    sameAs = ["https://bsky.app/profile/kristoferhallen.bsky.social", "https://kristoferhallen.com/"]
 
   [params.label]
     icon = "/sherlocksiluett.jpg"
