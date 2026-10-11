@@ -1,6 +1,7 @@
 {{- /*
   The <title> text. Reviews: "Book by Author – review (8/10)", the words
-  people search for. Other pages: "Title | Site".
+  people search for. Other pages: seo_title from front matter, otherwise
+  "Title | Site".
 */ -}}
 {{- $title := site.Title }}
 {{- if and .IsPage (eq .Type "posts") }}
@@ -8,6 +9,9 @@
   {{- with .Params.author }}{{ if not $.Params.not_a_book }}{{ $title = printf "%s by %s" $title (trim . " ") }}{{ end }}{{ end }}
   {{- $title = printf "%s – review" $title }}
   {{- with .Params.grade }}{{ $title = printf "%s (%v/10)" $title (printf "%g" (float .)) }}{{ end }}
+{{- else if .Params.seo_title }}
+  {{- /* A page can set the exact <title> for search, e.g. Sherlock Meets. */}}
+  {{- $title = .Params.seo_title }}
 {{- else if not .IsHome }}
   {{- with .Title }}{{ $title = printf "%s | %s" . site.Title }}{{ end }}
 {{- end }}

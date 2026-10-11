@@ -12,7 +12,7 @@
 <div class="meets-grid">
   {{- range hugo.Data.sherlockmeets }}
   {{- $person := . }}
-  <div class="meets-card">
+  <div class="meets-card" id="{{ partial "meets-anchor.html" .name }}">
 
     <div class="meets-portrait">
       {{- $portrait := "" }}
@@ -40,15 +40,10 @@
     </div>
 
     <div class="meets-info">
-      <h2>
-        {{- if .wikipedia }}
-        <a href="{{ .wikipedia }}" target="_blank" rel="noopener">{{ .name }}</a>
-        {{- else }}
-        {{ .name }}
-        {{- end }}
-      </h2>
+      <h2><a href="#{{ partial "meets-anchor.html" .name }}">{{ .name }}</a></h2>
 
-      <p class="meets-description">{{ .description }}</p>
+      <p class="meets-description">{{ .description }}
+        {{- with .wikipedia }} <a class="meets-wiki" href="{{ . }}" rel="noopener">Wikipedia&nbsp;↗</a>{{ end }}</p>
 
       {{- if .books }}
       <div class="meets-books">

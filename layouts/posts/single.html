@@ -74,6 +74,13 @@
     </div>
     {{- end }}
 
+    {{- with partial "meets-for-page.html" . }}
+    <div class="post-series-footer post-meets-footer">
+      Sherlock meets:
+      {{- range $i, $m := . }}{{ if $i }},{{ end }} <a href="{{ printf "/sherlock-meets/#%s" $m.anchor | relURL }}">{{ $m.name }}</a>{{ end }}
+    </div>
+    {{- end }}
+
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}

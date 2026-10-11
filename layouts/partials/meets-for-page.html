@@ -1,0 +1,16 @@
+{{- /*
+  The Sherlock Meets characters (data/sherlockmeets.yaml) who appear in a
+  review. Returns a slice of maps with name and anchor.
+  Usage: {{ $meets := partial "meets-for-page.html" . }}
+*/ -}}
+{{- $here := .File.ContentBaseName }}
+{{- $out := slice }}
+{{- range hugo.Data.sherlockmeets }}
+  {{- $p := . }}
+  {{- range .books }}
+    {{- if eq (path.Base (strings.TrimSuffix "/" .url)) $here }}
+      {{- $out = $out | append (dict "name" $p.name "anchor" (partial "meets-anchor.html" $p.name)) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return $out }}

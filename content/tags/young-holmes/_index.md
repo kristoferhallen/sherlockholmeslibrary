@@ -1,5 +1,5 @@
 ---
-title: "young-holmes"
+title: "Young Holmes"
 aliases:
   - /tags/youngholmes/
 ---

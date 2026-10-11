@@ -965,6 +965,18 @@ body > .header { display: none; }
   font-style: italic;
 }
 
+.meets-card { scroll-margin-top: 170px; }
+.meets-card:target { border-color: var(--rr-acc2); box-shadow: 0 0 0 2px var(--rr-acc2); }
+.meets-wiki {
+  font-size: .85em;
+  white-space: nowrap;
+  color: var(--secondary);
+  box-shadow: none;
+  border-bottom: 1px dotted var(--border);
+}
+.meets-wiki:hover { color: var(--primary); border-bottom-color: var(--primary); }
+@media (max-width: 780px) { .meets-card { scroll-margin-top: 70px; } }
+
 .meets-book-link {
   display: inline-block;
   padding: 0.2rem 0.6rem;

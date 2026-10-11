@@ -1,5 +1,7 @@
 ---
 title: "Sherlock Meets"
+seo_title: "Sherlock Holmes Crossovers: Dracula, Freud, Houdini and More"
+description: "The real people and fictional characters Sherlock Holmes meets in the pastiches I have reviewed: Count Dracula, Dr Jekyll and Mr Hyde, Sigmund Freud, Jack the Ripper, Harry Houdini, Arsène Lupin, Hercule Poirot and more."
 layout: "sherlock-meets"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "historical-event"
+title: "Historical events"
 aliases:
   - /tags/historicalevent/
 ---

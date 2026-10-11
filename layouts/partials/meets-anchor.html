@@ -1,0 +1,6 @@
+{{- /* Anchor id for a Sherlock Meets name: "H.G. Wells" → "hg-wells", "Arsène Lupin" → "arsene-lupin". */ -}}
+{{- $s := lower . | replaceRE `['’.]` "" }}
+{{- range slice (slice "à" "a") (slice "á" "a") (slice "å" "a") (slice "ä" "a") (slice "è" "e") (slice "é" "e") (slice "ö" "o") (slice "ü" "u") }}
+  {{- $s = replace $s (index . 0) (index . 1) }}
+{{- end }}
+{{- return strings.Trim (replaceRE `[^a-z0-9]+` "-" $s) "-" }}

@@ -1,5 +1,5 @@
 ---
-title: "old-sherlock"
+title: "Old Sherlock"
 aliases:
   - /tags/oldsherlock/
 ---
