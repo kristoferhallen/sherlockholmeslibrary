@@ -1,7 +1,7 @@
 ---
 author: Kristopher James Pipes
 author_last: James Pipes
-book_title: The galactic casebook of Sherlock Holmes
+book_title: "The Galactic Casebook of Sherlock Holmes"
 date: 2024-10-25
 grade: 6.0
 tags:
@@ -9,7 +9,7 @@ tags:
 - A Study in Scarlet
 - The Red-Headed League
 - sci-fi
-title: The galactic casebook of Sherlock Holmes
+title: "The Galactic Casebook of Sherlock Holmes"
 description: "Review of The Galactic Casebook of Sherlock Holmes by Kristopher James Pipes — classic Holmes stories reimagined in space aboard Starship UK. Rated 6/10."
 cover:
   image: cover.jpg

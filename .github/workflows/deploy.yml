@@ -26,6 +26,7 @@ jobs:
         run: |
           hugo --minify
           mv public/404.html public/404.shtml
+          mv public/htaccess.txt public/.htaccess
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0

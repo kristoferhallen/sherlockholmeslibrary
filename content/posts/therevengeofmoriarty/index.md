@@ -1,7 +1,7 @@
 ---
 author: John Gardner
 author_last: Gardner
-book_title: The revenge of Moriarty
+book_title: "The Revenge of Moriarty"
 date: 2026-03-22
 grade: 6
 series: John Gardner's Moriarty
@@ -10,7 +10,7 @@ publication_year: 1975
 tags:
 - traditional-pastiche
 - Moriarty
-title: The revenge of Moriarty
+title: "The Revenge of Moriarty"
 description: "Review of John Gardner's The revenge of Moriarty. Rated 6/10."
 cover:
   image: cover.jpg

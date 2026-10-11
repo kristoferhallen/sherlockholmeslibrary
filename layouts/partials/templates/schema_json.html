@@ -1,4 +1,5 @@
 {{ if .IsHome }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "alternateName" "Sherlock Holmes Library" "url" site.Home.Permalink "description" site.Params.homeInfoParams.Content "inLanguage" "en" "author" (dict "@type" "Person" "name" site.Params.author) | jsonify | safeJS }}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,58 +61,89 @@
 }
 </script>
 {{- if .IsPage }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {{ .Title | plainify}},
-  "name": "{{ .Title | plainify }}",
-  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
-  "keywords": [
-    {{- if .Params.keywords }}
-    {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
-    {{- else }}
-    {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
-    {{- end }}
-  ],
-  "articleBody": {{ .Content | safeJS | htmlUnescape | plainify }},
-  "wordCount" : "{{ .WordCount }}",
-  "inLanguage": {{ .Language.Lang | default "en-us" }},
-  {{ if .Params.cover.image -}}
-  "image":
-    {{- if (ne .Params.cover.relative true) -}}
-    {{ .Params.cover.image | absURL }},
-    {{- else -}}
-    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL }},
-    {{- end}}
-  {{- else }}
-    {{- $images := partial "templates/_funcs/get-page-images" . -}}
-    {{- with index $images 0 -}}
-  "image": {{ .Permalink }},
-    {{- end }}
-  {{- end -}}
-  "datePublished": {{ .PublishDate }},
-  "dateModified": {{ .Lastmod }},
-  {{- with site.Params.author }}
-  "author": {
-    "@type": "Person",
-    "name": {{ . }}
-  },
+{{- $publisher := dict
+  "@type" (site.Params.schema.publisherType | default "Organization" | title)
+  "name" site.Title
+  "logo" (dict "@type" "ImageObject" "url" (site.Params.assets.favicon | default "favicon.ico" | absURL)) }}
+{{- $me := dict "@type" "Person" "name" site.Params.author "url" ("about/" | absURL) }}
+{{- $cover := "" }}
+{{- with .Resources.GetMatch "cover.*" }}{{ $cover = .Permalink }}{{ end }}
+{{- $description := partial "seo-description.html" . }}
+
+{{- if and (eq .Type "posts") .Params.grade }}
+{{- /* A review: the book (or, for not_a_book, the product) and my grade. */}}
+{{- $name := .Params.book_title | default .Title | plainify }}
+{{- $item := dict "@type" "Book" "name" $name }}
+{{- if .Params.not_a_book }}
+  {{- $item = dict "@type" "Product" "name" $name }}
+  {{- with .Params.author }}{{ $item = merge $item (dict "brand" (dict "@type" "Brand" "name" (trim . " "))) }}{{ end }}
+{{- else }}
+  {{- with .Params.author }}
+    {{- $authors := slice }}
+    {{- range split (trim . " ") " and " }}{{ $authors = $authors | append (dict "@type" "Person" "name" (trim . " ")) }}{{ end }}
+    {{- $item = merge $item (dict "author" (cond (eq (len $authors) 1) (index $authors 0) $authors)) }}
   {{- end }}
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": {{ .Permalink | safeHTML }}
-  },
-  "publisher": {
-    "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
-    "name": {{ site.Title }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
-    }
-  }
-}
-</script>
+  {{- with .Params.publication_year }}{{ $item = merge $item (dict "datePublished" (string .)) }}{{ end }}
+  {{- with .Params.series }}
+    {{- $series := dict "@type" "BookSeries" "name" . "url" (partial "series-url.html" . | absURL) }}
+    {{- $item = merge $item (dict "isPartOf" $series) }}
+    {{- with $.Params.series_order }}{{ $item = merge $item (dict "position" .) }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- with $cover }}{{ $item = merge $item (dict "image" .) }}{{ end }}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "Review"
+  "name" (printf "Review of %s" $name)
+  "headline" (printf "Review of %s" $name)
+  "url" .Permalink
+  "description" $description
+  "reviewBody" (.Plain | strings.TrimSpace)
+  "inLanguage" (.Language.Lang | default "en")
+  "datePublished" (.PublishDate.Format "2006-01-02")
+  "dateModified" (.Lastmod.Format "2006-01-02")
+  "author" $me
+  "publisher" $publisher
+  "itemReviewed" $item
+  "reviewRating" (dict "@type" "Rating" "ratingValue" (float .Params.grade) "bestRating" 10 "worstRating" 0) }}
+{{- with $cover }}{{ $schema = merge $schema (dict "image" .) }}{{ end }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+
+{{- else if and (eq .Type "guides") .Params.guide_series }}
+{{- /* A reading guide: every book in the series, in order. */}}
+{{- $items := slice }}
+{{- range $i, $b := partial "guide-books.html" .Params.guide_series }}
+  {{- $book := dict "@type" "Book" "name" ($b.Params.book_title | default $b.Title | plainify) }}
+  {{- with $b.Params.author }}{{ $book = merge $book (dict "author" (dict "@type" "Person" "name" (trim . " "))) }}{{ end }}
+  {{- with $b.Params.publication_year }}{{ $book = merge $book (dict "datePublished" (string .)) }}{{ end }}
+  {{- if eq $b.Type "posts" }}{{ $book = merge $book (dict "url" $b.Permalink) }}{{ end }}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "item" $book) }}
+{{- end }}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "CollectionPage"
+  "name" (.Title | plainify)
+  "url" .Permalink
+  "description" $description
+  "inLanguage" (.Language.Lang | default "en")
+  "author" $me
+  "publisher" $publisher
+  "mainEntity" (dict "@type" "ItemList" "name" (printf "%s books in reading order" .Params.guide_series) "itemListOrder" "https://schema.org/ItemListOrderAscending" "numberOfItems" (len $items) "itemListElement" $items) }}
+{{- if not .Lastmod.IsZero }}{{ $schema = merge $schema (dict "dateModified" (.Lastmod.Format "2006-01-02")) }}{{ end }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+
+{{- else }}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "WebPage"
+  "name" (.Title | plainify)
+  "url" .Permalink
+  "description" $description
+  "inLanguage" (.Language.Lang | default "en")
+  "author" $me
+  "publisher" $publisher }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end }}
 {{- end }}{{/* .IsPage end */}}
 
 {{- end -}}

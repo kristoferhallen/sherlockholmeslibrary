@@ -1,12 +1,12 @@
 ---
 author: Kareem Abdul-Jabbar
 author_last: Abdul-Jabbar
-book_title: Mycroft and Sherlock The empty birdcage
+book_title: "Mycroft and Sherlock: The Empty Birdcage"
 date: 2025-10-13
 grade: 4.0
 tags:
 - Mycroft
-title: Mycroft and Sherlock The empty birdcage
+title: "Mycroft and Sherlock: The Empty Birdcage"
 description: "Review of Kareem Abdul-Jabbar's Mycroft and Sherlock: The Empty Birdcage — Mycroft and a young student Sherlock investigate a serial killer and a kidnapping before Watson. Rated 4/10."
 cover:
   image: cover.jpg

@@ -1,0 +1,11 @@
+{{- /*
+  Where to link a series: its reading guide when one exists, otherwise
+  the series term page. Usage: {{ partial "series-url.html" "Mary Russell" }}
+*/ -}}
+{{- $url := printf "/series/%s/" (. | urlize) | relURL }}
+{{- with site.GetPage "/guides" }}
+  {{- range where .Pages "Params.guide_series" "!=" nil }}
+    {{- if eq (.Params.guide_series | urlize) ($ | urlize) }}{{ $url = .RelPermalink }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- return $url }}

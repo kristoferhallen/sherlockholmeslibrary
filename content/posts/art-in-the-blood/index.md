@@ -1,14 +1,14 @@
 ---
 author: Bonnie MacBird
 author_last: MacBird
-book_title: Art in the blood
+book_title: "Art in the Blood"
 date: 2025-01-27
 grade: 10.0
 tags:
 - ai
 - traditional-pastiche
 - Mycroft
-title: Art in the blood
+title: "Art in the Blood"
 description: "Review of Bonnie MacBird's Art in the Blood — a gripping Holmes pastiche with classic deductions, cocaine, Mycroft, and a race across Paris and Victorian England. Rated 10/10."
 cover:
   image: cover.jpg

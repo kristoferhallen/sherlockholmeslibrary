@@ -1,14 +1,14 @@
 ---
 author: George Mann
 author_last: Mann
-book_title: Sherlock Holmes The Spirit Box
+book_title: "Sherlock Holmes: The Spirit Box"
 date: 2024-10-06
 grade: 6.0
 tags:
 - traditional-pastiche
 - spiritualism
 - old-sherlock
-title: Sherlock Holmes The Spirit Box
+title: "Sherlock Holmes: The Spirit Box"
 description: "Review of Sherlock Holmes: The Spirit Box by George Mann — Holmes and Watson come out of WWI retirement to help Mycroft solve a series of unexplained deaths. Rated 6/10."
 cover:
   image: cover.jpg

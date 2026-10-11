@@ -88,9 +88,9 @@
   description: "The cosmic entity created by H.P. Lovecraft, lying dormant beneath the Pacific Ocean in the sunken city of R'lyeh. When Cthulhu's influence spreads across London, Holmes must apply cold Victorian reason to horrors that defy all rational explanation."
   image: "chtulhu.png"
   books:
-    - title: "Shadows over Baker street"
+    - title: "Shadows Over Baker Street"
       url: "/posts/shadows-over-baker-street/"
-    - title: "Sherlock Holmes vs Cthulhu. The adventure of the deadly dimensions"
+    - title: "Sherlock Holmes vs. Cthulhu: The Adventure of the Deadly Dimensions"
       url: "/posts/sherlock-holmes-vs-cthulhu-the-adventure-of-the-deadly-dimensions/"
   wikipedia: "https://en.wikipedia.org/wiki/Cthulhu"
 
@@ -168,7 +168,7 @@
   description: "The Hungarian-American escape artist, illusionist, and stunt performer (1874–1926) — one of the most famous men in the world in his time. Known for escaping from handcuffs, straightjackets, and locked milk cans submerged in water. He was also a passionate debunker of fraudulent mediums, which puts him in surprisingly good company."
   image: "houdini.png"
   books:
-    - title: "Sherlock Holmes. The Thinking Engine"
+    - title: "Sherlock Holmes: The Thinking Engine"
       url: "/posts/sherlock-holmes-the-thinking-engine/"
   wikipedia: "https://en.wikipedia.org/wiki/Harry_Houdini"
 

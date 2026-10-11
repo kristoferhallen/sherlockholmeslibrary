@@ -22,7 +22,7 @@
         {{- end }}
         {{- with .Params.series }}
         <span class="book-series-meta">
-          <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+          <a href="{{ partial "series-url.html" . }}">{{ . }}</a>
           {{- with $.Params.series_order }} · #{{ . }}{{- end }}
         </span>
         {{- end }}
@@ -69,7 +69,7 @@
   <footer class="post-footer">
     {{- with .Params.series }}
     <div class="post-series-footer">
-      Series: <a href="{{ "/series/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+      Series: <a href="{{ partial "series-url.html" . }}">{{ . }}</a>
       {{- with $.Params.series_order }} (#{{ . }}){{- end }}
     </div>
     {{- end }}

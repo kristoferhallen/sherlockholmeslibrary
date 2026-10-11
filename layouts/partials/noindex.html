@@ -1,0 +1,19 @@
+{{- /*
+  True for pages search engines should skip: front matter robotsNoIndex,
+  tags with fewer than three reviews, and series term pages that have a
+  reading guide (the .htaccess redirects those to the guide).
+*/ -}}
+{{- $noindex := eq .Params.robotsNoIndex true }}
+{{- if and (eq .Kind "term") (eq .Type "tags") (lt (len .Pages) 3) }}
+  {{- $noindex = true }}
+{{- end }}
+{{- if and (eq .Kind "term") (eq .Type "series") }}
+  {{- if ne (partial "series-url.html" .Title) .RelPermalink }}
+    {{- $noindex = true }}
+  {{- end }}
+{{- end }}
+{{- /* The /series/ overview: the .htaccess sends it to /guides/. */}}
+{{- if and (eq .Kind "taxonomy") (eq .Type "series") }}
+  {{- $noindex = true }}
+{{- end }}
+{{- return $noindex }}

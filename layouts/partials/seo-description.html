@@ -1,0 +1,22 @@
+{{- /*
+  Meta description. Front matter description wins; tag pages list the
+  books; everything else falls back to the summary or the site text.
+*/ -}}
+{{- $d := "" }}
+{{- with .Description }}
+  {{- $d = . }}
+{{- else }}
+  {{- if eq .Kind "term" }}
+    {{- $titles := slice }}
+    {{- range first 4 .Pages }}{{ $titles = $titles | append (.Params.book_title | default .Title) }}{{ end }}
+    {{- $n := len .Pages }}
+    {{- $d = printf "%d Sherlock Holmes %s about %s: %s%s." $n (cond (eq $n 1) "book review" "book reviews") .Title (delimit $titles ", ") (cond (gt $n 4) " and more" "") }}
+  {{- else if eq .Kind "taxonomy" }}
+    {{- $d = printf "Sherlock Holmes pastiche reviews grouped by %s." (.Title | lower) }}
+  {{- else if or .IsPage .IsSection }}
+    {{- $d = .Summary | default (printf "%s - %s" .Title site.Title) }}
+  {{- else }}
+    {{- $d = site.Params.description }}
+  {{- end }}
+{{- end }}
+{{- return ($d | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace) }}

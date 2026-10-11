@@ -1,4 +1,37 @@
+{{- /* Generated: Hugo writes this as htaccess.txt and the deploy workflow
+     renames it to .htaccess. Hand-written rules below, generated ones in
+     the marked block. mod_alias uses the first matching rule. */ -}}
 Options -Indexes
+
+# One host: www → bare domain
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# ---- Generated from content ----
+# Series pages → their reading guides (the guides are the canonical pages)
+RedirectMatch 301 ^/series/?$ /guides/
+{{- with site.GetPage "/guides" }}
+{{- range where .Pages "Params.guide_series" "!=" nil }}
+RedirectMatch 301 ^/series/{{ .Params.guide_series | urlize | replaceRE `([.+?*()\[\]^$|])` `\$1` }}/.*$ {{ .RelPermalink }}
+{{- end }}
+{{- end }}
+
+# Old addresses listed under `aliases` in front matter
+{{- range site.Pages }}
+{{- $target := (urls.Parse .RelPermalink).Path }}
+{{- range .Aliases }}
+RedirectMatch 301 ^{{ strings.TrimSuffix "/" . | replaceRE `([.+?*()\[\]^$|])` `\$1` }}/?$ {{ $target }}
+{{- end }}
+{{- end }}
+# ---- End generated ----
+
+# Authors taxonomy is gone; the book list is sorted by author
+RedirectMatch 301 ^/authors/?.*$ /books/
+
+# Leftovers from the old theme
+RedirectMatch 301 ^/page/about/?$ /about/
+RedirectMatch 301 ^/categories/?.*$ /tags/
 
 # Server sends .avif without a Content-Type
 AddType image/avif .avif

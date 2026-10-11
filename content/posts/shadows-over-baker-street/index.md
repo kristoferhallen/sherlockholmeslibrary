@@ -1,7 +1,7 @@
 ---
 author: Michael Reaves and John Pelan
 author_last: Reaves
-book_title: Shadows over Baker street
+book_title: "Shadows Over Baker Street"
 date: 2025-02-02
 grade: 8.0
 tags:
@@ -9,7 +9,7 @@ tags:
 - HP Lovecraft
 - horror
 - Cthulhu
-title: Shadows over Baker street
+title: "Shadows Over Baker Street"
 description: "Review of Shadows over Baker Street — a Lovecraftian Holmes anthology where Holmes faces monsters beyond logic, including Neil Gaiman's celebrated A Study in Emerald. Rated 8/10."
 cover:
   image: cover.jpg

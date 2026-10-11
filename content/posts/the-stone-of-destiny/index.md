@@ -1,13 +1,13 @@
 ---
 author: Richard T Ryan
 author_last: Ryan
-book_title: The stone of destiny
+book_title: "The Stone of Destiny"
 date: 2025-10-12
 grade: 6.0
 tags:
 - Ireland
 - Tussaud
-title: The stone of destiny
+title: "The Stone of Destiny"
 description: "Review of The Stone of Destiny by Richard T Ryan — Holmes and Watson travel to Ireland to recover the stolen Coronation Stone before a royal crowning ceremony. Rated 6/10."
 cover:
   image: cover.jpg

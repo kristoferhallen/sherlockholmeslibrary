@@ -1,13 +1,13 @@
 ---
 author: Bonnie MacBird
 author_last: MacBird
-book_title: What Child is this
+book_title: "What Child Is This?"
 date: 2024-10-25
 grade: 4.0
 tags:
 - traditional-pastiche
 - Christmas
-title: What Child is this
+title: "What Child Is This?"
 description: "Review of What Child is This by Bonnie MacBird — Holmes and Watson thwart a Christmas child abduction in Victorian London, well-written but thin on plot depth. Rated 4/10."
 cover:
   image: cover.jpg

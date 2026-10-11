@@ -1,7 +1,7 @@
 ---
 author: Laurie R King
 author_last: King
-book_title: The Beekeepers apprentice
+book_title: "The Beekeeper's Apprentice"
 date: 2025-12-14
 grade: 8.0
 series: Mary Russell
@@ -9,7 +9,7 @@ series_order: 1
 publication_year: 1994
 tags:
 - Mary Russell
-title: The Beekeepers apprentice
+title: "The Beekeeper's Apprentice"
 description: "Review of The Beekeeper's Apprentice by Laurie R King — a 15-year-old Mary Russell meets the retired Holmes and becomes his apprentice detective. Mary Russell series book 1. Rated 8/10."
 cover:
   image: cover.jpg

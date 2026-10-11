@@ -1,12 +1,12 @@
 ---
 author: Michael Chabon
 author_last: Chabon
-book_title: The final solution
+book_title: "The Final Solution"
 date: 2025-03-29
 grade: 8.0
 tags:
 - old-sherlock
-title: The final solution
+title: "The Final Solution"
 description: "Review of The Final Solution by Michael Chabon — an elderly retired Holmes investigates a WWII murder connected to a mute boy and his number-reciting parrot. Rated 8/10."
 cover:
   image: cover.jpg

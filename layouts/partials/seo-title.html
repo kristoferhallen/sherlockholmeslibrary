@@ -1,0 +1,14 @@
+{{- /*
+  The <title> text. Reviews: "Book by Author – review (8/10)", the words
+  people search for. Other pages: "Title | Site".
+*/ -}}
+{{- $title := site.Title }}
+{{- if and .IsPage (eq .Type "posts") }}
+  {{- $title = .Params.book_title | default .Title }}
+  {{- with .Params.author }}{{ if not $.Params.not_a_book }}{{ $title = printf "%s by %s" $title (trim . " ") }}{{ end }}{{ end }}
+  {{- $title = printf "%s – review" $title }}
+  {{- with .Params.grade }}{{ $title = printf "%s (%v/10)" $title (printf "%g" (float .)) }}{{ end }}
+{{- else if not .IsHome }}
+  {{- with .Title }}{{ $title = printf "%s | %s" . site.Title }}{{ end }}
+{{- end }}
+{{- return $title }}

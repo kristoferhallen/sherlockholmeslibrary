@@ -1,14 +1,14 @@
 ---
 author: Mitch Cullin
 author_last: Cullin
-book_title: A slight trick of the mind
+book_title: "A Slight Trick of the Mind"
 date: 2024-12-07
 grade: 4.0
 tags:
 - Japan
 - beekeeping
 - old-sherlock
-title: A slight trick of the mind
+title: "A Slight Trick of the Mind"
 description: "Review of Mitch Cullin's Sherlock Holmes pastiche about an aging Holmes in retirement — more psychological drama about memory and loss than mystery. Rated 4/10."
 cover:
   image: cover.jpg

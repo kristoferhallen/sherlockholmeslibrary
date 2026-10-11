@@ -1,12 +1,12 @@
 ---
 author: David Stuart Davies
 author_last: Stuart Davies
-book_title: The scroll of the dead
+book_title: "The Scroll of the Dead"
 date: 2025-01-06
 grade: 6.0
 tags:
 - Egypt
-title: The scroll of the dead
+title: "The Scroll of the Dead"
 description: "Review of The Scroll of the Dead by David Stuart Davies — Holmes and Watson hunt an Egyptian papyrus said to hold the ancient secret of immortality. Rated 6/10."
 cover:
   image: cover.jpg

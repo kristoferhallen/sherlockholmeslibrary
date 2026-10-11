@@ -3,11 +3,15 @@ locale = "en-us"
 title = "Kristofer's Sherlock Holmes library"
 theme = "PaperMod"
 
+# Old URLs (front matter `aliases`) become real 301s in the generated
+# .htaccess (layouts/index.htaccess.txt) instead of meta-refresh pages.
+disableAliases = true
+
 [params]
   env = "production"
   description = "Sherlock Holmes book reviews"
   images = ["/sherlocksiluett.jpg"]
-  author = "Kristofer"
+  author = "Kristofer Hallén"
   # customCSS = ["css/extended_custom.css"]
 
   [params.homeInfoParams]
@@ -29,11 +33,23 @@ theme = "PaperMod"
   isPlainText = true
   notAlternative = true
 
+# .htaccess, generated from layouts/index.htaccess.txt. Hugo writes
+# htaccess.txt; the deploy workflow renames it to .htaccess.
+[outputFormats.htaccess]
+  mediaType = "text/plain"
+  baseName = "htaccess"
+  isPlainText = true
+  notAlternative = true
+
+# Only the home page has an RSS feed. Feeds for every tag, series and
+# section were mostly what Google spent its crawl time on.
 [outputs]
-  home = ["HTML", "RSS", "llms"]
+  home = ["HTML", "RSS", "llms", "htaccess"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
 
 [taxonomies]
-  author = "authors"
   tag = "tags"
   series = "series"
 
