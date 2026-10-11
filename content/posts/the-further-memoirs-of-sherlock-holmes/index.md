@@ -1,13 +1,16 @@
 ---
-author: Caiden Cooper Miles
-author_last: Cooper Miles
+author: Caiden Cooper Myles
+author_last: Myles
 book_title: "The Further Memoirs of Sherlock Holmes"
 date: 2025-02-16
 grade: 6.0
+series: The Further Memoirs of Sherlock Holmes
+series_order: 1
+publication_year: 2023
 tags:
 - traditional-pastiche
 title: "The Further Memoirs of Sherlock Holmes"
-description: "Review of The Further Memoirs of Sherlock Holmes by Caiden Cooper Miles — seven traditional pastiche stories written faithfully in Arthur Conan Doyle's style. Rated 6/10."
+description: "Review of The Further Memoirs of Sherlock Holmes by Caiden Cooper Myles — seven traditional pastiche stories written faithfully in Arthur Conan Doyle's style. Rated 6/10."
 cover:
   image: cover.jpg
   relative: true

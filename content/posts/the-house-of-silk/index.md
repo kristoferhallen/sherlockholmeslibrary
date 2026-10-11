@@ -4,6 +4,9 @@ author_last: Horowitz
 book_title: The House of Silk
 date: 2025-06-29
 grade: 8.0
+series: "Anthony Horowitz's Holmes novels"
+series_order: 1
+publication_year: 2011
 tags:
 - Mycroft
 - Moriarty

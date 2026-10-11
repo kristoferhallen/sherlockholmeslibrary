@@ -4,6 +4,9 @@ author_last: Horowitz
 book_title: Moriarty
 date: 2025-03-09
 grade: 8.0
+series: "Anthony Horowitz's Holmes novels"
+series_order: 2
+publication_year: 2014
 tags:
 - Moriarty
 title: Moriarty
