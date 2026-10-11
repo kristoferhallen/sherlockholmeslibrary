@@ -13,6 +13,11 @@ grenen `feature/unread-affiliate-tip`.
 - [ ] **Egna sidor för de största figurerna** (Dracula, Jekyll och Hyde och
       fler med många böcker), för sökningar som "Sherlock Holmes Dracula books".
       Kräver egen text per sida, annars blir de tunna.
+- [ ] **Den osynlige mannen hos Klaver?** Läs om *The Classified Dossier*
+      (Count Dracula, Mr Hyde, Dorian Gray). Sammanfattningar på nätet säger
+      att H.G. Wells osynlige man är med, kanske i bok 1. Om han finns där:
+      lägg taggen `Invisible Man` på rätt recension och en ny person i
+      `data/sherlockmeets.yaml` (porträttet visar "?" tills du gör ett).
 - [ ] **Följ upp i Search Console** några veckor efter 2026-10-11: vilka
       sökord sidan visas för, och om ankarna syns som "Hoppa till".
 
