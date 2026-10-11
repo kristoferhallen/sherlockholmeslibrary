@@ -1,4 +1,5 @@
 - name: "H.G. Wells"
+  group: real
   description: "Science fiction pioneer and author of The War of the Worlds and The Time Machine. Sherlock Holmes meets Wells and his wife, journalist and author Rebecca West, in a story that blends detective fiction with early 20th century literary society."
   image: "hg-wells.png"
   books:
@@ -7,6 +8,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/H._G._Wells"
 
 - name: "Ture Sventon"
+  group: detectives
   description: "Swedish detective in Åke Holmberg's youth books."
   image: "turesventon.png"
   books:
@@ -15,6 +17,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Tam_Sventon"
 
 - name: "Dr Jekyll and Mr Hyde"
+  group: gothic
   description: "Dr Henry Jekyll, along with his alter ego Mr Edward Hyde, is the central character of Robert Louis Stevenson's 1886 novella The Strange Case of Dr Jekyll and Mr Hyde. "
   image: "drjekyll.png"
   books:
@@ -33,6 +36,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Dr_Jekyll_and_Mr_Hyde_(character)"
 
 - name: "Sigmund Freud"
+  group: real
   description: "The Austrian neurologist and founder of psychoanalysis. Watson brings a cocaine-addicted Holmes to Vienna to seek treatment from Freud, and the two brilliant minds quickly form an unlikely bond — especially when a new case draws them both in. In the Athena Club series Dr Freud helps Mary Jekyll and her friends when their search for Lucinda Van Helsing takes them to Vienna."
   image: "sigmundfreud.png"
   books:
@@ -43,6 +47,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Sigmund_Freud"
 
 - name: "Jack the Ripper"
+  group: real
   description: "The unidentified serial killer who terrorised the Whitechapel district of London in 1888. When women start dying in the streets of Victorian London, Holmes takes on his most elusive quarry — a killer who leaves no trail the police can follow."
   image: "jacktheripper.png"
   books:
@@ -57,6 +62,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Jack_the_Ripper"
 
 - name: "Count Dracula"
+  group: gothic
   description: "The Transylvanian vampire nobleman created by Bram Stoker. In Christian Klaver's Classified Dossier series Dracula arrives at Baker Street seeking Holmes's help, leading to an unlikely alliance between the world's greatest detective and the undead that lasts through the whole series. He also turns up in Theodora Goss's Athena Club series, in his castle in Styria."
   image: "dracula.png"
   books:
@@ -71,6 +77,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Count_Dracula"
 
 - name: "Mina Harker"
+  group: gothic
   description: "Wilhelmina Harker, née Murray, the clever schoolmistress from Bram Stoker's Dracula (1897) who helps Van Helsing hunt down the Count. In Christian Klaver's Classified Dossier she is Dracula's companion and ally, and in Theodora Goss's Athena Club series she is Mina Murray, a resourceful woman with her own version of what really happened in Stoker's novel."
   image: "minaharker.jpg"
   books:
@@ -85,6 +92,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Mina_Harker"
 
 - name: "Cthulhu"
+  group: gothic
   description: "The cosmic entity created by H.P. Lovecraft, lying dormant beneath the Pacific Ocean in the sunken city of R'lyeh. When Cthulhu's influence spreads across London, Holmes must apply cold Victorian reason to horrors that defy all rational explanation."
   image: "chtulhu.png"
   books:
@@ -95,6 +103,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Cthulhu"
 
 - name: "Arsène Lupin"
+  group: detectives
   description: "Maurice Leblanc's gentleman thief and master of disguise, created in 1905 as France's answer to Sherlock Holmes — and his most entertaining rival. Lupin consistently outmanoeuvres the great detective, which is presumably why Leblanc was forced to rename Holmes 'Herlock Sholmes' in later stories to avoid legal trouble."
   image: "arsenelupin.png"
   books:
@@ -105,6 +114,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Ars%C3%A8ne_Lupin"
 
 - name: "Dorian Gray"
+  group: gothic
   description: "Oscar Wilde's eternally youthful protagonist from The Picture of Dorian Gray (1890), whose portrait ages and degrades in his place while he remains untouched by time or conscience. A man who has traded his soul for beauty — and spent a very long time wondering if it was worth it."
   image: "doriangray.png"
   books:
@@ -113,6 +123,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Dorian_Gray"
 
 - name: "Dr. Moreau"
+  group: gothic
   description: "H.G. Wells's brilliant and monstrous vivisectionist from The Island of Doctor Moreau (1896), who transforms animals into humanoid creatures through surgery. In the Athena Club series it is his daughter who carries the family obsession forward — the apple falling rather close to the tree."
   image: "drmoreau.png"
   books:
@@ -125,6 +136,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Doctor_Moreau"
 
 - name: "Rappaccini's Daughter"
+  group: gothic
   description: "Beatrice Rappaccini, from Nathaniel Hawthorne's 1844 short story, was raised in her father's poisonous garden until her very touch became lethal. In the Athena Club series a descendant carries this toxic inheritance into the Victorian age — still dangerous, still rather put out about it."
   image: "rappaccini.png"
   books:
@@ -135,6 +147,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Rappaccini%27s_Daughter"
 
 - name: "Frankenstein's Monster"
+  group: gothic
   description: "Mary Shelley's nameless creation from Frankenstein; or, The Modern Prometheus (1818) — assembled from corpses, brought to life by electricity, and abandoned by his creator. In the Athena Club series, the monster's line continues through a daughter, grappling with the same questions of belonging and what it means to be made rather than born."
   image: "frankenstein.png"
   books:
@@ -147,6 +160,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Frankenstein%27s_monster"
 
 - name: "Professor Van Helsing"
+  group: gothic
   description: "Professor Abraham Van Helsing, the Dutch physician and polymath from Bram Stoker's Dracula (1897). Expert in obscure folklore, occult medicine, and the very specific problem of vampires. The man who first identified Count Dracula for what he was — and lived to write it up at considerable length."
   image: "vanhelsing.png"
   books:
@@ -157,6 +171,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Professor_Van_Helsing"
 
 - name: "Hercule Poirot"
+  group: detectives
   description: "Agatha Christie's meticulous Belgian detective, renowned for his 'little grey cells' and his intolerance for disorder of any kind — including, presumably, the disorder of sharing a fictional universe with a rival genius. In this crossover the two great detectives meet over a case with a distinctly Orient Express flavour."
   image: "poirot.png"
   books:
@@ -165,6 +180,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Hercule_Poirot"
 
 - name: "Harry Houdini"
+  group: real
   description: "The Hungarian-American escape artist, illusionist, and stunt performer (1874–1926) — one of the most famous men in the world in his time. Known for escaping from handcuffs, straightjackets, and locked milk cans submerged in water. He was also a passionate debunker of fraudulent mediums, which puts him in surprisingly good company."
   image: "houdini.png"
   books:
@@ -173,6 +189,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Harry_Houdini"
 
 - name: "A.J. Raffles"
+  group: detectives
   description: "The Amateur Cracksman, created by E.W. Hornung — Arthur Conan Doyle's own brother-in-law — in 1898. A gentleman cricketer by day and jewel thief by night, Raffles is essentially Holmes inverted: the same brilliance and sangfroid, applied to the wrong side of the law. Hornung dedicated the first collection to Doyle, 'To A. C. D. This Form of Flattery"
   image: "ajraffles.png"
   books:
@@ -181,6 +198,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/A._J._Raffles"
 
 - name: "The Phantom of the Opera"
+  group: gothic
   description: "Erik, the disfigured musical genius haunting the cellars of the Paris Opera House in Gaston Leroux's 1910 novel. "
   image: "phantom.jpg"
   books:
@@ -189,6 +207,7 @@
   wikipedia: "https://en.wikipedia.org/wiki/Erik_(The_Phantom_of_the_Opera)"
 
 - name: "Newbury & Hobbes"
+  group: detectives
   description: "Sir Maurice Newbury and Miss Veronica Hobbes, George Mann's steampunk investigators working for Queen Victoria in an alternate Victorian London of airships and clockwork automata. An occult detective and his considerably more practical assistant — a partnership with obvious Baker Street ancestry, here meeting the original."
   image: "newbury.png"
   books:

@@ -1,6 +1,8 @@
 {{- define "main" }}
+{{- $people := hugo.Data.sherlockmeets }}
 
 <header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
   <h1>{{ .Title }}</h1>
   {{- if .Content }}
   <div class="post-description">
@@ -9,54 +11,84 @@
   {{- end }}
 </header>
 
-<div class="meets-grid">
-  {{- range hugo.Data.sherlockmeets }}
-  {{- $person := . }}
-  <div class="meets-card" id="{{ partial "meets-anchor.html" .name }}">
+{{- /* Jump index: every name, grouped as on the page. */}}
+<nav class="meets-index" aria-label="Characters">
+  {{- range .Params.groups }}
+  {{- $id := .id }}
+  <div class="meets-index-group">
+    <span>{{ .title }}</span>
+    {{- range where $people "group" $id }}
+    <a href="#{{ partial "meets-anchor.html" .name }}">{{ .name }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+</nav>
 
-    <div class="meets-portrait">
+{{- range .Params.groups }}
+{{- $members := where $people "group" .id }}
+{{- if $members }}
+<section class="meets-group">
+  <h2>{{ .title }} <small>{{ len $members }}</small></h2>
+  {{- with .intro }}<p class="meets-group-intro">{{ . }}</p>{{ end }}
+
+  {{- range $members }}
+  {{- $person := . }}
+  {{- $anchor := partial "meets-anchor.html" .name }}
+  <article class="meets-row" id="{{ $anchor }}">
+    <div class="meets-silhouette">
       {{- $portrait := "" }}
       {{- with .image }}
         {{- $portrait = resources.Get (printf "images/sherlock-meets/%s" .) }}
         {{- if not $portrait }}{{ warnf "sherlock-meets: image %q not found in assets/images/sherlock-meets/" . }}{{ end }}
       {{- end }}
       {{- with $portrait }}
-      {{- $img1x := .Resize "170x" }}
-      {{- $img2x := .Resize "340x" }}
+      {{- $img1x := .Resize "120x" }}
+      {{- $img2x := .Resize "240x" }}
       <picture>
-        <source type="image/webp" srcset="{{ (.Resize "170x webp q80").RelPermalink }} 1x, {{ (.Resize "340x webp q80").RelPermalink }} 2x">
-        <img class="meets-portrait-img"
-             src="{{ $img1x.RelPermalink }}"
+        <source type="image/webp" srcset="{{ (.Resize "120x webp q80").RelPermalink }} 1x, {{ (.Resize "240x webp q80").RelPermalink }} 2x">
+        <img src="{{ $img1x.RelPermalink }}"
              srcset="{{ $img1x.RelPermalink }} 1x, {{ $img2x.RelPermalink }} 2x"
              alt="Silhouettes of Sherlock Holmes and {{ $person.name }}"
-             loading="lazy"
-             decoding="async"
-             width="{{ $img1x.Width }}"
-             height="{{ $img1x.Height }}">
+             loading="lazy" decoding="async"
+             width="{{ $img1x.Width }}" height="{{ $img1x.Height }}">
       </picture>
       {{- else }}
-      <div class="meets-portrait-placeholder">?</div>
+      <span class="meets-silhouette-placeholder" aria-hidden="true">?</span>
       {{- end }}
     </div>
 
-    <div class="meets-info">
-      <h2><a href="#{{ partial "meets-anchor.html" .name }}">{{ .name }}</a></h2>
-
-      <p class="meets-description">{{ .description }}
+    <div class="meets-text">
+      <h3><a href="#{{ $anchor }}">{{ .name }}</a></h3>
+      <p>{{ .description }}
         {{- with .wikipedia }} <a class="meets-wiki" href="{{ . }}" rel="noopener">Wikipedia&nbsp;↗</a>{{ end }}</p>
 
-      {{- if .books }}
+      {{- with .books }}
+      <span class="meets-books-label">In {{ len . }} {{ cond (eq (len .) 1) "book" "books" }}</span>
       <div class="meets-books">
-        <span class="meets-books-label">Appears in:</span>
-        {{- range .books }}
-        <a href="{{ .url }}" class="meets-book-link">{{ .title }}</a>
+        {{- range . }}
+        {{- $review := site.GetPage (strings.TrimSuffix "/" .url) }}
+        <a class="meets-book" href="{{ with $review }}{{ .RelPermalink }}{{ else }}{{ .url }}{{ end }}">
+          {{- with $review }}
+          {{- partial "responsive-cover.html" (dict "page" . "width" 28 "alt" "") }}
+          {{- with .Params.grade }}
+          {{- $g := int . }}
+          {{- $gradeClass := "grade-mid" }}
+          {{- if ge $g 10 }}{{ $gradeClass = "grade-top" }}
+          {{- else if ge $g 7 }}{{ $gradeClass = "grade-high" }}
+          {{- else if lt $g 5 }}{{ $gradeClass = "grade-low" }}{{ end }}
+          <span class="meets-book-grade {{ $gradeClass }}" aria-label="Rated {{ $g }} of 10">{{ $g }}</span>
+          {{- end }}
+          {{- end }}
+          <span class="meets-book-title">{{ .title }}</span>
+        </a>
         {{- end }}
       </div>
       {{- end }}
     </div>
-
-  </div>
+  </article>
   {{- end }}
-</div>
+</section>
+{{- end }}
+{{- end }}
 
 {{- end }}{{/* end main */}}
