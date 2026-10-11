@@ -30,7 +30,8 @@ RedirectMatch 301 ^{{ strings.TrimSuffix "/" . | replaceRE `([.+?*()\[\]^$|])` `
 RedirectMatch 301 ^/authors/?.*$ /books/
 
 # Leftovers from the old theme
-RedirectMatch 301 ^/page/about/?$ /about/
+RedirectMatch 301 ^/page/about(/.*)?$ /about/
+Redirect 301 /legobooknook2.jpg /posts/lego-sherlock-holmes-book-nook/legobooknook2.jpg
 RedirectMatch 301 ^/categories/?.*$ /tags/
 
 # Server sends .avif without a Content-Type
