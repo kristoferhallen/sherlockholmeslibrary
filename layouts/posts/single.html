@@ -81,6 +81,13 @@
     </div>
     {{- end }}
 
+    {{- /* Swedish books link to the Swedish page (once it is published). */}}
+    {{- if in (.Params.tags | default slice) "Sweden" }}
+    {{- with site.GetPage "/sherlock-holmes-pa-svenska" }}
+    <p class="post-svenska-link" lang="sv">Fler svenska Sherlock Holmes-böcker: <a href="{{ .RelPermalink }}">{{ .Title }} →</a></p>
+    {{- end }}
+    {{- end }}
+
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}

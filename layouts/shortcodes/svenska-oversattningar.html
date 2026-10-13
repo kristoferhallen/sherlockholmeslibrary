@@ -1,0 +1,25 @@
+{{- /* Swedish translations from data/svenska_oversattningar.yaml. Rows with
+     verified: false only show in the local preview (hugo server).
+     `review` may point to content/unread/: such books link to their
+     reading guide instead of a review. */ -}}
+<ul class="svenska-oversattningar">
+{{- range hugo.Data.svenska_oversattningar }}
+  {{- if or .verified hugo.IsServer }}
+  {{- $review := site.GetPage .review }}
+  <li>
+    <strong>{{ .title }}</strong>
+    {{- $pub := slice }}{{ with .publisher }}{{ $pub = $pub | append . }}{{ end }}{{ with .year }}{{ $pub = $pub | append (string .) }}{{ end }}
+    {{- with $pub }} ({{ delimit . ", " }}){{ end }}
+    {{- with $review }} – <em>{{ .Params.book_title | default .Title }}</em> av {{ .Params.author }}
+      {{- with .Params.publication_year }} ({{ . }}){{ end }},
+      {{- if eq .Type "posts" }} <a href="{{ .RelPermalink }}">min recension</a> ({{ .Params.grade | int }}/10)
+      {{- else }} ännu inte recenserad{{ with .Params.series }}, se <a href="{{ partial "series-url.html" . }}">{{ . }} i läsordning</a>{{ end }}
+      {{- end }}
+    {{- end }}
+    {{- with .note }}<br><small>{{ . | markdownify }}</small>{{ end }}
+    {{- if not .verified }} <mark>Ej verifierad</mark>{{ end }}
+    {{- if not $review }} <mark>Hittar inte boken {{ .review }}</mark>{{ end }}
+  </li>
+  {{- end }}
+{{- end }}
+</ul>

@@ -4,6 +4,7 @@ author_last: Sörmark
 book_title: En skandal i Stockholm (A scandal in Stockholm)
 date: 2024-11-24
 grade: 6.0
+publication_year: 1981
 tags:
 - Sweden
 - the King of Scandinavia

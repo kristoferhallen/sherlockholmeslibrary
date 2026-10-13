@@ -43,6 +43,11 @@
         <a href="{{ "/books/" | relURL }}"><span>Authors</span><i></i><b>{{ len $uniqueAuthors }}</b></a>
         <a href="{{ "/guides/" | relURL }}"><span>Series in reading order</span><i></i><b>{{ $seriesCount }}</b></a>
         <a href="{{ "/top-books/" | relURL }}"><span>Average rating</span><i></i><b>{{ printf "%.1f" $avgGrade }} / 10</b></a>
+        {{- /* Shown once the Swedish page is published (not a draft). */}}
+        {{- with site.GetPage "/sherlock-holmes-pa-svenska" }}
+        {{- $swedish := 0 }}{{ with site.Taxonomies.tags.sweden }}{{ $swedish = len .Pages }}{{ end }}
+        <a href="{{ .RelPermalink }}" lang="sv"><span>På svenska</span><i></i><b>{{ $swedish }}</b></a>
+        {{- end }}
     </div>
 
     <footer class="entry-footer">

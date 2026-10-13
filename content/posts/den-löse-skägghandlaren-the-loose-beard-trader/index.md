@@ -4,6 +4,7 @@ author_last: Jannedal
 book_title: Den löse skägghandlaren (The loose beard trader)
 date: 2025-06-23
 grade: 6.0
+publication_year: 1994
 tags:
 - Ture Sventon
 - sherlock-meets

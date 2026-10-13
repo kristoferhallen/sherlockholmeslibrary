@@ -1,0 +1,47 @@
+# Svenska översättningar av böcker som är recenserade på sajten.
+# Visas på /sherlock-holmes-pa-svenska/ via shortcoden svenska-oversattningar.
+#
+#   review:   sökvägen till recensionen (posts/<mapp>), eller till en oläst
+#             bok (unread/<mapp>); då länkar listan till serieguiden
+#   title:    svensk titel
+#   publisher, year: första svenska utgåvan (eller den som är lättast att hitta)
+#   note:     valfri kort kommentar
+#   verified: true när du kollat mot boken eller Libris. Overifierade rader
+#             visas bara i lokal förhandsgranskning (hugo server), med en varning.
+#
+# Förslagen nedan kommer från en Libris-sökning 2026-10-11. Kontrollera dem.
+
+- review: posts/the-seven-per-cent-solution
+  title: Den sjuprocentiga lösningen
+  publisher: Norstedt
+  year: 1975
+  verified: true
+
+- review: posts/arsène-lupin-vs-sherlock-holmes
+  title: Arsène Lupin v/s Sherlock Holmes
+  publisher: Modernista
+  year: 2022
+  note: "Äldre översättning: Arsène Lupin mot Sherlock Holmes (B. Wahlström, 1919)."
+  verified: true
+
+- review: posts/art-in-the-blood
+  title: En studie i blod
+  publisher: HarperCollins Nordic
+  year: 2016
+  verified: true
+
+- review: posts/the-beekeepers-apprentice
+  title: Drottningfällan
+  publisher: Tiden
+  year: 1995
+  verified: true
+
+- review: unread/a-monstrous-regiment-of-women
+  title: Det monstruösa kvinnoregementet
+  publisher: Rabén Prisma
+  year: 1997
+  verified: true
+
+# Hittades inte i Libris (kanske aldrig översatta): The House of Silk,
+# Moriarty (Horowitz), A Slight Trick of the Mind, Dust and Shadow,
+# The Italian Secretary, The Final Solution (Chabon), Theodora Goss.

@@ -4,6 +4,7 @@ author_last: Bengtsson
 book_title: Trepiporsproblem och bagateller (Three-pipe problems and trifles)
 date: 2024-09-03
 grade: 6.0
+publication_year: 1993
 tags:
 - Sweden
 - science

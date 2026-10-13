@@ -1,0 +1,11 @@
+{{- /* Every review tagged Sweden, as book rows. Used on /sherlock-holmes-pa-svenska/. */ -}}
+{{- $books := slice }}
+{{- with site.Taxonomies.tags.sweden }}{{ $books = .Pages }}{{ end }}
+{{- /* Oldest first; books without publication_year last. */}}
+{{- $dated := sort (where $books "Params.publication_year" "!=" nil) "Params.publication_year" }}
+{{- $undated := where $books "Params.publication_year" nil }}
+<ol class="book-index-list svenska-bocker">
+{{- range $dated | append $undated }}
+  {{ partial "book-row.html" . }}
+{{- end }}
+</ol>

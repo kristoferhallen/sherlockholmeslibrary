@@ -99,7 +99,7 @@
   "url" .Permalink
   "description" $description
   "reviewBody" (.Plain | strings.TrimSpace)
-  "inLanguage" (.Language.Lang | default "en")
+  "inLanguage" (.Params.page_lang | default .Language.Lang | default "en")
   "datePublished" (.PublishDate.Format "2006-01-02")
   "dateModified" (.Lastmod.Format "2006-01-02")
   "author" $me
@@ -125,7 +125,7 @@
   "name" (.Title | plainify)
   "url" .Permalink
   "description" $description
-  "inLanguage" (.Language.Lang | default "en")
+  "inLanguage" (.Params.page_lang | default .Language.Lang | default "en")
   "author" $me
   "publisher" $publisher
   "mainEntity" (dict "@type" "ItemList" "name" (printf "%s books in reading order" .Params.guide_series) "itemListOrder" "https://schema.org/ItemListOrderAscending" "numberOfItems" (len $items) "itemListElement" $items) }}
@@ -139,7 +139,7 @@
   "name" (.Title | plainify)
   "url" .Permalink
   "description" $description
-  "inLanguage" (.Language.Lang | default "en")
+  "inLanguage" (.Params.page_lang | default .Language.Lang | default "en")
   "author" $me
   "publisher" $publisher }}
 <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>

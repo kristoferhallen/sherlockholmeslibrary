@@ -4,6 +4,7 @@ author_last: Sörmark
 book_title: En Oscariansk skandal, Sherlock Holmes i Stockholm
 date: 2025-04-27
 grade: 6.0
+publication_year: 1983
 tags:
 - Sweden
 - the King of Scandinavia

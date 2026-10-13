@@ -21,6 +21,11 @@ grenen `feature/unread-affiliate-tip`.
 - [ ] **Följ upp i Search Console** några veckor efter 2026-10-11: vilka
       sökord sidan visas för, och om ankarna syns som "Hoppa till".
 
+## Svenska sidan (`/sherlock-holmes-pa-svenska/`)
+
+- [ ] Affiliatelänkar (Adlibris/Bokus), märkta som annonslänk.
+- [ ] Följ upp i Search Console efter några veckor: svenska sökord.
+
 ## Omslag att leta upp (sparas som `cover.jpg` i recensionens mapp)
 
 - [ ] Den löse skägghandlaren (Jannedal)
