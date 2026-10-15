@@ -8,6 +8,28 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
+# Only the home page has a feed. Old per-tag, per-series and per-section
+# feeds (and common feed names) go to it, so feed readers keep working.
+# Must come before the series rules below.
+RedirectMatch 301 ^/.+/index\.xml$ /index.xml
+RedirectMatch 301 ^/(feed/?|rss\.xml|atom\.xml)$ /index.xml
+
+# Browser cache for static files. Covers and processed images have hashed
+# names, CSS is versioned with ?v= in extend_head.html; the rest changes
+# rarely. HTML and the feed are not cached.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/avif "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType image/vnd.microsoft.icon "access plus 30 days"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+</IfModule>
+
 # ---- Generated from content ----
 # Series pages → their reading guides (the guides are the canonical pages)
 RedirectMatch 301 ^/series/?$ /guides/
