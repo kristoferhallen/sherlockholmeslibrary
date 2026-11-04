@@ -1,0 +1,100 @@
+{{- /*
+  Up to three books to read after a review, each with the reason it is
+  suggested. In this order:
+    1. the next book in the same series that I have reviewed
+    2. other books by the same author (outside the series), at most two
+    3. books that share Sherlock Meets figures or tags with this one
+       (at most one for a book in a series)
+  A traditional pastiche with none of the above gets my top-rated
+  traditional pastiches instead.
+  Tags score by how rare they are; very common tags and canon characters
+  count for little, and "sweden" not at all (the Swedish page covers it).
+  Returns a slice of dicts: page, why (HTML), author (bool: show the author).
+  Usage: {{ $next := partial "read-next.html" . }}
+*/ -}}
+{{- $me := . }}
+{{- $out := slice }}
+{{- if not .Params.not_a_book }}
+{{- $posts := where (where site.RegularPages "Type" "posts") "Params.not_a_book" "!=" true }}
+{{- $posts = where $posts "Permalink" "!=" .Permalink }}
+{{- $used := slice }}
+{{- $series := .Params.series }}
+
+{{- /* 1. Next reviewed book in the series */}}
+{{- with $series }}
+  {{- $later := slice }}
+  {{- range where $posts "Params.series" . }}
+    {{- if gt (float .Params.series_order) (float $me.Params.series_order) }}{{ $later = $later | append . }}{{ end }}
+  {{- end }}
+  {{- with $later }}
+    {{- $p := index (sort . "Params.series_order") 0 }}
+    {{- $out = $out | append (dict "page" $p "why" "next in the series I have reviewed" "author" (ne $p.Params.author $me.Params.author)) }}
+    {{- $used = $used | append $p.Permalink }}
+  {{- end }}
+{{- end }}
+
+{{- /* 2. Same author, outside this series */}}
+{{- $same := slice }}
+{{- range where $posts "Params.author" .Params.author }}
+  {{- if not (and $series (eq .Params.series $series)) }}{{ $same = $same | append . }}{{ end }}
+{{- end }}
+{{- range first 2 (sort (sort $same "Params.book_title") "Params.grade" "desc") }}
+  {{- $out = $out | append (dict "page" . "why" (printf "also by %s" .Params.author) "author" false) }}
+  {{- $used = $used | append .Permalink }}
+{{- end }}
+
+{{- /* 3. Shared Sherlock Meets figures and tags */}}
+{{- $room := sub 3 (len $out) }}
+{{- if $series }}{{ $room = math.Min $room 1 | int }}{{ end }}
+{{- if gt $room 0 }}
+  {{- $weak := slice "sherlock-meets" "traditional-pastiche" "lestrade" "mycroft" "moriarty" "mrs hudson" "wiggins" "irene adler" "mary watson" "watson" "a study in scarlet" "the red-headed league" "silver blaze" "the six napoleons" }}
+  {{- $counts := partialCached "tag-counts.html" . "tag-counts" }}
+  {{- $n := float (len (where site.RegularPages "Type" "posts")) }}
+  {{- $myTags := slice }}
+  {{- range .Params.tags }}{{ $myTags = $myTags | append (lower .) }}{{ end }}
+  {{- $myFigs := slice }}
+  {{- range partialCached "meets-for-page.html" . .File.ContentBaseName }}{{ $myFigs = $myFigs | append .name }}{{ end }}
+  {{- $cands := slice }}
+  {{- range $posts }}
+    {{- if or (in $used .Permalink) (eq .Params.author $me.Params.author) (and $series (eq .Params.series $series)) }}{{ continue }}{{ end }}
+    {{- $score := 0.0 }}
+    {{- $figs := slice }}
+    {{- range partialCached "meets-for-page.html" . .File.ContentBaseName }}
+      {{- if in $myFigs .name }}{{ $figs = $figs | append .name }}{{ $score = add $score 2.0 }}{{ end }}
+    {{- end }}
+    {{- $bestTag := "" }}{{ $bestW := 0.0 }}
+    {{- range .Params.tags }}
+      {{- $t := lower . }}
+      {{- if and (in $myTags $t) (ne $t "sweden") }}
+        {{- $w := math.Log (div $n (float (index $counts $t))) }}
+        {{- if in $weak $t }}{{ $w = mul $w 0.3 }}{{ end }}
+        {{- $score = add $score $w }}
+        {{- if gt $w $bestW }}{{ $bestW = $w }}{{ $bestTag = . }}{{ end }}
+      {{- end }}
+    {{- end }}
+    {{- if ge $score 2.2 }}
+      {{- $why := "" }}
+      {{- if $figs }}{{ $why = printf "also meets %s" (delimit (first 2 $figs) " and ") }}
+      {{- else }}{{ $why = printf "also tagged <span class=\"read-next-tag\">%s</span>" $bestTag }}{{ end }}
+      {{- /* Sort key: score, then grade (titles break ties via the pre-sort) */}}
+      {{- $key := add (mul $score 10000) (mul (float .Params.grade) 10) }}
+      {{- $cands = $cands | append (dict "page" . "why" $why "author" true "key" $key "title" (.Params.book_title | default .Title)) }}
+    {{- end }}
+  {{- end }}
+  {{- range first $room (sort (sort $cands "title") "key" "desc") }}
+    {{- $out = $out | append . }}
+  {{- end }}
+{{- end }}
+
+{{- /* Fallback for traditional pastiches with nothing else */}}
+{{- if and (not $out) (in (apply (.Params.tags | default slice) "lower" ".") "traditional-pastiche") }}
+  {{- $trad := slice }}
+  {{- range $posts }}
+    {{- if and (ne .Params.author $me.Params.author) (in (apply (.Params.tags | default slice) "lower" ".") "traditional-pastiche") }}{{ $trad = $trad | append . }}{{ end }}
+  {{- end }}
+  {{- range first 2 (sort (sort $trad "Params.book_title") "Params.grade" "desc") }}
+    {{- $out = $out | append (dict "page" . "why" "one of my top-rated traditional pastiches" "author" true) }}
+  {{- end }}
+{{- end }}
+{{- end }}
+{{- return $out }}
