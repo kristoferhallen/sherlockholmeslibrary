@@ -88,6 +88,38 @@
     {{- end }}
     {{- end }}
 
+    {{- /* Books to read next, styled like the rows on /books/. */}}
+    {{- with partial "read-next.html" . }}
+    <nav class="read-next" aria-labelledby="read-next-h">
+      <h2 id="read-next-h">Read next</h2>
+      <ol>
+        {{- range . }}
+        {{- $p := .page }}
+        {{- $grade := $p.Params.grade | int }}
+        {{- $gradeClass := "grade-mid" }}
+        {{- if ge $grade 10 }}{{ $gradeClass = "grade-top" }}
+        {{- else if ge $grade 7 }}{{ $gradeClass = "grade-high" }}
+        {{- else if lt $grade 5 }}{{ $gradeClass = "grade-low" }}{{ end }}
+        <li class="book-row">
+          <a href="{{ $p.RelPermalink }}">
+            <span class="book-row-cover">
+              {{- partial "responsive-cover.html" (dict "page" $p "width" 44 "alt" "") }}
+            </span>
+            <span class="book-row-text">
+              <span class="book-row-title">{{ $p.Params.book_title | default $p.Title }}</span>
+              <span class="book-row-meta">
+                {{- if .author }}{{ $p.Params.author }} · {{ end -}}
+                <span class="read-next-why">{{ .why | safeHTML }}</span>
+              </span>
+            </span>
+            <span class="grade-medallion grade-small {{ $gradeClass }}" aria-label="Rated {{ $grade }} of 10"><span class="gn">{{ $grade }}</span></span>
+          </a>
+        </li>
+        {{- end }}
+      </ol>
+    </nav>
+    {{- end }}
+
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}

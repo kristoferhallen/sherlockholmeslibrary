@@ -1,0 +1,12 @@
+{{- /*
+  How many reviews carry each tag, keyed by the lowercased tag.
+  Usage: {{ $counts := partialCached "tag-counts.html" . "tag-counts" }}
+*/ -}}
+{{- $counts := dict }}
+{{- range where site.RegularPages "Type" "posts" }}
+  {{- range .Params.tags }}
+    {{- $t := lower . }}
+    {{- $counts = merge $counts (dict $t (add 1 (index $counts $t | default 0))) }}
+  {{- end }}
+{{- end }}
+{{- return $counts }}

@@ -804,6 +804,14 @@ body > .header { display: none; }
   color: var(--rr-acc2);
   margin: 0.1rem 0 0.5rem;
 }
+/* The series name links to its reading guide, above the card's overlay link */
+.entry-series a {
+  position: relative;
+  z-index: 2;
+  color: inherit;
+  box-shadow: none;
+}
+.entry-series a:hover { text-decoration: underline; }
 
 .entry-excerpt {
   color: var(--secondary);
@@ -1457,6 +1465,29 @@ body > .header { display: none; }
 }
 .book-row .grade-medallion { position: static; border-color: var(--theme); }
 .book-index-empty { color: var(--secondary); font-style: italic; }
+
+/* "Read next" at the end of a review: book-index rows under a catalogue label */
+.read-next { margin: 1.75rem 0 0; }
+.read-next h2 {
+  font-size: .72rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  padding-bottom: .5rem;
+  border-bottom: 3px double var(--border);
+}
+.read-next ol { list-style: none; margin: 0; padding: 0; }
+.read-next .book-row:last-child { border-bottom: 0; }
+.read-next .book-row-meta { white-space: normal; }
+.read-next-why { font-style: italic; }
+.read-next-tag {
+  font-family: 'Lora', serif;
+  font-style: normal;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
 @media (max-width: 780px) {
   .book-index-group { scroll-margin-top: 70px; }

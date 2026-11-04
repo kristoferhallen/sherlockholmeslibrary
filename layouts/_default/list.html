@@ -95,7 +95,8 @@
     <div class="entry-author">by {{ . }}</div>
     {{- end }}
     {{- with $page.Params.series }}
-    <div class="entry-series">{{ . }}{{- with $page.Params.series_order }} · #{{ . }}{{- end }}</div>
+    {{- /* Links to the series' reading guide; sits above the card's overlay link like the tags. */}}
+    <div class="entry-series"><a href="{{ partial "series-url.html" . }}">{{ . }}</a>{{- with $page.Params.series_order }} · #{{ . }}{{- end }}</div>
     {{- end }}
     {{- if (ne ($page.Param "hideSummary") true) }}
     <div class="entry-excerpt">
