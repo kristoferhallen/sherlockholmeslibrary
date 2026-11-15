@@ -12,7 +12,11 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 # feeds (and common feed names) go to it, so feed readers keep working.
 # Must come before the series rules below.
 RedirectMatch 301 ^/.+/index\.xml$ /index.xml
-RedirectMatch 301 ^/(feed/?|rss\.xml|atom\.xml)$ /index.xml
+RedirectMatch 301 ^/(feed/?|feed\.xml|rss\.xml|atom\.xml|feeds/.*)$ /index.xml
+
+# Crawlers that read the bare host name in the page text as a relative
+# link (/tags/x/sherlock.kristoferhallen.com) → the page itself
+RedirectMatch 301 ^(.*/)sherlock\.kristoferhallen\.com/?$ $1
 
 # Browser cache for static files. Covers and processed images have hashed
 # names, CSS is versioned with ?v= in extend_head.html; the rest changes
@@ -36,6 +40,17 @@ RedirectMatch 301 ^/series/?$ /guides/
 {{- with site.GetPage "/guides" }}
 {{- range where .Pages "Params.guide_series" "!=" nil }}
 RedirectMatch 301 ^/series/{{ .Params.guide_series | urlize | replaceRE `([.+?*()\[\]^$|])` `\$1` }}/.*$ {{ .RelPermalink }}
+{{- end }}
+{{- end }}
+
+# Resized covers get new hashed names when Hugo or the image settings
+# change; old names (from search engines and cached pages) → the original
+# cover. Only for files that no longer exist.
+{{- range where site.RegularPages "Section" "posts" }}
+{{- $path := (urls.Parse .RelPermalink).Path }}
+{{- with .Params.cover.image }}
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^{{ strings.TrimPrefix "/" $path | replaceRE `([.+?*()\[\]^$|])` `\$1` }}cover[^/]*_hu_[0-9a-f]+\.[a-z]+$ {{ $path }}{{ . }} [R=301,L]
 {{- end }}
 {{- end }}
 
