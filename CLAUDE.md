@@ -33,6 +33,9 @@ or remove items when they are done.
   Shown as "Series" in the menu; `/series/*` redirects to the guides.
   Series descriptions: `data/series_descriptions.yaml` (keys are the
   capitalised term titles).
+  A series covered by one review (the MX anthologies) has no guide: the
+  review sets `series_card: true` (optional `series_volumes`,
+  `series_years`) and gets a card on `/guides/` linking to the review.
 - **Book list:** `/books/` (by author) and `/top-books/` (by rating) are the
   same list, `layouts/partials/book-index.html` + `book-row.html`.
 - **Sherlock Meets:** `data/sherlockmeets.yaml` (name, group, description,

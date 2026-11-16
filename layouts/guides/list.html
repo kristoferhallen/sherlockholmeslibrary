@@ -37,5 +37,24 @@
     </div>
   </a>
 {{- end }}
+{{- /* Series covered by a single review (series_card: true in its front
+       matter): the card goes straight to the review, there is no guide. */}}
+{{- range where (where site.RegularPages "Type" "posts") "Params.series_card" true }}
+  <a class="guide-card" href="{{ .Permalink }}">
+    <div class="guide-card-covers" aria-hidden="true">
+      {{- if .Resources.GetMatch "cover.*" }}
+      {{- partial "responsive-cover.html" (dict "page" . "width" 56 "alt" "") }}
+      {{- end }}
+    </div>
+    <div class="guide-card-info">
+      <h2>{{ .Params.book_title | default .Title }}</h2>
+      <p class="guide-card-meta">
+        {{ with .Params.series_volumes }}{{ . }} volumes · {{ end }}one review for the whole series · my rating {{ .Params.grade | int }}
+        {{- with .Params.series_years | default .Params.publication_year }} · {{ . }}{{ end }}
+      </p>
+      <p class="guide-card-desc">{{ .Description }}</p>
+    </div>
+  </a>
+{{- end }}
 </div>
 {{- end }}{{- /* end main */ -}}
